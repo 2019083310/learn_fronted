@@ -85,5 +85,56 @@ export class ArrayList{
       gap=Math.floor(gap/2)
     }
   }
+
 }
+//快速排序
+function swap2(arr,m,n){
+  let temp=arr[m]
+  arr[m]=arr[n]
+  arr[n]=temp
+}
+
+//选择枢纽
+function median(arr){
+  let center=Math.floor(arr.length-1)
+  let left=0
+  let right=arr.length-1
+
+  //判断大小并进行交换
+  if(arr[left]>arr[center]){
+    swap2(arr,left,center)
+  }
+  if(arr[center]>arr[right]){
+    swap2(arr,center,right)
+  }
+  if(arr[left]>arr[right]){
+    swap(arr,left,right)
+  }
+
+  return center
+}
+
+function quickSort(arr){
+  if(arr.length===0){
+    return []
+  }
+  let center=median(arr)
+  let c=arr.splice(center,1)
+  let l=[]//存放比枢纽小的值
+  let r=[]//存放比枢纽大的值
+
+  for(let i=0;i<arr.length;i++){
+    if(arr[i]<c){
+      l.push(arr[i])
+    }else{
+      r.push(arr[i])
+    }
+  }
+
+  // 递归调用`QuickSort`函数实现了枢纽`Center`左边数据`l`和右边数据`r`的排序
+  return quickSort(l).concat(c,quickSort(r))
+}
+
+let arr=[1,2,4,8,9,40,89,110,26]
+console.log(quickSort(arr))
 

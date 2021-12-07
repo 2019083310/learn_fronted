@@ -1,4 +1,5 @@
-import { ArrayList } from "./search"
+import { ArrayList ,quickSort} from "./search"
+
 
 //测试类
 let list = new ArrayList()
@@ -15,7 +16,7 @@ list.insert(23)
 
 //验证冒泡排序
 // list.bubbleSort()
-// console.log(list)
+console.log(list)
 
 //验证选择排序
 // list.selectionSort()
@@ -26,5 +27,7 @@ list.insert(23)
 // console.log(list)
 
 //验证希尔排序
-list.shellSort()
-console.log(list)
+// list.shellSort()
+// console.log(list)
+
+// console.log(quickSort(list))
