@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+    </style>
+</head>
+
+<body>
+    <input type="button" id="btn" value="获取数据">
+    <div>
+        <table border="1" width="20%" align="center">
+            <thead>
+                <tr>
+                    <th>名称</th>
+                    <th>说明</th>
+                </tr>
+            </thead>
+            <tbody id="tbd"></tbody>
+        </table>
+    </div>
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/1.9.1/jquery.js"></script>
+    <script>
+        $(function() {
+            var datas = [{
+                name: "学习园地",
+                url: "https://www.lmonkey.com",
+                type: "成就自己的一套精品"
+            }, {
+                name: "拼多多",
+                url: "https://www.lmonkey.com",
+                type: "成就的一套精品"
+            }, {
+                name: "淘宝",
+                url: "https://www.lmonkey.com",
+                type: "自己的一套精品"
+            }];
+            $("#btn").click(function() {
+                for (var i = 0; i < datas.length; i++) {
+                    var obj = datas[i];
+                    $("<tr><td><a href='" + obj.url + "'>" + obj.name + "</a></td><td>" + obj.type + "</td></tr>").appendTo("#tbd");
+                }
+            })
+        });
+    </script>
+</body>
+
+</html>

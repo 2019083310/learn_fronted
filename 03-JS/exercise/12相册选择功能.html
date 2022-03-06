@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            list-style: none;
+        }
+        
+        .outer {
+            margin: 20px;
+            width: 415px;
+            height: 400px;
+        }
+        
+        .outer img {
+            width: 100%;
+            height: 100%;
+        }
+        
+        .ot {
+            width: 415px;
+            height: 400px;
+            margin: 10px 20px;
+        }
+        
+        .ot img {
+            display: inline-block;
+            width: 100px;
+            height: 100px;
+        }
+    </style>
+    <script>
+        window.onload = function() {
+            var imgList = document.getElementsByTagName("img");
+            for (var i = 1; i < imgList.length; i++) {
+                imgList[i].onmouseover = function() {
+                    imgList[0].src = this.src;
+                };
+            }
+        };
+    </script>
+</head>
+
+<body>
+    <div class="outer">
+        <img src="./img/ju.jpg" alt="">
+    </div>
+    <div class="ot">
+        <img src="./img/ju.jpg" alt="">
+        <img src="./img/bu.jpg" alt="">
+        <img src="./img/hu.jpg" alt="">
+        <img src="./img/ying.jpg" alt="">
+    </div>
+</body>
+
+</html>

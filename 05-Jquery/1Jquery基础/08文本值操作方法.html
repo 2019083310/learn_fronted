@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            width: 200px;
+            height: 200px;
+            border: 1px solid red;
+        }
+    </style>
+    <script src="../js/jquery-1.12.4.js"></script>
+    <script>
+        $(function() {
+            var btns = document.getElementsByTagName("button");
+            btns[0].onclick = function() {
+                $("div").html("<span>我是span<p>我是p标签</p></span>");
+            };
+            btns[1].onclick = function() {
+                console.log($("div").html());
+            };
+            btns[2].onclick = function() {
+                $("div").text("nishishabi");
+            };
+            btns[3].onclick = function() {
+                console.log($("div").text());
+            };
+            btns[4].onclick = function() {
+                $("input").val("hello");
+            };
+            btns[5].onclick = function() {
+                console.log($("input").val());
+            };
+        });
+    </script>
+</head>
+
+<body>
+    <button>设置html</button>
+    <button>获取HTML</button>
+    <button>设置text</button>
+    <button>获取text</button>
+    <button>设置value</button>
+    <button>获取value</button>
+    <br>
+    <div></div>
+    <input type="text">
+</body>
+
+</html>

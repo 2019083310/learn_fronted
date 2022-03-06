@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #box {
+            width: 512px;
+            height: 536px;
+            border: 1px solid red;
+            background: url(./img/bg2.jpg) no-repeat;
+            background-position: 0px 0px;
+            position: relative;
+        }
+        
+        #img {
+            position: absolute;
+            bottom: 100px;
+            left: 200px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="box">
+        <img src="./img/me.png" alt="" id="img">
+    </div>
+    <script>
+        /*
+         */
+        var img = document.getElementById("img");
+        var box = document.getElementById("box");
+        //实现背景图片的移动
+        var num = 0;
+        setInterval(function() {
+            num++;
+            if (num >= 1000) {
+                num = 0;
+            }
+            box.style.backgroundPosition = "0px" + " " + (-1000 + num) + "px";
+        }, 10);
+        //实现飞机的移动
+        window.onkeydown = function(event) {
+            event = event || window.event;
+            if (event.keyCode == 38) {
+                var top = img.offsetTop - 10;
+                if (top <= 20) {
+                    top = 20;
+                }
+                img.style.top = top + "px";
+            } else if (event.keyCode == 40) {
+                var top = img.offsetTop + 10;
+                if (top >= 420) {
+                    top = 420;
+                }
+                img.style.top = top + "px";
+            } else if (event.keyCode == 37) {
+                var left = img.offsetLeft - 10;
+                if (left <= 20) {
+                    left = 20;
+                }
+                img.style.left = left + "px";
+            } else if (event.keyCode == 39) {
+                var right = img.offsetLeft + 10;
+                if (right >= 380) {
+                    right = 380;
+                }
+                img.style.left = right + "px";
+            }
+        };
+    </script>
+</body>
+
+</html>

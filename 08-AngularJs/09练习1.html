@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+            list-style: none;
+        }
+        div{
+            margin:10px;
+        }
+        textarea{
+            margin-top: 10px;
+        }
+        p{
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body ng-app='myApp'>
+    <div ng-controller='myCtrl'>
+        <h2>我的笔记</h2>
+        <textarea cols="30" rows="8" ng-model='message'></textarea>
+        <br>
+        <button ng-click='save()'>保存</button>
+        <button ng-click='read()'>读取</button>
+        <button ng-click='del()'>删除</button>
+        <br>
+        <p>剩余字数：{{getCount()}}</p>
+    </div>
+    <script src="./js/angular.js"></script>
+    <script>
+        let app=angular.module('myApp',[]);
+        app.controller("myCtrl",($scope)=>{
+            $scope.message='';
+            $scope.getCount=function(){
+                if(this.message.length>100){
+                    $scope.message=$scope.message.slice(0,100);
+                }
+                return 100-$scope.message.length;
+            };
+            $scope.save=function(){
+                alert('note is saved!');
+                $scope.message='';
+            };
+            $scope.read=function(){
+                $scope.message = JSON.parse(sessionStorage.getItem('note_key') || '[]');//对读取null做了处理
+            };
+            $scope.del=function(){
+                $scope.message='';
+            };
+        });
+    </script>
+</body>
+</html>

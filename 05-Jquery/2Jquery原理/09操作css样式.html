@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <p style="color:deepskyblue">尚硅谷的后裔</p>
+    <p style="color:forestgreen">太阳的后裔</p>
+    <script src="./js/jquery-1.12.4.js"></script>
+    <script>
+        $(function() {
+            //1.得到第一个p标签的颜色
+            console.log($("p:first").css("color"));
+            //2.设置所有p标签的文本颜色
+            $("p").css("color", "red");
+            //3.设置第二个p的字体颜色（#ff0011），背景(blue),宽(300PX)
+            $("p").eq(1).css({
+                width: "300px",
+                backgroundColor: "#ff0011",
+                color: "blue"
+            })
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            list-style: none;
+        }
+        
+        .content {
+            width: 500px;
+            margin: 10px auto;
+        }
+        
+        #msg {
+            width: 500px;
+            margin: 0 auto;
+            border: 1px solid rgb(151, 149, 149);
+        }
+        
+        #name {
+            width: 480px;
+            height: 20px;
+            border-radius: 10px;
+            margin-top: 10px;
+            padding: 10px;
+        }
+        
+        #res {
+            width: 480px;
+            height: 100px;
+            margin-top: 10px;
+            padding: 10px;
+        }
+        
+        #msg li {
+            min-height: 40px;
+            padding: 10px;
+            background-color: rgb(240, 221, 224);
+            border-bottom: 1px solid rgb(121, 115, 115);
+        }
+        
+        #msg li h4 {
+            display: inline-block;
+            margin-right: 300px;
+        }
+        
+        #msg li div {
+            margin-top: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="content">
+        <div class="name">
+            姓名：
+            <br>
+            <input type="text" id="name">
+        </div>
+        <div class="wrapper">
+            留言板:
+            <br>
+            <textarea id="res" rows="3"></textarea>
+        </div>
+        <br>
+        <button id="btn">发送</button>
+        <span id="sug" style="color:red;font-size: 16px;"></span>
+    </div>
+    <ul id="msg">
+        <li>
+            <h4>张丹怡</h4>
+            <small>2021-4-20 19:37:46</small>
+            <div>
+                前端案例合集-12个web前端实战案例，大企业实战项目案例+5W行源码！适合零基础!
+            </div>
+        </li>
+        <li>
+            <h4>李伟㞑</h4>
+            <small>2020-4-20 19:37:46</small>
+            <div>
+                前端案例合集-12个web前端实战案例，大企业实战项目案例+5W行源码！适合零基础!
+            </div>
+        </li>
+    </ul>
+    <script>
+        window.onload = function() {
+            var name = document.getElementById("name");
+            var res = document.getElementById("res");
+            document.getElementById("btn").onclick = function() {
+                if (name.value.trim() == "") {
+                    document.getElementById("sug").innerHTML = "用户姓名不能为空!";
+                    return;
+                }
+                if (res.value.trim() == "") {
+                    document.getElementById("sug").innerHTML = "留言内容不能为空!";
+                    return;
+                }
+                var str = document.createElement("li");
+                str.innerHTML = "<li><h4>" + name.value + "</h4><small>" + formatDate() + "</small><div>" + res.value + "</div>";
+                document.getElementById("msg").prepend(str);
+                name.value = "";
+                res.value = "";
+            }
+
+            function formatDate() {
+                var date = new Date();
+                var time = date.getFullYear() + "-" + parseInt(date.getMonth() + 1) + "-" + date.getDay() + " " + date.getHours() + ":" + date.getMinutes() + ":" + date.getSeconds();
+                return time;
+            }
+        }
+    </script>
+</body>
+
+</html>

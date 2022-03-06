@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #nav {
+            width: 200px;
+            margin: 10px auto;
+        }
+        
+        #jishi {
+            font-size: 26px;
+            color: red;
+        }
+    </style>
+    <script>
+        window.onload = function() {
+            var jishi = document.getElementById("jishi");
+            var btn = document.getElementById("btn");
+            var index = 10;
+            setInterval(function() {
+                jishi.innerHTML = --index;
+                if (index == 0) {
+                    location.href = "https://jinwen01.ke.qq.com";
+                }
+            }, 1000)
+            btn.onclick = function() {
+                location.href = "https://jinwen01.ke.qq.com";
+            };
+        };
+    </script>
+</head>
+
+<body>
+    <div id="nav">
+        <h2>恭喜您，支付成功</h2>
+        <span id="jishi">10</span>
+        <span>秒后自动返回首页</span>
+        <br><br>
+        <button id="btn">立即返回</button>
+    </div>
+</body>
+
+</html>

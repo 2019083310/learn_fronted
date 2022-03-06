@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        html {
+            background: rgb(46, 49, 45);
+        }
+
+        .outer {
+            width: 450px;
+            height: 300px;
+            margin: 100px auto;
+            background: white;
+            border: 1px solid #ccc;
+            position: relative;
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 25px;
+        }
+
+        img {
+            width: 200px;
+            margin-left: 75px;
+        }
+
+        button {
+            margin-top: 100px;
+            margin-left: 20px;
+        }
+
+        #ziti {
+            position: absolute;
+            top: 58px;
+            left: 20px;
+        }
+
+        #btn02 {
+            margin-left: 8px;
+            position: absolute;
+        }
+
+        #name {
+            margin-left: 200px;
+        }
+
+        #btn03 {
+            width: 60px;
+            margin-top: 150px;
+            margin-left: 360px;
+        }
+
+        .page2 {
+            display: none;
+        }
+
+        .page2 p {
+            margin-top: 50px;
+            color: red;
+            font-size: 20px;
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="outer">
+        <div class="page1">
+            <h1>辞职信</h1>
+            <div id="start"><span id="ziti">尊敬的各位领导:</span><img src="./img/02/1.jpg" alt=""></div>
+            <button id="btn01">同意</button>
+            <button id="btn02">不同意</button>
+            <span id="name">辞职人：刘洋</span>
+        </div>
+        <div class="page2">
+            <p>老板大人, 臣告退了, 这一退可能</span>就是一辈子了。<br />
+                !!!!敬礼!!!!</p>
+            <button id="btn03">退出</button>
+        </div>
+    </div>
+    <script>
+        let btn01 = document.getElementById("btn01");
+        let btn02 = document.getElementById("btn02");
+        let btn03 = document.getElementById("btn03");
+        let page2 = document.querySelector(".page2");
+        let page1 = document.querySelector(".page1");
+        btn01.onclick = function () {
+            page1.style.display = "none";
+            page2.style.display = "block";
+        };
+        btn02.onmouseenter= function () {
+            let num=Math.round(Math.random()*(20-5));
+            if(num%2==0){
+                num=num;
+            }else{
+                num=-num;
+            }
+            btn02.style.left=num*10+"px";
+            btn02.style.top=(num*10)+"px";
+        };
+        btn03.onclick=function(){
+            location.href='http://127.0.0.1:5500/09-ES6-11/ES7-11/10canvas.html';
+        };
+        window.addEventListener('beforeunload', function (e) {
+            if (isBlockClose) {
+                alert("此路不通");
+                e.returnValue = false;
+                e.preventDefault();
+                return "此路不通";
+            }
+        });
+    </script>
+</body>
+
+</html>

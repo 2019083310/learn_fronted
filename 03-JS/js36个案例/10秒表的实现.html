@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            list-style: none;
+        }
+        
+        .date {
+            width: 100px;
+            margin: 10px auto;
+        }
+        
+        .res {
+            width: 100px;
+            margin: 0 auto;
+        }
+        
+        #time {
+            display: block;
+            width: 100px;
+            border-radius: 20px;
+            text-align: center;
+            height: 50px;
+            line-height: 50px;
+            color: brown;
+            font-size: 20px;
+            background-color: yellowgreen;
+        }
+    </style>
+    <script>
+        window.onload = function() {
+            getdate();
+            startDate();
+            document.getElementById("start").onclick = function() {
+                startDate();
+            }
+            document.getElementById("stop").onclick = function() {
+                stopDate();
+            }
+
+            function getdate() {
+                var date = new Date();
+                var str = date.getHours() + ":" + date.getMinutes() + ":" + date.getSeconds();
+                document.getElementById("time").innerHTML = str;
+            }
+            var timer;
+
+            function startDate() {
+                clearInterval(timer);
+                timer = setInterval(getdate, 1000);
+            }
+
+            function stopDate() {
+                clearInterval(timer);
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <div class="date">
+        <span id="time"></span>
+    </div>
+    <div class="res">
+        &nbsp;&nbsp;<button id="start">开始</button> &nbsp; &nbsp;
+        <button id="stop">暂停</button>
+    </div>
+</body>
+
+</html>

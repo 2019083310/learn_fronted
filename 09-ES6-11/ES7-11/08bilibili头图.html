@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            margin: 0;
+        }
+
+        header {
+            height: 160px;
+            position: relative;
+            overflow: hidden;
+
+            --percentage: 0.5;
+        }
+
+        /* 将view和树重叠 */
+        header .view,
+        header .tree {
+            position: absolute;
+            top: 0px;
+            right: 0px;
+            bottom: 0px;
+            left: 0px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* 将图片和视频重叠 */
+        header img,
+        header video {
+            position: absolute;
+            display: block;
+            width: 120%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* 早晨是要在中午和晚上的上面，所以在设置z-index的时候morning的数值要大 */
+        header .morning {
+            z-index: 20;
+            /* 图片在--percentage在0.25时实现透明 */
+            opacity: calc(1 - (var(--percentage) - 0.25)/0.25);
+        }
+
+        header .afternoon {
+            z-index: 10;
+            /* 图片在--percentage在0.5时实现透明 */
+            opacity: calc(1 - (var(--percentage) - 0.5)/0.5);
+        }
+
+        /* 背景图与前景树的视差移动效果 */
+        header .view {
+            /* 位移最大距离是100px */
+            transform: translateX(calc(var(--percentage)*100px));
+        }
+
+        header .tree {
+            /* 两个位移最大距离不相同，而产生视觉错位效果 */
+            transform: translateX(calc(var(--percentage)*50px));
+            /* 将树设置为失焦效果 */
+            filter: blur(3px);
+        }
+
+        /* 做一种移动缓冲效果 */
+        header .view,
+        header .tree,
+        header .morning,
+        header .afternoon {
+            transition: .2s all ease-in;
+        }
+
+        /* 当header有.moving这个class的时候，取消transition的设定 */
+        header.moving .view,
+        header.moving .tree,
+        header.moving .morning,
+        header.moving .afternoon {
+            transition: none;
+        }
+
+        /* 窗框的积雪就会在最后的时候出现 */
+        header .window-cover {
+            opacity: calc((var(--percentage) - 0.9)/0.1);
+        }
+    </style>
+</head>
+
+<bdy>
+    <header>
+        <div class="view">
+            <img src="./img/02/早晨.jpg" class="morning" alt="">
+            <img src="./img/02/中午.jpg" class="afternoon" alt="">
+            <video autoplay loop muted class="evening">
+                <source src="./img/02/晚上.webm" type="video/webm" />
+            </video>
+            <img src="./img/02/窗户.png" class="window-cover" alt="">
+        </div>
+
+        <div class="tree">
+            <img src="./img/02/早上的树.png" class="morning" alt="">
+            <img src="./img/02/中午的树.png" class="afternoon" alt="">
+            <img src="./img/02/晚上的树.png" class="evening" alt="">
+        </div>
+    </header>
+    <script>
+        let startingPoint
+        const header =document.querySelector('header')
+        
+        // 当鼠标进入header的时候，将游标的位置记录下来
+        header.addEventListener('mouseenter',(e)=> {
+            startingPoint = e.clientX
+            header.classList.add('moving')
+        })
+
+        header.addEventListener('mouseout',(e)=>{
+            header.classList.remove('moving')
+            header.style.setProperty('--percentage',0.5)
+        })
+        header.addEventListener('mousemove',(e) =>{
+            // 将游标x的位置除以游览器窗口的宽度，这样游标移动到最左的时候是0，
+            // 移动到最右边的时候是1.
+            let percentage = (e.clientX - startingPoint)/window.outerWidth + 0.5
+
+            //将percentage写入css，然后名字是--percentage
+            header.style.setProperty('--percentage',percentage)
+        })
+    </script>
+</bdy>
+
+</html>

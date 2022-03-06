@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body ng-app="myApp">
+    <div ng-controller="myCtrl">
+        <div style="width: 100px;height: 100px;background-color: #bfa;" ng-mouseenter="over()" ng-mouseleave="leave()" ng-style="myStyle"></div>
+    </div>
+    <script src="./js/angular.js"></script>
+    <script>
+        let app=angular.module("myApp",[]);
+        app.controller("myCtrl",function($scope){
+            $scope.over=function(){
+                $scope.myStyle={
+                    background:"yellow"
+                };
+            };
+            $scope.leave=function(){
+                $scope.myStyle={
+                    background:"red"
+                };
+            };
+        })
+    </script>
+</body>
+</html>

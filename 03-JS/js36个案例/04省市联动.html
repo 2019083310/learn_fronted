@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        window.onload = function() {
+            //初始化数据
+            var proList = ["北京", "山西", "山东", "河北", "河南"];
+            var cityList = [
+                ["东城区", "西城区", "朝阳区", "海淀区", "昌平区"],
+                ["太原市", "大同市", "临汾市", "晋中市"],
+                ["济南市", "青岛市", "运城市", "烟台市", "德州市"],
+                ["石家庄市", "邢台市", "保定市"],
+                ["郑州市", "南阳市", "焦作市", "信阳"]
+            ];
+            //填充省份下拉框的数据
+            for (var i = 0; i < proList.length; i++) {
+                var opt = document.createElement("option");
+                var text = document.createTextNode(proList[i]);
+                opt.appendChild(text);
+                opt.value = i;
+                document.getElementById("pro").appendChild(opt);
+            }
+            //绑定省份下拉框change事件
+            document.getElementById("pro").onchange = function() {
+                //清空城市下拉框的数据
+                document.getElementById("city").options.length = 1;
+                //获取下拉框被选中的值
+                var index = document.getElementById("pro").value;
+                // 判断是否选中指定的省份
+                // if (index = "") {
+                //     document.getElementById("city").innerHTML = "<option value=''>请选择</option>";
+                //     return;
+                // }
+                //获取对应二维数组中的数据
+                var citys = cityList[index];
+                //遍历
+                for (var i = 0; i < citys.length; i++) {
+                    var opt = document.createElement("option");
+                    var text = document.createTextNode(citys[i]);
+                    opt.appendChild(text);
+                    document.getElementById("city").appendChild(opt);
+                }
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <div align="center">
+        城市：
+        <select id="pro">
+            <option value="">请选择</option>
+        </select>
+        <select id="city">
+            <option value="">请选择</option>
+        </select>
+    </div>
+</body>
+
+</html>

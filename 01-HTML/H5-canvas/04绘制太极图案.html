@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <canvas id='myCanvas' width='600px' height='300px'></canvas>
+    <script>
+        let ctx=document.getElementById('myCanvas');
+        let c=ctx.getContext('2d');
+        c.fillStyle='pink';
+        c.fillRect(0,0,600,300);
+        //绘制右边的半圆
+        c.beginPath();
+        c.arc(ctx.width/2,ctx.height/2,150,-90*(Math.PI/180),90*(Math.PI/180),false);//顺时针绘制
+        c.fillStyle='white';
+        c.closePath();
+        c.fill();
+        //绘制左边的半圆
+        c.beginPath();
+        c.arc(ctx.width/2,ctx.height/2,150,-90*(Math.PI/180),90*(Math.PI/180),true);//顺时针绘制
+        c.fillStyle='black';
+        c.closePath();
+        c.fill();
+        //绘制上边的小半圆
+        c.beginPath();
+        c.arc(ctx.width/2,ctx.height/4,75,-90*(Math.PI/180),90*(Math.PI/180),true);//顺时针绘制
+        c.fillStyle='white';
+        c.closePath();
+        c.fill();
+        //绘制下边的小半圆
+        c.beginPath();
+        c.arc(ctx.width/2,225,75,-90*(Math.PI/180),90*(Math.PI/180),false);//顺时针绘制
+        c.fillStyle='black';
+        c.closePath();
+        c.fill();
+        //绘制上边的小圆
+        c.beginPath();
+        c.arc(ctx.width/2,75,75/8,0*(Math.PI/180),360*(Math.PI/180),false);//顺时针绘制
+        c.fillStyle='black';
+        c.closePath();
+        c.fill();
+        //绘制下边的小圆
+        c.beginPath();
+        c.arc(ctx.width/2,225,75/8,0*(Math.PI/180),360*(Math.PI/180),false);//顺时针绘制
+        c.fillStyle='white';
+        c.closePath();
+        c.fill();
+    </script>
+</body>
+</html>

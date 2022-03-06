@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            padding: 0;
+            margin:0;
+            list-style: none;
+        }
+        .banner{
+            width: 600px;
+            height: 490px;
+            border: 1px solid #333;
+            margin:50px auto;
+            position: relative;
+            overflow: hidden;
+        }
+        img{
+            width: 580px;
+            height: 470px;
+        }
+        #ban{
+            display: flex;
+            height: 470px;
+            margin: 10px;
+            position: absolute;
+        }
+        #ban li{
+            margin-left:10px;
+        }
+        #ban li:first-child{
+            margin-left:0px;
+        }
+        #btn{
+            position: absolute;
+            display: flex;
+            bottom: 20px;
+            left: 230px;
+        }
+        #btn li{
+            width: 10px;
+            height: 10px;
+            border-radius:50%;
+            background-color: rgb(215, 233, 245);
+            margin-left:10px;
+        }
+        
+    </style>
+</head>
+<body>
+    <div class="banner">
+        <ul id="ban">
+            <li><a href="javascript:;"><img src="./img/03/1.jpg" alt=""></a></li>
+            <li><a href="javascript:;"><img src="img/03/2.jpg" alt=""></a></li>
+            <li><a href="javascript:;"><img src="./img/03/3.png" alt=""></a></li>
+            <li><a href="javascript:;"><img src="./img/03/4.jpg" alt=""></a></li>
+            <li><a href="javascript:;"><img src="./img/03/5.jpg" alt=""></a></li>
+            <li><a href="javascript:;"><img src="./img/03/6.jpg" alt=""></a></li>
+            <li><a href="javascript:;"><img src="./img/03/7.jpg" alt=""></a></li>
+            <li><a href="javascript:;"><img src="./img/03/8.jpg" alt=""></a></li>
+            <li><a href="javascript:;"><img src="./img/03/1.jpg" alt=""></a></li>
+        </ul>
+        <ul id="btn">
+            <li class="a"></li>
+            <li class="a"></li>
+            <li class="a"></li>
+            <li class="a"></li>
+            <li class="a"></li>
+            <li class="a"></li>
+            <li class="a"></li>
+            <li class="a"></li>
+        </ul>
+    </div>
+    <script>
+        window.onload=function(){
+            let ban=document.getElementById("ban");
+            let imgList=document.getElementsByTagName("img");
+            let lis=document.querySelectorAll(".a");
+            ban.style.width=imgList.length*580+"px";
+            let timer;
+            autoplay();
+            let index=0;
+            for(var i=0;i<lis.length;i++){
+                lis[i].num=i;
+                lis[i].onclick=function(){
+                    clearInterval(timer);
+                    index=this.num;
+                    for(var i=0;i<lis.length;i++){
+                        lis[i].style.background="";
+                    }
+                    this.style.background="yellowgreen";
+                    ban.style.left=-590*index+"px";
+                    autoplay();
+                }
+            }
+            function autoplay(){
+                timer=setInterval(() => {
+                    for(var i=0;i<lis.length;i++){
+                        lis[i].style.background="";
+                    }
+                    ban.style.left=-590*index+"px";
+                    lis[index].style.background="yellowgreen";
+                    index++;
+                    if(index>=imgList.length-1){
+                        index=0;
+                    }
+                }, 2000);
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body ng-app>
+    <div ng-controller="MyContro">
+        <input type="text" ng-model="firstName">
+        <input type="text" ng-model="lastName">
+        <br>
+        <p>姓名为：{{firstName+'-'+lastName}}</p>
+        <p>姓名2为：{{getName()}}</p>
+    </div>
+    <script src="./js/angular2.js"></script>
+    <script>
+        function MyContro($scope){
+            $scope.firstName="kobe";
+            $scope.lastName="koe";
+            $scope.getName=function(){
+                return $scope.firstName+' '+$scope.lastName;
+            };
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./js/jquery-1.12.4.js"></script>
+    <script>
+        $(function() {
+            var $btns = $("button");
+            var $plays = $(":checkbox[name='play']");
+            var $checkall = $("#checkall");
+            $checkall.click(function() {
+                $plays.prop("checked", this.checked);
+            });
+            $btns.eq(0).click(function() {
+                $plays.prop("checked", true);
+                $checkall.prop("checked", true);
+            });
+            $btns.eq(1).click(function() {
+                $plays.prop("checked", false);
+                $checkall.prop("checked", false);
+            });
+            $btns.eq(2).click(function() {
+                $plays.each(function() {
+                    this.checked = !this.checked;
+                });
+                $checkall.prop("checked", $plays.filter(":not(:checked)").size() === 0);
+            });
+            $btns.eq(3).click(function() {
+                $plays.filter(":checked").each(function() {
+                    alert(this.value);
+                });
+            });
+            $plays.click(function() {
+                $checkall.prop("checked", $plays.filter(":not(:checked)").size() === 0);
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <form action="">
+        你爱好的运动是？<input type="checkbox" id="checkall">全选/全不选
+        <br>
+        <input type="checkbox" name="play" id="1" value="足球">足球
+        <input type="checkbox" name="play" id="2" value="篮球">篮球
+        <input type="checkbox" name="play" id="3" value="羽毛球">羽毛球
+        <input type="checkbox" name="play" id="4" value="乒乓球">乒乓球
+        <br>
+    </form>
+    <button id="btn01">全选</button>
+    <button id="btn02">全不选</button>
+    <button id="btn03">反选</button>
+    <button id="btn04">提交</button>
+</body>
+
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            width: 200px;
+            height: 200px;
+            background-color: #bfa;
+            border: 1px solid red;
+        }
+    </style>
+    <script src="../js/jquery-1.12.4.js"></script>
+    <script>
+        //:empty
+        $(function() {
+            var $div1 = $("div:empty");
+            console.log($div1);
+            //:parent
+            var $div2 = $("div:parent");
+            console.log($div2);
+            //:has(select)
+            var $div3 = $("div:has('span')");
+            console.log($div3);
+            //:contain(text)
+            var $div4 = $("div:contains('我是div')");
+            console.log($div4);
+        });
+    </script>
+</head>
+
+<body>
+    <div></div>
+    <div>我是div</div>
+    <div><span></span></div>
+    <div><span>我是span中的文字</span></div>
+</body>
+
+</html>

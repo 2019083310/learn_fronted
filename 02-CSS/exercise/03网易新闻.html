@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>网易新闻列表</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        a {
+            /*去除下划线*/
+            text-decoration: none;
+        }
+
+        /*body{
+            background-color: #bfa;
+        }*/
+        .news-wrapper {
+            /*设置容器样式*/
+            width: 300px;
+            height: 357px;
+            background-color: #fff;
+            /*设置背景颜色，显示轮廓*/
+            margin: 50px auto;
+            /*设置剧中*/
+            border-top: 1px solid #ddd;
+            /*设置上边框*/
+        }
+
+        .news-title {
+            /*设置news-title*/
+            display: inline-block;
+            /*为了边框和文字宽度一致，需要将h2转换为行内块元素*/
+            height: 30px;
+            border-top: 1px red solid;
+            /*设置上边框*/
+            margin-top: -1px;
+            /*通过margin-top将h2上移，盖住上边框*/
+            padding-top: 10px;
+        }
+
+        .news-title a {
+            /*设置title中的超链接样式*/
+            color: #40406B;
+            /*设置颜色*/
+            font-weight: hold;
+            /*设置文字加粗效果*/
+        }
+
+        .news-img {
+            /*设置图片容器高度*/
+            height: 150px;
+        }
+
+        .news-img .img-title {
+            margin-top: -30px;
+            /*向上移动文字*/
+            padding-left: 30px;
+            /*设置padding*/
+            font-weight: hold;
+            /*设置加粗*/
+            color: #fff;
+        }
+
+        /*设置新闻列表*/
+        .news-list {
+            margin-top: 20px;
+            /*设置上外边距*/
+            padding-left: 14px;
+            /*设置左侧的padding*/
+            /*list-style: square;*/
+        }
+
+        /*设置li*/
+        .news-list li {
+            /*设置下外边距*/
+            margin-bottom: 17px;
+        }
+
+        /*设置li中文字*/
+        .news-list li a {
+            font-size: 14px;
+            /*设置字体大小*/
+            color: #666;
+            /*设置字体颜色*/
+        }
+
+        .news-list li::before {
+            /*通过before伪元素，来为每一个Li添加项目符号*/
+            content: '*';
+            color: rgb(218, 218, 218);
+            font-size: 12px;
+            margin-right: 4px;
+        }
+
+        .news-list li a:hover {
+           color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 设置一个新闻容器 -->
+    <div class="news-wrapper">
+        <!-- 创建一个标签标题  -->
+        <h2 class="news-title">
+            <a href="#">体育</a>
+        </h2>
+        <!-- 设置一个图片容器 -->
+        <div class="news-img">
+            <a href="#">
+                <img src="./img/01/02/1.jpg" alt="飞机">
+                <h3 class="img-title">
+                    费雷德首负迪米 扶额摇头不满发挥
+                </h3>
+            </a>
+        </div>
+        <!-- 新闻列表 -->
+        <ul class="news-list">
+            <li>
+                <a href="#">乔治:我爱LA喜欢和LBJ一起打球</a>
+            </li>
+            <li>
+                <a href="#">格林:三年前降薪就在等KD特制T桖嘲讽LBJ</a>
+            </li>
+            <li>
+                <a href="#">塔克4000双鞋让保罗羡慕嫉妒乔丹被震惊</a>
+            </li>
+            <li>
+                <a href="#">CBA下季新赛制:常规赛4组循环 增至46轮</a>
+            </li>
+        </ul>
+    </div>
+</body>
+
+</html>

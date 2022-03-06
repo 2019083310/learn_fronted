@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style></style>
+</head>
+<body>
+    <!-- 命名捕获分组 -->
+    <!-- <script>
+        //ES6语法
+        //  let str='<a href="http://www.baidu.com">百度</a>';
+        //  const reg=/<a href="(?<url>.*)">(?<text>.*)<\/a>/;
+        //  const result=reg.exec(str);
+        //  console.log(result);
+        //  console.log(result.groups.text);
+         //原生js
+         let str='<a href="http://www.baidu.com">百度</a>';
+         const reg=/<a href="(?<url>.*)">(?<text>.*)<\/a>/;
+         const result=reg.exec(str);
+         console.log(result[1]);
+         console.log(result[2]);
+    
+    </script> -->
+    <!-- 后行断言 -->
+    <!-- <script>
+        //正向断言
+        // let str="js5201314你知道莫555啦啦啦";
+        // const reg=/\d+(?=啦)/;
+        // const result=reg.exec(str);
+        // console.log(result);
+        //反向断言
+        let str="js5201314你知道莫555啦啦啦";
+        const reg=/(?<=莫)\d+/;
+        const result=reg.exec(str);
+        console.log(result);
+    </script> -->
+    <!-- dotAll模式 -->
+    <script>
+        
+        //dot  .  元字符  除换行符以外的任意单个字符
+        let str = `
+        <ul>
+            <li>
+                <a>肖生克的救赎</a>
+                <p>上映日期: 1994-09-10</p>
+            </li>
+            <li>
+                <a>阿甘正传</a>
+                <p>上映日期: 1994-07-06</p>
+            </li>
+        </ul>`;
+        //声明正则
+        // const reg = /<li>\s+<a>(.*?)<\/a>\s+<p>(.*?)<\/p>/;
+        const reg = /<li>.*?<a>(.*?)<\/a>.*?<p>(.*?)<\/p>/gs;
+        //执行匹配
+        // const result = reg.exec(str);
+        let result;
+        let data = [];
+        while(result = reg.exec(str)){
+            data.push({title: result[1], time: result[2]});
+        }
+        //输出结果
+        console.log(data);
+    </script>
+</body>
+</html>

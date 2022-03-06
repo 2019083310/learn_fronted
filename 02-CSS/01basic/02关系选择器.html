@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=div, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div.box>span{
+            color:chocolate;
+        }
+        div>p>span{
+            color:darkcyan;
+        }
+        div span{
+            font-size: 60px;
+        }
+        p~span{
+            color:darkgrey;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        我是一个div
+        <br>
+        <span>我是div的子元素</span>
+        <p>
+            我是div的子元素
+            <span>我是P的子元素</span>
+        </p>
+        <span>123456</span>
+        <span>123456</span>
+        <span>123456</span>
+        <span>123456</span>
+        <span>123456</span>
+    </div>
+    <div>
+        <span>我是div外的span</span>
+    </div>
+</body>
+</html>

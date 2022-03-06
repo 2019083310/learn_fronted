@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        
+        .outBox {
+            width: 500px;
+            height: 40px;
+            border: 1px solid #ccc;
+            box-sizing: border-box;
+            margin: 200px 500px;
+            position: relative;
+        }
+        
+        .outBox p {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 5;
+            user-select: none;
+        }
+        
+        .slider {
+            width: 40px;
+            height: 40px;
+            background-color: #52CCBA;
+            text-align: center;
+            line-height: 40px;
+            cursor: pointer;
+            position: absolute;
+            left: 0px;
+            top: -1px;
+            user-select: none;
+        }
+        
+        .slider_back {
+            height: 40px;
+            width: 0;
+            background-color: #9cece0;
+            position: absolute;
+            top: -1px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="outBox">
+        <div class="slider">&rarr;</div>
+        <p id="remind">向右滑动</p>
+        <div class="slider_back"></div>
+    </div>
+</body>
+<script src="./js/jquery-1.12.4.js"></script>
+<script>
+    $(document).ready(function() {
+        /**
+         * 各个参数注释
+         * moveX 滑块移动的距离
+         * isMove 判断鼠标是否拖住了滑块
+         * sliderWidth 滑块的宽度
+         * outBoxWidth 外层盒子的宽度
+         * downX  鼠标点击时的位置（没有这个参数 刚开始滑动会跳一段距离，这个距离就是downX）
+         * outBoxLeft  距离左侧屏幕的距离
+         */
+        var moveX, isMove = false,
+            sliderWidth = $(".slider").width(),
+            downX, outBoxWidth = $(".outBox").outerWidth(),
+            outBoxLeft = $(".outBox").offset().left
+        $(".slider").bind("mousedown", function(e) {
+            downX = e.offsetX
+            isMove = true
+        })
+        $(document).on("mousemove", function(e) {
+            if (isMove) {
+                //移动的距离
+                moveX = e.pageX - outBoxLeft - downX
+                    //超出就固定移动距离为最大距离(outBoxWidth-sliderWidth)或最小距离(0)
+                if (moveX > outBoxWidth - sliderWidth) {
+                    moveX = outBoxWidth - sliderWidth
+                } else if (moveX < 0) {
+                    moveX = 0
+                }
+                $(".slider").css("left", moveX)
+                $(".slider_back").width(moveX)
+            }
+        })
+        $(document).bind("mouseup", function() {
+            isMove = false
+                //判断是否滑倒最后
+            if (moveX == outBoxWidth - sliderWidth) {
+                $("#remind").text("验证通过")
+                $(".slider").html("&#10004;")
+                    //通过后将事件注销
+                $(".slider").unbind("mousedown")
+                $(document).unbind("mouseup")
+            } else if (moveX < outBoxWidth - sliderWidth) {
+                $(".slider").css("left", 0)
+                $(".slider_back").width('0')
+            }
+        })
+
+    })
+</script>
+
+</html>

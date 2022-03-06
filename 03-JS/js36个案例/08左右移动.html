@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        window.onload = function() {
+            var left = document.getElementById("left");
+            var selectleft = left.children;
+            var right = document.getElementById("right");
+            var selectright = right.children;
+            var selectedItem = [];
+            //绑定事件
+            document.getElementById("toRight01").onclick = function() {
+                //遍历下拉框元素
+                for (var i = 0; i < selectleft.length; i++) {
+                    //判断是否被选中
+                    if (selectleft[i].selected) {
+                        right.appendChild(selectleft[i]);
+                        return;
+                    }
+                }
+            };
+            document.getElementById("toRight02").onclick = function() {
+                selectedItem = [];
+                //遍历下拉框元素
+                for (var i = 0; i < selectleft.length; i++) {
+                    //判断是否被选中
+                    if (selectleft[i].selected) {
+                        selectedItem.push(selectleft[i]);
+                    }
+                }
+                for (var j = 0; j < selectedItem.length; j++) {
+                    right.appendChild(selectedItem[j]);
+                }
+            };
+            document.getElementById("toRight03").onclick = function() {
+                selectedItem = [];
+                //遍历下拉框元素
+                for (var i = 0; i < selectleft.length; i++) {
+                    selectedItem.push(selectleft[i]);
+                }
+                for (var j = 0; j < selectedItem.length; j++) {
+                    right.appendChild(selectedItem[j]);
+                }
+            };
+            document.getElementById("toLeft01").onclick = function() {
+                //遍历下拉框元素
+                for (var i = 0; i < selectright.length; i++) {
+                    //判断是否被选中
+                    if (selectright[i].selected) {
+                        left.appendChild(selectright[i]);
+                        return;
+                    }
+                }
+            };
+            document.getElementById("toLeft02").onclick = function() {
+                selectedItem = [];
+                //遍历下拉框元素
+                for (var i = 0; i < selectright.length; i++) {
+                    //判断是否被选中
+                    if (selectleft[i].selected) {
+                        selectedItem.push(selectright[i]);
+                    }
+                }
+                for (var j = 0; j < selectedItem.length; j++) {
+                    left.appendChild(selectedItem[j]);
+                }
+            };
+            document.getElementById("toLeft03").onclick = function() {
+                selectedItem = [];
+                //遍历下拉框元素
+                for (var i = 0; i < selectright.length; i++) {
+                    selectedItem.push(selectright[i]);
+                }
+                for (var j = 0; j < selectedItem.length; j++) {
+                    left.appendChild(selectedItem[j]);
+                }
+            };
+        }
+    </script>
+</head>
+
+<body>
+    <table align="center">
+        <tr>
+            <td>
+                <select name="" id="left" multiple="multiple" size="10" style="width:100px">
+                    <option value="">a</option>
+                    <option value="">b</option>
+                    <option value="">c</option>
+                    <option value="">d</option>
+                    <option value="">e</option>
+                    <option value="">f</option>
+                    <option value="">g</option>
+                    <option value="">h</option>
+                    <option value="">i</option>
+                    <option value="">j</option>
+                </select>
+            </td>
+            <td>
+                <button id="toRight01">&gt;</button><br>
+                <button id="toRight02">&gt;&gt;</button><br>
+                <button id="toRight03">&gt;&gt;&gt;</button><br><br>
+                <button id="toLeft01">&lt;</button><br>
+                <button id="toLeft02">&lt;&lt;</button><br>
+                <button id="toLeft03">&lt;&lt;&lt;</button>
+            </td>
+            <td>
+                <select name="" id="right" multiple="multiple" size="10" style="width:100px"></select>
+            </td>
+        </tr>
+    </table>
+</body>
+
+</html>

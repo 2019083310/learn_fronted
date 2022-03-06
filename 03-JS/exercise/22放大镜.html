@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            list-style: none;
+        }
+        
+        #smallImg {
+            width: 300px;
+            height: 300px;
+            background-image: url(./img/lou.jpg);
+            background-size: cover;
+        }
+        
+        #smallDiv {
+            width: 100px;
+            height: 100px;
+            background-color: rgba(255, 0, 0, .2);
+            display: none;
+            position: absolute;
+        }
+        
+        #bigDiv {
+            width: 300px;
+            height: 300px;
+            position: absolute;
+            left: 300px;
+            top: 0;
+            display: none;
+            overflow: hidden;
+        }
+        
+        #bigImg {
+            width: 900px;
+            height: 900px;
+            position: absolute;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="fang">
+        <div id="smallImg">
+            <div id="smallDiv">
+
+            </div>
+        </div>
+        <div id="bigDiv">
+            <img src="./img/lou.jpg" id="bigImg" alt="">
+        </div>
+    </div>
+    <script>
+        //逻辑：
+        //1.鼠标移入，出现小div遮挡层，和大div
+        //2.鼠标移出，隐藏小div，大div
+        var smallImg = document.getElementById("smallImg");
+        var bigDiv = document.getElementById("bigDiv");
+        var smallDiv = document.getElementById("smallDiv");
+        var bigImg = document.getElementById("bigImg");
+        smallImg.onmouseover = function() {
+            smallDiv.style.display = "block";
+            bigDiv.style.display = "block";
+        };
+        smallImg.onmouseout = function() {
+            smallDiv.style.display = "none";
+            bigDiv.style.display = "none";
+        };
+        //2.小div移动方向和大图移动方向相反
+        //2.1先完成鼠标绑定遮挡层
+        //鼠标移动距离大于遮挡层的移动距离
+        //2.2吧小div和大图移动ok
+        //2.3核心:整个放大镜功能存在一个比例
+        //小div/小图=大div/大图
+        //100/300=300/900——————3倍
+        smallImg.onmousemove = function(event) {
+            event = event || window.event;
+            var x = event.clientX - 50;
+            var y = event.clientY - 50;
+            //对移动范围判断
+            if (x > 200) {
+                x = 200;
+            }
+            if (x <= 0) {
+                x = 0;
+            }
+            if (y > 200) {
+                y = 200;
+            }
+            if (y <= 0) {
+                y = 0;
+            }
+            //小div移动
+            smallDiv.style.left = x + "px";
+            smallDiv.style.top = y + "px";
+            //大图移动距离
+            bigImg.style.left = -3 * x + "px";
+            bigImg.style.top = -3 * y + "px";
+        };
+    </script>
+</body>
+
+</html>

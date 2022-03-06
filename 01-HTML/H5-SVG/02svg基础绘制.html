@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- 直线 -->
+    <svg width='200' height='200'>
+        <line x1='0' y1='0' x2='50' y2='50' style="stroke:pink;stroke-width:5" />
+    </svg>
+    <svg>
+        <line x1="0" y1="0" x2="200" y2="200" style="stroke:rgb(255,0,0);stroke-width:2" />
+    </svg>
+    <!-- 折线 -->
+    <svg>
+        <polyline points='0,40,40,40,40,80,80,80,80,120,120,120,120,160,160,160,160,200' style="fill:none;stroke:pink">
+    </svg>
+    <!-- 矩形 -->
+    <svg>
+        <rect width='100' height='100' x='50' y='20' style="fill:#bfa;stroke:pink;stroke-width:5;">
+    </svg>
+    <!-- 椭圆 -->
+    <svg>
+        <ellipse cx='300' cy='200' rx='200' ry='100' style="fill:yellow">
+            <ellipse cx='500' cy='500' rx='100' ry='60' style="fill:blue">
+    </svg>
+    <!-- 多边形 -->
+    <svg height='300'>
+        <!-- <polygon points='200,10,250,190,160,210' style="fill:yellow"> -->
+        <polygon points='100,10,40,198,190,78,10,78,160,198'
+            style="fill:lime;stroke:purple;stroke-width:5;fill-rule:nonzero">
+    </svg>
+    <!-- 路径 -->
+    <svg width="900" height="500">
+        <path d="M50,50 L100,60,L200,160,L250,300,L450,450 Z" style="fill:pink">
+    </svg>
+    <!-- 文本 -->
+    <svg width="400" h="500">
+        <text x='150' y='450' fill='green'>Hello</text>
+    </svg>
+</body>
+
+</html>

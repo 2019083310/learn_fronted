@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            list-style: none;
+        }
+        
+        .menuwrapper {
+            width: 400px;
+            height: 400px;
+            border: 1px solid #333;
+            margin: 50px auto;
+        }
+        
+        .menu-1 {
+            width: 100px;
+            height: 400px;
+            float: left;
+        }
+        
+        .menu-2 {
+            width: 100px;
+            height: 400px;
+            float: right;
+        }
+        
+        .menu-1 li {
+            height: 43.5px;
+            border-right: 1px solid #333;
+            border-bottom: 1px solid #333;
+            text-align: center;
+            line-height: 43.5px;
+        }
+        
+        .menu-2 li {
+            height: 43.5px;
+            border-left: 1px solid #333;
+            border-bottom: 1px solid #333;
+            text-align: center;
+            line-height: 43.5px;
+        }
+        
+        #menu {
+            float: left;
+            width: 200px;
+            height: 400px;
+            margin: 45px 0;
+        }
+        
+        #menu li {
+            position: absolute;
+        }
+        
+        #menu li img {
+            width: 200px;
+            height: 300px;
+        }
+        
+        .active {
+            display: none;
+        }
+    </style>
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/1.9.1/jquery.js"></script>
+    <script>
+        $(function() {
+            $(".menu-1 li").mouseenter(function() {
+                var index = $(this).index();
+                $("#menu>li:eq(index)").siblings("li").fadeOut(100);
+                $("#menu>li:eq(index)").fadeIn(100);
+            });
+            $(".menu-2 li").mouseenter(function() {
+                var index = $(this).index() + 9;
+                $("#menu>li:eq('+index+')").siblings("li").hide();
+                $("#menu>li:eq(index)").show();
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <div class="menuwrapper">
+        <ul class="menu-1">
+            <li>女靴</li>
+            <li>雪地靴</li>
+            <li>冬裙</li>
+            <li>大衣</li>
+            <li>毛衣</li>
+            <li>棉服</li>
+            <li>女裤</li>
+            <li>羽绒服</li>
+            <li>牛仔裤</li>
+        </ul>
+        <ul id="menu">
+            <li><img src="./img/OIP-C.jpg" alt=""></li>
+            <li><img src="./img/OIP-C1.jpg" alt=""></li>
+            <li><img src="./img/OIP-C.jpg" alt=""></li>
+            <li><img src="./img/OIP-C1.jpg" alt=""></li>
+            <li><img src="./img/OIP-C.jpg" alt=""></li>
+            <li><img src="./img/OIP-C1.jpg" alt=""></li>
+            <li><img src="./img/OIP-C.jpg" alt=""></li>
+            <li><img src="./img/OIP-C1.jpg" alt=""></li>
+            <li><img src="./img/OIP-C.jpg" alt=""></li>
+            <li><img src="./img/OIP-C1.jpg" alt=""></li>
+            <li><img src="./img/OIP-C.jpg" alt=""></li>
+            <li><img src="./img/OIP-C1.jpg" alt=""></li>
+            <li><img src="./img/OIP-C.jpg" alt=""></li>
+            <li><img src="./img/OIP-C1.jpg" alt=""></li>
+            <li><img src="./img/OIP-C.jpg" alt=""></li>
+            <li><img src="./img/OIP-C1.jpg" alt=""></li>
+            <li><img src="./img/OIP-C.jpg" alt=""></li>
+            <li><img src="./img/OIP-C1.jpg" alt=""></li>
+        </ul>
+        <ul class="menu-2">
+            <li>男靴</li>
+            <li>雪靴</li>
+            <li>冬帽</li>
+            <li>大皮衣</li>
+            <li>裤子</li>
+            <li>棉衣</li>
+            <li>童装</li>
+            <li>羽绒</li>
+            <li>牛仔</li>
+        </ul>
+    </div>
+</body>
+
+</html>

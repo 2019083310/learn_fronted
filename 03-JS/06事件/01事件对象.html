@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box1 {
+            width: 200px;
+            height: 100px;
+            border: 10px solid #bfa;
+        }
+        
+        .box2 {
+            width: 200px;
+            height: 50px;
+            border: 10px solid red;
+        }
+    </style>
+    <script>
+        window.onload = function() {
+            var box1 = document.getElementsByClassName("box1");
+            var box2 = document.getElementsByClassName("box2");
+            box1[0].onmousemove = function(event) {
+                event = event || window.event;
+                var x = event.clientX;
+                var y = event.clientY;
+                box2[0].innerHTML = "x= " + x + "y= " + y;
+            };
+        };
+    </script>
+</head>
+
+<body>
+    <div class="box1"></div>
+    <div class="box2"></div>
+</body>
+
+</html>

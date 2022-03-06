@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #outer {
+            width: 100px;
+            height: 100px;
+            line-height: 100px;
+            background-color: paleturquoise;
+            text-align: center;
+            font-size: 25px;
+            font-weight: bold;
+            color: peru;
+            margin-left: 1400px;
+            margin-top: 1000px;
+            display: none;
+            position: fixed;
+            bottom: 100px;
+        }
+    </style>
+    <script>
+        window.onload = function() {
+            var outer = document.getElementById("outer");
+            window.onscroll = function() {
+                var res = document.body.scrollTop || document.documentElement.scrollTop;
+                if (res >= 400) {
+                    outer.style.display = "block";
+                } else {
+                    outer.style.display = "none";
+                }
+            };
+            outer.onclick = function() {
+                document.body.scrollTop = 0;
+                document.documentElement.scrollTop = 0;
+            };
+        };
+    </script>
+</head>
+
+<body style="height: 1500px;">
+    <iframe src="http://www.baidu.com" frameborder="0" style="width: 1500px; height:400px"></iframe>
+    <div id="outer">返回</div>
+</body>
+
+</html>

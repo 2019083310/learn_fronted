@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //Set结构
+        let s=new Set();
+        let s1=new Set([1,2,3,4,4,5,5,5]);
+        console.log(s,typeof s);
+        console.log(s1);
+        console.log([...s1]);
+        console.log(NaN===NaN);
+        s.add(NaN);
+        s.add(NaN);
+        console.log(s.size);
+        s.delete(NaN);
+        console.log(s.size);
+        console.log(s.has(NaN));
+        s1.forEach((value,key)=>console.log(value*2));
+        //map结构
+        let obj={"name":"liuyang","age":18};
+        let obj2={name:"liuyang",age:18};
+        obj2["sex"]="男";
+        console.log( obj);
+        console.log(obj2,typeof obj2["name"]);
+        var m=new Map();
+        let o={
+            name:"liuyang",
+            age:18,
+            5:5
+        };
+        console.log(o);
+    </script>
+</body>
+</html>

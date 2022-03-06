@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #dv {
+            width: 300px;
+            height: 200px;
+            background-color: yellow;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="dv"></div>
+    <input type="button" value="显示效果" id="btn">
+    <br>
+    <input type="button" value="显示效果" id="btn2">
+    <br>
+    <input type="button" value="类选择器" id="btn3">
+    <p>何以解忧，唯有java</p>
+    <p>热生苦短，我要学Python</p>
+    <p>PHP是世界上最好的编程语言</p>
+    <p>123456</p>
+    <h3 class="cls">学习园地</h3>
+    <div class="cls">成就自己的只需一套精品</div>
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/1.9.1/jquery.js"></script>
+    <script>
+        //点击按钮，设置层中的显示内容为：这是一个层，同时设置这个曾的背景颜色（）
+        $("#btn").click(function() {
+            $("#dv").html("这是一个层");
+            $("#dv").css("backgroundColor", "red");
+
+        });
+        //点击按钮，设置多个p标签中显示内容为：我们都是P(标签选择器)
+        $("#btn2").click(function() {
+            $("p").html("我们都是P标签!");
+        });
+        //点击按钮，设置页面上应用class类样式的元素的背景颜色（类选择器）
+        $("#btn3").click(function() {
+            $(".cls").css("backgroundColor", "yellow");
+        });
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        window.onload = function() {
+            var btn = document.getElementById("btn");
+            btn.onclick = function() {
+                if (this.innerHTML == "关灯") {
+                    document.body.style.backgroundColor = "black";
+                    this.innerHTML = "开灯";
+                } else {
+                    document.body.style.backgroundColor = "white";
+                    this.innerHTML = "关灯";
+                }
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <button id="btn" value="关灯">关灯</button>
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/1.9.1/jquery.js"></script>
+    <script>
+        $(function() {
+            $("#btn").click(function() {
+                if ($(this).val() == "关灯") {
+                    $("body,html").css("backgroundColor", "black");
+                    $(this).val("开灯");
+                    $(this).html("开灯");
+                } else {
+                    $("body,html").css("backgroundColor", "white");
+                    $(this).val("关灯");
+                    $(this).html("关灯");
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>

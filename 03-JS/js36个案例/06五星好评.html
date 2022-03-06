@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        window.onload = function() {
+            var tds = document.getElementsByTagName("td");
+            for (var i = 0; i < tds.length; i++) {
+                tds[i].style.cursor = "pointer";
+                //为所有的td绑定鼠标悬停事件
+                tds[i].onmouseover = function() {
+                    var index = this.id;
+                    for (var j = 0; j < index; j++) {
+                        tds[j].innerHTML = "★";
+                    };
+                    if (index < 5) {
+                        for (var j = index; j < tds.length; j++) {
+                            tds[j].innerHTML = "☆";
+                        };
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <table align="center">
+        <tr>
+            <td id="1">☆</td>
+            <td id="2">☆</td>
+            <td id="3">☆</td>
+            <td id="4">☆</td>
+            <td id="5">☆</td>
+        </tr>
+    </table>
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.js"></script>
+    <script>
+        $(function() {
+            var tds = $("td");
+            tds.each(function() {
+                var index = $(this).attr("id");
+                $(this).mouseover(function() {
+                    $(this).css("cursor", "pointer");
+                    for (var i = 0; i < index; i++) {
+                        $(tds[i]).html("★");
+                    }
+                    if (index < 5) {
+                        for (var j = index; j < tds.length; j++) {
+                            $(tds[j]).html("☆");
+                        };
+                    }
+                })
+            })
+        })
+    </script>
+</body>
+
+</html>

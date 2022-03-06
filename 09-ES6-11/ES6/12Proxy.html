@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let proxy=new Proxy({},{
+            get(target,propKey){
+                return "I am proxy";
+            },
+            set(target,propKey,value){
+                if(propKey==="age"){
+                    if(value>200){
+                        console.log("错误!");
+                    }
+                }
+                target[propKey]=value;
+            }
+        });
+        console.log(proxy.p);
+        proxy.age=100;
+        proxy.age=300;
+    </script>
+</body>
+</html>

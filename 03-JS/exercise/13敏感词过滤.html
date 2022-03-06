@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #area {
+            display: block;
+            width: 200px;
+            height: 200px;
+        }
+        
+        #content {
+            height: 200px;
+            width: 200px;
+            border: 1px solid black;
+        }
+    </style>
+    <script>
+        window.onload = function() {
+            var content = document.getElementById("content");
+            var btn = document.getElementById("tj");
+            var area = document.getElementById("area");
+            var reg = /妈的|傻逼|草|孙子|爸爸|儿子|垃圾/g;
+            tj.onclick = function() {
+                var str = area.value;
+                str = str.replace(reg, "*");
+                content.innerText = str;
+            };
+        };
+    </script>
+</head>
+
+<body>
+    <h2>敏感词过滤</h2>
+    <p>
+        <textarea name="" id="area" cols="30" rows="10"></textarea>
+    </p>
+    <p>
+        <input type="submit" name="" id="tj">
+    </p>
+    <p id="content">
+
+    </p>
+</body>
+
+</html>

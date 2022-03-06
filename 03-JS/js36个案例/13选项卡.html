@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            list-style: none;
+        }
+        
+        .wrapper {
+            width: 400px;
+            height: 250px;
+            border: 1px solid #bfa;
+            margin: 50px auto;
+        }
+        
+        .menu {
+            display: flex;
+            height: 50px;
+            text-align: center;
+            line-height: 50px;
+            border-bottom: 1px solid white;
+        }
+        
+        .menu li {
+            width: 100px;
+        }
+        
+        .menu li:nth-child(1) {
+            background-color: orange;
+        }
+        
+        .menu li:nth-child(2) {
+            background-color: rgb(111, 0, 255);
+        }
+        
+        .menu li:nth-child(3) {
+            background-color: rgb(255, 60, 0);
+        }
+        
+        .menu li:nth-child(4) {
+            background-color: rgb(255, 0, 140);
+        }
+        
+        .menulist {
+            position: relative;
+        }
+        
+        .menulist li {
+            width: 400px;
+            height: 200px;
+            position: absolute;
+        }
+        
+        .menulist li:nth-child(1) {
+            background-color: orange;
+        }
+        
+        .menulist li:nth-child(2) {
+            background-color: rgb(111, 0, 255);
+        }
+        
+        .menulist li:nth-child(3) {
+            background-color: rgb(255, 60, 0);
+        }
+        
+        .menulist li:nth-child(4) {
+            background-color: rgb(255, 0, 140);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrapper">
+        <ul class="menu">
+            <li>第一页</li>
+            <li>第二页</li>
+            <li>第三页</li>
+            <li>第四页</li>
+        </ul>
+        <ul class="menulist">
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+    </div>
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/1.9.1/jquery.js"></script>
+    <script>
+        $(function() {
+            $(".menulist li").eq(0).fadeIn(100);
+            $(".menulist li").eq(1).fadeOut(100);
+            $(".menulist li").eq(2).fadeOut(100);
+            $(".menulist li").eq(3).fadeOut(100);
+            $(".menu li").eq(0).click(function() {
+                $(".menulist li").eq(0).fadeIn(100);
+                $(".menulist li").eq(1).fadeOut(100);
+                $(".menulist li").eq(2).fadeOut(100);
+                $(".menulist li").eq(3).fadeOut(100);
+            });
+            $(".menu li").eq(1).click(function() {
+                $(".menulist li").eq(0).fadeOut(100);
+                $(".menulist li").eq(1).fadeIn(100);
+                $(".menulist li").eq(2).fadeOut(100);
+                $(".menulist li").eq(3).fadeOut(100);
+            });
+            $(".menu li").eq(2).click(function() {
+                $(".menulist li").eq(0).fadeOut(100);
+                $(".menulist li").eq(1).fadeOut(100);
+                $(".menulist li").eq(2).fadeIn(100);
+                $(".menulist li").eq(3).fadeOut(100);
+            });
+            $(".menu li").eq(3).click(function() {
+                $(".menulist li").eq(0).fadeOut(100);
+                $(".menulist li").eq(1).fadeOut(100);
+                $(".menulist li").eq(2).fadeOut(100);
+                $(".menulist li").eq(3).fadeIn(100);
+            });
+        })
+    </script>
+</body>
+
+</html>

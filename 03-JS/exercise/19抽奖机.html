@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            list-style: none;
+        }
+        
+        .outer {
+            width: 600px;
+            height: 600px;
+            border: 3px solid rgb(241, 144, 15);
+            margin: 10px;
+        }
+        
+        .outer li {
+            width: 198px;
+            height: 198px;
+            border: 1px solid rgb(243, 135, 11);
+            float: left;
+            line-height: 198px;
+            text-align: center;
+            font-weight: bold;
+            font-size: 30px;
+        }
+        
+        .outer #start {
+            background-color: pink;
+        }
+    </style>
+    <script>
+        window.onload = function() {
+            var li = document.getElementsByClassName("option");
+            var start = document.getElementById("start");
+            var timer = null;
+            var n;
+            start.onclick = function() {
+                n = 0;
+                if (timer == null) {
+                    timer = setInterval(function() {
+                        n++;
+                        var num = Math.round(Math.random() * (7 - 0) + 0);
+
+                        for (var i = 0; i < li.length; i++) {
+                            li[i].style.backgroundColor = "";
+                        }
+                        li[num].style.backgroundColor = "orange";
+                        if (n >= 100) {
+                            clearInterval(timer);
+                            timer = null;
+                        }
+                    }, 100);
+                }
+            };
+        };
+    </script>
+</head>
+
+<body>
+    <ul class="outer">
+        <li class="option">仓井老师</li>
+        <li class="option">波多老师</li>
+        <li class="option">武藤老师</li>
+        <li class="option">小泽老师</li>
+        <li id="start">开始抽奖</li>
+        <li class="option">相泽南</li>
+        <li class="option">三上悠亚</li>
+        <li class="option">桥本有才</li>
+        <li class="option">泷泽老师</li>
+    </ul>
+</body>
+
+</html>

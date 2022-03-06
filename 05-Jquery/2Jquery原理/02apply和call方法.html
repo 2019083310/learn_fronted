@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /*
+                                                        apply和call方法的作用是专门用来修改方法内部的this
+                                                        格式:call(对象,参数1，参数2,.....);
+                                                        apply(对象,[参数1，参数2，....]);
+                                                        */
+        function test() {
+            console.log(this);
+        }
+        window.test();
+        obj = {
+            "name": "liuyang"
+        };
+        window.test.apply(obj);
+        window.onload = function() {
+            var res = document.querySelectorAll("div");
+            //自定义伪数组
+            var obj = {
+                0: "lnj",
+                1: "33",
+                length: 2
+            };
+            // var arr=[];//真数组
+            //将伪数组转换为真数组
+            var arr = [].slice.call(obj);
+            console.log(arr);
+            var arr2 = [1, 3, 5, 7, 9];
+            //将真数组转换为伪数组
+            [].push.apply(obj, arr2);
+            console.log(obj);
+        }
+    </script>
+</head>
+
+<body>
+    <div>我是div</div>
+    <div>我是div</div>
+    <div>我是div</div>
+</body>
+
+</html>

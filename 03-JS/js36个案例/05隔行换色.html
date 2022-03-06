@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        tr {
+            text-align: center;
+        }
+    </style>
+    <script>
+        window.onload = function() {
+            var tab = document.getElementById("tab");
+            tab.children[0].style.backgroundColor = "yellow";
+            var tlength = tab.children[1].children.length;
+            for (var i = 0; i < tlength; i++) {
+                if (i % 2 == 0) {
+                    tab.children[1].children[i].style.backgroundColor = "pink";
+                } else {
+                    tab.children[1].children[i].style.backgroundColor = "#bfa";
+                }
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <table id="tab" border="1" width="70%" style="border-collapse: collapse;" align="center">
+        <thead>
+            <tr>
+                <th>编号</th>
+                <th>分类名称</th>
+                <th>分类描述</th>
+                <th>操作</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>1</td>
+                <td>书籍</td>
+                <td>书籍</td>
+                <td><button>增加</button><button>删除</button></td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>游泳</td>
+                <td>游泳</td>
+                <td><button>增加</button><button>删除</button></td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>健身</td>
+                <td>健身</td>
+                <td><button>增加</button><button>删除</button></td>
+            </tr>
+            <tr>
+                <td>4</td>
+                <td>打架</td>
+                <td>打架</td>
+                <td><button>增加</button><button>删除</button></td>
+            </tr>
+            <tr>
+                <td>5</td>
+                <td>打架</td>
+                <td>打架</td>
+                <td><button>增加</button><button>删除</button></td>
+            </tr>
+        </tbody>
+    </table>
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/1.9.1/jquery.js"></script>
+    <script>
+        $(function() {
+            $("thead").css("backgroundColor", "yellow");
+            var length = $("tbody>tr").length;
+            for (var i = 0; i < length; i++) {
+                if (i % 2 == 0) {
+                    $("tbody>tr").eq(i).css("backgroundColor", "pink");
+                } else {
+                    $("tbody>tr").eq(i).css("backgroundColor", "#bfa");
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>

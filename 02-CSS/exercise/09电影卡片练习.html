@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./font2/css/all.css">
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            list-style: none;
+        }
+
+        .outer {
+            width: 240px;
+            margin: 100px auto;
+            box-shadow: 0 0 10px rgba(0, 0, 0, .3);
+        }
+
+        .img-wrapper img {
+            width: 100%;
+            vertical-align: bottom;
+        }
+
+        .info {
+            padding: 0 18px;
+            color: #acaaaa;
+            font-size: 14px;
+        }
+
+        .info .title {
+            color: #717171;
+            font-size: 18px;
+            margin: 13px 0 15px 0;
+        }
+
+        .info .categroy i {
+            margin-left: 4px;
+            margin-right: 7px;
+        }
+
+        .info .intro {
+            margin: 18px 4px;
+            line-height: 20px;
+
+        }
+
+        .star-wrapper {
+            height:46px;
+            line-height: 46px;
+            color: #ddd;
+            border: 1px solid #e9e9e9;
+            padding:0 16px;
+        }
+
+        .star {
+            float: left;
+        }
+
+        .star-wrapper .light {
+            color: #b9cb41;
+        }
+
+        .star-wrapper .weibo {
+            float: right;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 设置一个外部容器 -->
+    <div class="outer">
+        <!-- 设置图片容器 -->
+        <div class="img-wrapper">
+            <img src="./img/01/07.webp" alt="">
+        </div>
+        <!-- 设置内容区 -->
+        <div class="info">
+            <h2 class="title">
+                钢铁侠-曼联
+            </h2>
+            <h3 class="categroy">
+                <i class="fas fa-map-marker-alt"></i>
+                钢铁侠
+            </h3>
+            <p class="intro">
+                这是美国好莱坞的系列电影中的主角人物之一，钢铁侠很厉害。
+            </p>
+        </div>
+        <!-- 设置评分区 -->
+        <div class="star-wrapper">
+            <ul class="star">
+                <li class="fas fa-star light"></li>
+                <li class="fas fa-star light"></li>
+                <li class="fas fa-star "></li>
+                <li class="fas fa-star "></li>
+            </ul>
+            <ul class="weibo">
+                <li class="fab fa-weibo"></li>
+            </ul>
+        </div>
+    </div>
+</body>
+
+</html>

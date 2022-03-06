@@ -1,0 +1,635 @@
+/*设置顶部导航条*/
+
+.topbar-wrapper {
+    width: 100%;
+    height: 35px;
+    line-height: 35px;
+    background-color: #f5f5f5;
+}
+
+.leftbar,
+.topbar li {
+    float: left;
+}
+
+.rightbar {
+    float: right;
+}
+
+.topbar li {
+    height: 34.4px;
+}
+
+.topbar a {
+    font-size: 12px;
+    color: #6c6c6c;
+    margin-right: 7px;
+}
+
+.topbar a:hover {
+    color: #f40;
+    display: block;
+}
+
+.topbar .line {
+    color: #ddd;
+    height: 35px;
+    line-height: 35px;
+    padding: 0 5px;
+}
+
+.topbar .li {
+    font-size: 12px;
+    margin-right: 20px;
+    color: rgb(145, 143, 143);
+    margin-top: 2px;
+}
+
+.topbar .nav1 {
+    margin-right: 7px;
+}
+
+.rightbar .fas {
+    color: #f40;
+}
+
+.topbar .rightbar .l2 {
+    color: #9c9c9c;
+    font-size: 12px;
+    margin-right: 5px;
+    line-height: 35px;
+}
+
+.rightbar .l1 {
+    margin-right: 20px;
+    color: #9c9c9c;
+    font-size: 12px;
+    margin-top: 2px;
+}
+
+.leftbar .first {
+    color: #f40;
+}
+
+
+/*设置头部的导航*/
+
+.nav-wrapper {
+    width: 100%;
+    height: 121px;
+    background-color: #EAE8EB;
+}
+
+.nav {
+    height: 121px;
+    padding: 24px;
+}
+
+.nav .logo {
+    float: left;
+    width: 190px;
+}
+
+.nav .logo a {
+    background-image: url(../img/11.png);
+    background-repeat: no-repeat;
+    display: block;
+    width: 142px;
+    height: 58px;
+    margin-left: 22px;
+    margin-top: 8px;
+}
+
+
+/*设置中间的搜索栏*/
+
+.search-wrapper {
+    width: 630px;
+    height: 65px;
+    float: left;
+    margin-left: 68px;
+}
+
+.list {
+    width: 630px;
+    height: 40px;
+    display: block;
+    float: left;
+    border-radius: 20px;
+    border: 1px solid #fff;
+    background-color: #fff;
+    margin-top: 8px;
+}
+
+.list .baobei {
+    width: 72px;
+    height: 40px;
+    line-height: 40px;
+    float: left;
+    padding-left: 20px;
+}
+
+.list i {
+    float: left;
+    margin: 13px 0;
+    font-size: 16px;
+    color: #666;
+}
+
+.list .l4 {
+    width: 460px;
+    height: 24px;
+    padding: 6px;
+    outline: none;
+    border-color: transparent;
+}
+
+.list .search {
+    float: right;
+    background-color: #fff;
+}
+
+.fa-wrapper {
+    width: 76px;
+    height: 90px;
+    float: right;
+    background-color: #fff;
+    margin-right: 80px;
+}
+
+.fa-wrapper .fa a {
+    display: block;
+    padding: 0 5px;
+}
+
+.fa-wrapper .fa img {
+    width: 62px;
+    height: 62px;
+}
+
+.fa-wrapper .ziti a {
+    font-size: 12px;
+    color: #ff5000;
+    padding: 0 12px;
+}
+
+
+/*设置主体部分*/
+
+.header-wrapper {
+    width: 100%;
+    background-color: #EAE8EB;
+}
+
+.header {
+    background-color: #fff;
+    border-radius: 20px;
+    height: 2000px;
+}
+
+.main-nav .main,
+.main-nav .liuyang,
+.liuyang li,
+.liuyang span {
+    float: left;
+}
+
+.main-nav .main {
+    width: 190px;
+    color: #ff6200;
+    font-size: 16px;
+    text-align: center;
+    margin-top: 9px;
+}
+
+.main-nav .liuyang {
+    width: 1000px;
+    margin-top: 9px;
+}
+
+.liuyang li:not(:nth-child(3)):not(:nth-child(9)) {
+    width: 68px;
+}
+
+.liuyang li {
+    margin: 0 4px;
+}
+
+.liuyang li a {
+    font-size: 16px;
+    color: #333333;
+    text-align: center;
+    padding: 0 2px;
+}
+
+.liuyang .l5 a {
+    color: #f8063a;
+    font-weight: bold;
+    margin-left: 30px;
+}
+
+.liuyang .l6 a {
+    color: #ff0036;
+    font-weight: bold;
+    margin-left: 15px;
+}
+
+.liuyang .l7 a {
+    color: #33c900;
+    font-weight: bold;
+    margin-left: 15px;
+}
+
+.liuyang .line {
+    font-size: 14px;
+    color: #333333;
+    margin: 2px 7px;
+    text-align: center;
+}
+
+.liuyang li a:hover {
+    color: #fc5305;
+}
+
+
+/*设置左边的导航条*/
+
+.header .left-menu,
+.left-menu li {
+    float: left;
+}
+
+.left-menu {
+    width: 190px;
+    height: 526px;
+    margin-top: 6px;
+}
+
+.left-menu li {
+    width: 189px;
+    height: 34px;
+    line-height: 34px;
+    padding: 1px 19px 1px 25px;
+}
+
+.left-menu li a {
+    color: #666;
+    font-size: 14px;
+    font-weight: 400px;
+}
+
+.left-menu li i {
+    float: right;
+    line-height: 34px;
+    font-size: 12px;
+    color: #666;
+    font-weight: 400px;
+}
+
+.header .left-menu li:hover {
+    background-color: #f1b995;
+}
+
+.left-menu li a:hover {
+    text-decoration: underline;
+    color: #af731f;
+}
+
+
+/*设置banner部分*/
+
+.banner-outer {
+    width: 520px;
+    height: 512px;
+    float: left;
+    position: relative;
+    margin-top: 10px;
+}
+
+.banner {
+    width: 520px;
+    height: 280px;
+    padding-left: 50px;
+    padding-top: 10px;
+    padding-right: 20px;
+}
+
+.banner li {
+    position: absolute;
+}
+
+.pointer {
+    width: 100px;
+    height: 20px;
+    position: absolute;
+    left: 50%;
+    bottom: 240px;
+    border-radius: 20px;
+    background-color: rgba(255, 255, 255, .3);
+}
+
+.pointer a {
+    display: block;
+    float: left;
+    width: 10px;
+    height: 10px;
+    border-color: transparent;
+    border-radius: 50%;
+    margin: auto 4px;
+    margin-top: 5px;
+    background-color: #fff;
+}
+
+.pointer a:first-child {
+    background-color: orange;
+}
+
+.pointer a:hover {
+    background-color: orange;
+}
+
+
+/*设置下部的字体*/
+
+.banner .line {
+    height: 24px;
+    line-height: 24px;
+    float: left;
+    font-size: 12px;
+    color: #999;
+    position: relative;
+}
+
+.line .line1 {
+    position: absolute;
+    left: 55px;
+    float: left;
+}
+
+.line .line2 {
+    float: right;
+    position: absolute;
+    right: -45px;
+}
+
+
+/*设置下部的广告*/
+
+.ad-wrapper {
+    width: 520px;
+    height: 201px;
+    float: left;
+    border-radius: 20px;
+    border: 1px solid;
+    background-color: #F6F6F6;
+    outline: none;
+    position: absolute;
+    left: 50px;
+    bottom: 0;
+    border-color: rgb(221, 217, 217);
+}
+
+.ad-wrapper .ad li {
+    float: left;
+    margin-top: 10px;
+    margin-left: 13px;
+}
+
+
+/*设置右侧的广告*/
+
+.right-ad {
+    width: 160px;
+    height: 280px;
+    float: left;
+    margin-top: 20px;
+    margin-left: 60px;
+    border-radius: 20px;
+}
+
+.wenzi {
+    float: left;
+    margin-top: 300px;
+    margin-left: -160px;
+    font-size: 12px;
+    color: #a1a1a1;
+}
+
+.right-bottom {
+    float: left;
+    margin-top: 320px;
+    margin-left: -160px;
+}
+
+
+/*设置右侧的广告*/
+
+.header .m {
+    width: 250px;
+    height: 514px;
+    float: right;
+    background-color: #fff;
+    margin-top: 20px;
+}
+
+.m .n {
+    width: 250px;
+    height: 137px;
+    background-color: rgb(252, 252, 252);
+    background-repeat: no-repeat;
+    overflow: hidden;
+}
+
+.n .t {
+    width: 250px;
+    height: 91px;
+}
+
+.t .u {
+    width: 50px;
+    height: 50px;
+    border-radius: 20px;
+    background-image: url(../img/12.jpg);
+    margin: 8px auto;
+}
+
+.t .u::after {
+    content: 'Hi! 你好';
+    font-size: 13px;
+    display: none;
+}
+
+.t .o {
+    color: #ff5000;
+    text-align: center;
+    margin-top: 10px;
+}
+
+.n .y {
+    width: 250px;
+    height: 40px;
+    float: left;
+    margin-top: 5px;
+}
+
+.n .y li {
+    float: left;
+    width: 70px;
+    height: 25px;
+    background-color: #ff5000;
+    border-radius: 4px;
+    margin-left: 10px;
+}
+
+.y li a {
+    display: block;
+    font-size: 14px;
+    font-weight: 700px;
+    color: #fff;
+    text-align: center;
+}
+
+.m .q {
+    width: 248px;
+    height: 63px;
+    border: 1px solid rgba(151, 145, 145, 0.2);
+    box-shadow: 0 0 1px rgba(0, 0, 0, .2);
+    background-color: #fff;
+}
+
+.q a img {
+    width: 100%;
+    height: 63px;
+}
+
+.m .p {
+    width: 250px;
+    height: 70px;
+    background-color: #fff;
+    margin-top: 3px;
+}
+
+.p li {
+    float: left;
+    width: 30px;
+    height: 22px;
+    margin-left: 15px;
+    margin-top: 3px;
+}
+
+.p li a {
+    font-size: 12px;
+    color: #3c3c3c;
+    font-weight: bold;
+}
+
+.p li a:hover {
+    color: #ff5000;
+    text-decoration: underline;
+}
+
+.p .l10 {
+    width: 250px;
+    margin-left: 0;
+    margin-top: 6px;
+}
+
+.m .r {
+    width: 250px;
+    height: 155px;
+    background-color: #fff;
+}
+
+.k li {
+    width: 60px;
+    height: 75px;
+    float: left;
+    border: 1px solid #f4f4f4;
+    line-height: 75px;
+}
+
+.r .k li a {
+    display: block;
+    color: #333333;
+    font-size: 12px;
+    text-align: center;
+}
+
+.k li a i {
+    font-size: 20px;
+    color: purple;
+    text-align: center;
+    display: block;
+    margin-top: 15px;
+    margin-bottom: -20px;
+}
+
+.k .a {
+    color: rgb(211, 58, 58);
+}
+
+.k .b {
+    color: greenyellow;
+}
+
+.k .z {
+    color: rgb(151, 151, 28);
+}
+
+.k .x {
+    color: rgb(117, 117, 197);
+}
+
+.k .c {
+    color: rgb(245, 147, 163);
+}
+
+.k .j {
+    color: indianred;
+}
+
+.m .s {
+    width: 250px;
+    height: 75px;
+}
+
+.s .u {
+    width: 250px;
+    height: 30px;
+    line-height: 30px;
+    color: #3c3c3c;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.s .t li {
+    width: 32px;
+    height: 32px;
+    float: left;
+    margin-left: 15px;
+}
+
+.t .mn {
+    background-image: url(../img/14.png);
+    background-size: contain;
+}
+
+.t .pq {
+    background-image: url(../img/15.png);
+    background-size: contain;
+}
+
+.t .mp {
+    background-image: url(../img/16.png);
+    background-size: contain;
+}
+
+.t .np {
+    background-image: url(../img/17.png);
+    background-size: contain;
+}
+
+.t .kp {
+    background-image: url(../img/18.png);
+    background-size: contain;
+}

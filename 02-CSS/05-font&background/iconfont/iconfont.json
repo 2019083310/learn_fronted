@@ -1,0 +1,44 @@
+{
+  "id": "2480365",
+  "name": "iu",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "20856369",
+      "name": "白菜",
+      "font_class": "baicai",
+      "unicode": "e7ec",
+      "unicode_decimal": 59372
+    },
+    {
+      "icon_id": "20856370",
+      "name": "菜花",
+      "font_class": "caihua",
+      "unicode": "e7ed",
+      "unicode_decimal": 59373
+    },
+    {
+      "icon_id": "20856371",
+      "name": "莲藕",
+      "font_class": "lianou",
+      "unicode": "e7ee",
+      "unicode_decimal": 59374
+    },
+    {
+      "icon_id": "20856372",
+      "name": "蘑菇",
+      "font_class": "mogu",
+      "unicode": "e7ef",
+      "unicode_decimal": 59375
+    },
+    {
+      "icon_id": "20856373",
+      "name": "板栗",
+      "font_class": "banli",
+      "unicode": "e7f0",
+      "unicode_decimal": 59376
+    }
+  ]
+}

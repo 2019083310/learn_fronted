@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #dv {
+            position: absolute;
+            width: 800px;
+            height: 600px;
+            background-color: #ccc;
+            top: 50px;
+            left: 300px;
+        }
+        
+        #btn {
+            display: block;
+            margin: 0 300px;
+        }
+    </style>
+</head>
+
+<body>
+    <input type="button" name="" id="btn" value="弹出球">
+    <div id="dv">
+
+    </div>
+    <script>
+        var colors = ["red", "yellow", "yellowgreen", "blue", "black", "orange", "pink", "purple", "white"];
+        var dv = document.getElementById("dv");
+        document.getElementById("btn").onclick = function() {
+            var ball = document.createElement("div");
+            var wh = Math.round(Math.random() * 50) + 30;
+            ball.style.width = wh + "px";
+            ball.style.height = wh + "px";
+            ball.style.backgroundColor = colors[Math.round(Math.random() * colors.length)];
+            ball.style.borderRadius = "50%";
+            ball.style.position = "absolute";
+            dv.appendChild(ball);
+            var left = dv.clientWidth / 2 - ball.offsetWidth / 2;
+            var top = dv.clientHeight / 2 - ball.offsetHeight / 2;
+            ball.style.left = left + "px";
+            ball.style.top = top + "px";
+            var x = Math.round(Math.random() * 10) + 1;
+            var y = Math.round(Math.random() * 10) + 1;
+            setInterval(function() {
+                left += x;
+                top += y;
+                if (top < 0 || top > (dv.offsetHeight - ball.offsetHeight)) {
+                    y = -y;
+                }
+                if (left < 0 || left > (dv.offsetWidth - ball.offsetWidth)) {
+                    x = -x;
+                }
+                ball.style.left = left + "px";
+                ball.style.top = top + "px";
+            }, 30);
+        };
+    </script>
+</body>
+
+</html>

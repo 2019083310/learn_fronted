@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .fa {
+            width: 400px;
+            height: 40px;
+            border: 1px solid #bfa;
+        }
+        
+        .son {
+            width: 0px;
+            height: 40px;
+            background-color: yellowgreen;
+            text-align: center;
+            line-height: 40px;
+        }
+    </style>
+    <script>
+        window.onload = function() {
+            var btn = document.getElementById("btn");
+            var div = document.getElementsByTagName("div");
+            var span = document.getElementsByTagName("span");
+            var timer;
+            btn.onclick = function() {
+                clearInterval(timer);
+                var num = 0;
+                timer = setInterval(function() {
+                    num = num + 1;
+                    div[1].style.width = num + "px";
+                    span[0].innerHTML = Math.ceil(num / 400 * 100) + "%";
+                    if (num == 400) {
+                        clearInterval(timer);
+                    }
+                }, 10);
+
+            };
+        };
+    </script>
+</head>
+
+<body>
+    <div class="fa">
+        <div class="son">
+            <span>0%</span>
+
+        </div>
+    </div>
+    <br>
+    <button id="btn">安装</button>
+</body>
+
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <canvas id='myCanvas' width='600px' height='500px' style="border:1px solid #ccc"></canvas>
+    <script>
+        let ctx=document.getElementById('myCanvas');
+        let c=ctx.getContext('2d');
+        function Draw(x,y,w,h,color){
+            this.x=x;
+            this.y=y;
+            this.w=w;
+            this.h=h;
+            this.color=color;
+        }
+        Draw.prototype.update=function(){
+            this.x=this.x+10;
+            if(this.x>600){
+                this.x=0;
+            }
+        }
+        Draw.prototype.rect=function(){
+            c.fillStyle=this.color;
+            c.fillRect(this.x,this.y,this.w,this.h);
+        }
+        let p=new Draw(0,100,200,100,'#bfa');
+        setInterval(() => {
+            c.clearRect(0,100,600,500);
+            p.update();
+            p.rect();
+        }, 50);
+    </script>
+</body>
+</html>

@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            list-style: none;
+            text-decoration: none;
+        }
+        
+        #employeeTable {
+            width: 400px;
+            margin: 50px auto;
+            border-collapse: collapse;
+            align-items: center;
+        }
+        
+        #formDiv {
+            width: 250px;
+            margin: 50px auto;
+            border: 1px solid #ddd;
+        }
+    </style>
+    <script src="./js/jquery-1.12.4.js"></script>
+    <script>
+        $(function() {
+            var $table = $("table");
+            $("#addEmpButton").click(function() {
+                var res1 = $("#empName").val();
+                var res2 = $("#email").val();
+                var res3 = $("#salary").val();
+                $('<tr></tr>')
+                    .append('<td>' + res1 + '</td>')
+                    .append('<td>' + res2 + '</td>')
+                    .append('<td>' + res3 + '</td>')
+                    .append('<td><a href="javascript:;">Delete</a></td>')
+                    .appendTo('#employeeTable')
+                    .find('a')
+                    .click(clickA);
+
+            });
+            $("a").click(
+                clickA);
+
+            function clickA() {
+                var $tr = $(this).parent().parent();
+                var name = $tr.children("td:first").html();
+                if (confirm("确定删除" + name + "吗?")) {
+                    $tr.remove();
+                }
+            }
+        });
+    </script>
+</head>
+
+<body>
+    <table id="employeeTable" border="1">
+        <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Salary</th>
+            <th>&nbsp;</th>
+        </tr>
+        <tr>
+            <td>Tom</td>
+            <td>tom@tom.com</td>
+            <td>5000</td>
+            <td><a href="javascript:;">Delete</a></td>
+        </tr>
+        <tr>
+            <td>Jerry</td>
+            <td>jerry@jerry.com</td>
+            <td>8000</td>
+            <td><a href="javascript:;">Delete</a></td>
+        </tr>
+        <tr>
+            <td>Bob</td>
+            <td>bob@tom.com</td>
+            <td>10000</td>
+            <td><a href="javascript:;">Delete</a></td>
+        </tr>
+    </table>
+    <div id="formDiv">
+        <h4>添加新员工</h4>
+        <table>
+            <tr>
+                <td class="word">name:</td>
+                <td class="inp"><input type="text" name="empName" id="empName"></td>
+            </tr>
+            <tr>
+                <td class="word">email:</td>
+                <td class="inp"><input type="text" name="email" id="email"></td>
+            </tr>
+            <tr>
+                <td class="word">salary:</td>
+                <td class="inp"><input type="text" name="salary" id="salary"></td>
+            </tr>
+            <tr>
+                <td colspan="2" align="center">
+                    <button id="addEmpButton" value="abc">
+                        Submit
+                    </button>
+                </td>
+            </tr>
+        </table>
+    </div>
+</body>
+
+</html>
+<!-- 
+/*
+功能说明:
+1. 点击'Submit', 根据输入的信息在表单中生成一行员工信息
+2. 点击Delete链接, 提示删除当前行信息, 点击确定后删除信息
+技术要点:
+1. DOM查询
+2. 绑定事件监听
+3. DOM增删改
+4. 取消事件的默认行为
+*/
+$(function () {
+ $('#addEmpButton').click(function () {
+   var $empName = $('#empName')
+   var $email = $('#email')
+   var $salary = $('#salary')
+
+   var empName = $empName.val()
+   var email = $empName.val()
+   var salary = $empName.val()
+   var id = Date.now()
+
+   /*
+    <tr>
+      <td>Bob</td>
+      <td>bob@tom.com</td>
+      <td>10000</td>
+      <td><a href="deleteEmp?id=003">Delete</a></td>
+    </tr>
+    */
+   $('<tr></tr>')
+     .append('<td>'+empName+'</td>')
+     .append('<td>'+email+'</td>')
+     .append('<td>'+salary+'</td>')
+     .append('<td><a href="deleteEmp?id="'+id+'>Delete</a></td>')
+     .appendTo('#employeeTable')
+     .find('a')
+     .click(clickA)
+
+   $empName.val('')
+   $email.val('')
+   $salary.val('')
+
+ })
+
+ $('a').click(clickA)
+
+ function clickA (event) {
+   event.preventDefault()
+   var $tr = $(this).parent().parent()
+   var name = $tr.children('td:first').html()
+   if(confirm('确定删除'+name+'吗?')) {
+     $tr.remove()
+   }
+ }
+}) -->

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style type="text/css">
+        .main {
+            width: 500px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        
+        #table {
+            display: inline-block;
+            vertical-align: top;
+            border-collapse: collapse;
+        }
+        
+        tr td {
+            width: 200px;
+            border: 1px solid gray;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="main">
+        <table id="table">
+            <tr>
+                <th>
+                    申请人省份
+                </th>
+                <th>
+                    数量
+                </th>
+            </tr>
+        </table>
+        <input type="button" value="PRINT" onclick="printtable()">
+    </div>
+
+    <script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
+    <script type="text/javascript">
+        function printtable() {
+            $.ajax({
+                url: 'http://hebutgo.com:8080/maps/getMapsList',
+                type: 'get',
+                datatype: 'json',
+                success: function(res) {
+                    console.log(res); //在console中查看数据
+                    $.each(res.result, function(index, obj) {
+                        $("#table").append(
+                            "<tr><td>" + obj['申请人省份'] + "</td>" +
+                            "<td>" + obj['counts'] + "</td><tr>");
+                    });
+
+                }
+            })
+        }
+    </script>
+
+</body>
+
+</html>

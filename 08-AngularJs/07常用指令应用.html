@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body ng-app="myApp">
+    <h2>自动计算</h2>
+    <div ng-controller="myCtrl">
+        数量：<input type="number" ng-model="count1">
+        价格：<input type="number" ng-model="price1">
+        <br>
+        <p>价格为：{{count1*price1}}</p>
+    </div>
+    <br>
+    <h2>手动计算</h2>
+    <div ng-controller="myCtrl2">
+        数量：<input type="number" ng-model="count2">
+        价格：<input type="number" ng-model="price2">
+        <button ng-click="sum()">计算</button>
+        <br>
+        <p>价格为：{{total}}</p>
+    </div>
+    <div ng-controller="myCtrl3">
+        <button ng-click="like()">切换</button>
+        <br>
+        <p ng-show="isLike">我喜欢我自己</p>
+        <p ng-hide="isLike">我自己喜欢我自己</p>
+        <p ng-bind="isLike">{{isLike}}</p>
+        <p>{{isLike}}</p>
+    </div>
+    <script src="./js/angular.js"></script>
+    <script>
+        let app=angular.module("myApp",[]);
+        app.controller("myCtrl",function($scope){
+            $scope.count1=1;
+            $scope.price1=20;
+        }).controller("myCtrl2",function($scope){
+            $scope.count2=2;
+            $scope.price2=20;
+            $scope.sum=function(){
+                return $scope.total=this.price2*this.count2;
+            }
+        }).controller("myCtrl3",function($scope){
+            $scope.isLike=true;
+            $scope.like=function(){
+                return $scope.isLike=!$scope.isLike;
+            }
+        });
+    </script>
+</body>
+</html>

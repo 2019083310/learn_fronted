@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            list-style: none;
+        }
+        
+        #data {
+            width: 280px;
+            border: 1px solid #000;
+            margin: 20px auto;
+        }
+        
+        #data>p {
+            display: flex;
+        }
+        
+        #data>h5 {
+            text-align: center;
+        }
+        
+        #data>p>span {
+            padding: 0 10px;
+        }
+        
+        #prev,
+        #next {
+            cursor: pointer;
+        }
+        
+        #nian {
+            text-align: center;
+            flex: 1;
+        }
+        
+        #title {
+            overflow: hidden;
+            background-color: #ccc;
+        }
+        
+        #title>li {
+            float: left;
+            width: 40px;
+            height: 26px;
+            line-height: 26px;
+            text-align: center;
+        }
+        
+        #date {
+            overflow: hidden;
+        }
+        
+        #date>li {
+            float: left;
+            width: 34px;
+            height: 34px;
+            line-height: 34px;
+            text-align: center;
+            cursor: pointer;
+            border: 2px solid rgba(0, 0, 0, 0);
+            margin: 1px 1px;
+        }
+        
+        #date>.hover:hover {
+            border: 2px solid red;
+        }
+        
+        .active {
+            color: red;
+        }
+    </style>
+    <script>
+        window.onload = function() {
+            var date = new Date(); //获取时间对象
+            add(); //当页面第一次进入渲染一下
+            function add() {
+                var cYear = date.getFullYear();
+                var cMonth = date.getMonth(); //0-11,0表示一月
+                //获取每个月的第一天是周几
+                var zhou = new Date(cYear, cMonth, 1).getDay();
+                //获取一个月有多少天
+                var days = new Date(cYear, cMonth + 1, -1).getDate() + 1;
+                //获取当前是第几天
+                var cDay = date.getDate();
+                var arr = ["一月", "二月", "三月", "四月", "五月", "六月", "七月", "八月", "九月", "十月", "十一月", "十二月"];
+                document.getElementById("nian").innerHTML = cYear;
+                document.getElementById("yue").innerHTML = arr[cMonth];
+                var html = "";
+                for (var i = 0; i < zhou; i++) {
+                    html += "<li></li>";
+                }
+                for (var i = 1; i <= days; i++) {
+                    if (i == cDay) {
+                        html += "<li class='active'>" + i + "</li>";
+                    } else {
+                        html += "<li class='hover'>" + i + "</li>";
+                    }
+
+                }
+                document.getElementById("date").innerHTML = html;
+            }
+            document.getElementById("prev").onclick = function() {
+                date.setMonth(date.getMonth() - 1);
+                add();
+            };
+            document.getElementById("next").onclick = function() {
+                date.setMonth(date.getMonth() + 1)
+                add();
+            };
+        };
+    </script>
+</head>
+
+<body>
+    <div id="data">
+        <p>
+            <span id="prev">上一月</span>
+            <span id="nian">2022</span>
+            <span id="next">下一月</span>
+        </p>
+        <h5 id="yue">五月</h5>
+        <ul id="title">
+            <li>日</li>
+            <li>一</li>
+            <li>二</li>
+            <li>三</li>
+            <li>四</li>
+            <li>五</li>
+            <li>六</li>
+        </ul>
+        <ul id="date">
+
+        </ul>
+    </div>
+
+</body>
+
+</html>

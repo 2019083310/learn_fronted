@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /*var x = 1000;
+                                                var i = 0;
+                                                while (x <= 5000) {
+                                                    x = x * 1.05;
+                                                    i++;
+                                                }
+                                                console.log(i);*/
+        /*var sum = 0;
+        for (var i = 1; i <= 100; i++) {
+            if (i % 2 != 0) {
+                sum = sum + i;
+            }
+        }
+        console.log(sum);*/
+        /*var count = 0;
+        var sum = 0;
+        for (var i = 1; i <= 100; i++) {
+            if (i % 7 == 0) {
+                sum = sum + i;
+                count++;
+            }
+        }
+        console.log(count);
+        console.log(sum);*/
+        for (var i = 100; i < 1000; i++) {
+            var bai = parseInt(i / 100);
+            var shi = parseInt((i - bai * 100) / 10);
+            var ge = i % 10;
+            if (bai * bai * bai + shi * shi * shi + ge * ge * ge == i) {
+                console.log(i);
+            }
+        }
+    </script>
+</head>
+
+<body>
+</body>
+
+</html>

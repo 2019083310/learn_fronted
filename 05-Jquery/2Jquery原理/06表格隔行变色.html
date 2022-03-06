@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .odd {
+            background-color: #ccccff;
+        }
+        
+        #main {
+            background-color: #333399;
+        }
+        
+        td {
+            height: 28px;
+        }
+        
+        table {
+            border-collapse: collapse;
+            text-align: center;
+        }
+    </style>
+    <script src="./js/jquery-1.12.4.js"></script>
+    <script>
+        $(function() {
+            $("tr:even").css("background", "#ccccff");
+        });
+    </script>
+</head>
+
+<body>
+    <thead id="main">
+        <td>姓名</td>
+        <td>工资</td>
+        <td>入职时间</td>
+        <td>操作</td>
+    </thead>
+    <tr>
+        <td>Tom</td>
+        <td>$3500</td>
+        <td>2010-10-25</td>
+        <td><a href="javascript:;">删除</a></td>
+    </tr>
+    <tr>
+        <td>Mary</td>
+        <td>$3400</td>
+        <td>2010-12-1</td>
+        <td><a href="javascript:;">删除</a></td>
+    </tr>
+    <tr>
+        <td>King</td>
+        <td>$5900</td>
+        <td>2009-08-17</td>
+        <td><a href="javascript:;">删除</a></td>
+    </tr>
+    <tr>
+        <td>Scott</td>
+        <td>$3800</td>
+        <td>2012-11-17</td>
+        <td><a href="javascript:;">删除</a></td>
+    </tr>
+    <tr>
+        <td>Smith</td>
+        <td>$3100</td>
+        <td>2014-01-27</td>
+        <td><a href="javascript:;">删除</a></td>
+    </tr>
+    <tr>
+        <td>Allen</td>
+        <td>$3700</td>
+        <td>2011-10-25</td>
+        <td><a href="javascript:;">删除</a></td>
+    </tr>
+
+    </table>
+</body>
+
+</html>

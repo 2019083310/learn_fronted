@@ -1,0 +1,40 @@
+body {
+  width: 500px;
+  height: 500px;
+}
+.p {
+  width: 200px;
+  height: 100px;
+  background-color: red;
+}
+.p1,
+.p2 {
+  color: #800080;
+  background-color: #92ff77;
+}
+.box1 {
+  width: 500px;
+}
+.box1 .box2 {
+  width: 200px;
+  height: 100px;
+}
+.box1 > .box3 {
+  width: 300px;
+}
+.box1:hover {
+  background-color: #bfa;
+}
+.p2 {
+  color: orange;
+}
+.p3 {
+  color: #800080;
+  background-color: #92ff77;
+}
+/*注释
+*/
+.p4 {
+  width: 500px;
+}
+/*# sourceMappingURL=./style.css.map */

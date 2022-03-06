@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            padding: 0;
+            margin:0;
+            list-style: none;
+        }
+        .outer{
+            width: 500px;
+            height: 500px;
+            margin: 50px auto;
+        }
+        input[type="text"]{
+            width: 200px;
+            height: 30px;
+            padding: 2px 5px;
+        }
+        input[type="button"]{
+            width: 50px;
+            height: 30px;
+            line-height: 30px;
+            text-align: center;
+            margin: 5px;
+        }
+        form{
+            margin-top:20px;
+        }
+    </style>
+    <script>
+        window.onload=function(){
+            let val=document.getElementById("val");
+            let bns=document.querySelectorAll(".number");
+            let opts=document.querySelectorAll(".operator");
+            let end=document.querySelector(".other");
+            document.getElementById("clear").onclick=function(){
+                document.getElementById("val").value="";
+            }
+            for(var i=0;i<bns.length;i++){
+                bns[i].onclick=function(){
+                    val.value+=this.value;
+                }
+            }
+            for(var i=0;i<opts.length;i++){
+                opts[i].onclick=function(){
+                    val.value+=this.value;
+                }
+            }
+            end.onclick=function(){
+                var result = 0;
+                result = document.getElementById("val").value;
+                document.getElementById("val").value = "";
+                document.getElementById("val").value = eval(result);
+            }
+            let a=1;
+            let b=2;
+            console.log(eval(a+b));
+        }
+    </script>
+</head>
+<body>
+    <div class="outer">
+        <h2>HTML CSS, JavaScript 计算器</h2>
+        <form action="">
+            <input type="button" value="C" id="clear">
+            <input type="text" name="content" id="val">
+            <br>
+            <input type="button" value="1" class="btn number">
+            <input type="button" value="2" class="btn number">
+            <input type="button" value="3" class="btn number">
+            <input type="button" value="+" class="btn operator">
+            <br>
+            <input type="button" value="4" class="btn number">
+            <input type="button" value="5" class="btn number">
+            <input type="button" value="6" class="btn number">
+            <input type="button" value="-" class="btn operator">
+            <br>
+            <input type="button" value="7" class="btn number">
+            <input type="button" value="8" class="btn number">
+            <input type="button" value="9" class="btn number">
+            <input type="button" value="*" class="btn operator">
+            <br>
+            <input type="button" value="0" class="btn number">
+            <input type="button" value="." class="btn operator">
+            <input type="button" value="/" class="btn operator">
+            <input type="button" value="=" class="btn other">
+        </form>
+    </div>
+</body>
+</html>

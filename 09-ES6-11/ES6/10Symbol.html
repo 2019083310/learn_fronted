@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var obj={
+            name:"liuyang",
+            age:18,
+            add:function(a,b){
+                return a+b;
+            }
+        };
+        let name=Symbol("dog");
+        obj[name]="liulei";
+        console.log(obj);
+        console.log(typeof name);
+        let obj2={
+            age:Symbol()
+        };
+        obj[obj2.age]=17;
+        console.log(Symbol("cat")===Symbol("cat"));
+        console.log(Symbol("cat")===Symbol.for("cat"));
+        console.log(Symbol.for("cat")===Symbol.for("cat"));
+        console.log(Symbol.keyFor(name));
+        console.log(Symbol);
+    </script>
+</body>
+</html>

@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>游戏界面</title>
+    <link rel="stylesheet" href="./css/bootstrap.min.css">
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            list-style: none;
+        }
+        
+        .navbar {
+            background-color: rgba(231, 231, 231, 0.67);
+            opacity: 1;
+        }
+        
+        .navbar-default .navbar-nav>li>a {
+            display: block;
+            line-height: 40px;
+            color: #333333;
+            font-weight: bold;
+            font-size: 15px;
+        }
+        
+        #nav_header .navbar-default {
+            background-color: transparent;
+            border-color: transparent;
+        }
+        
+        .active img {
+            height: 40px;
+        }
+        
+        #nav_product {
+            width: 100%;
+            background-color: #cccccc;
+            padding: 0 5px;
+        }
+        
+        #nav_product .msg {
+            text-align: center;
+            font-size: 30px;
+            margin-top: 0;
+            padding: 50px 0;
+        }
+        
+        .container {
+            width: 100%;
+        }
+        
+        .more {
+            width: 100%;
+            text-align: center;
+            padding: 30px 0;
+        }
+        
+        .more button {
+            width: 100px;
+            height: 50px;
+            background-color: rgb(233, 197, 79);
+        }
+        
+        .com {
+            width: 100%;
+            background-color: #cccccc;
+            padding: 0 5px;
+        }
+        
+        .logo {
+            text-align: center;
+        }
+        
+        .menu {
+            width: 1200px;
+            display: flex;
+            flex-wrap: wrap;
+            margin: 20px auto;
+            background-color: #ccc;
+        }
+        
+        .menu li {
+            padding: 3px 20px;
+        }
+        
+        #nav_about {
+            padding: 30px 0px;
+        }
+        
+        #nav_about h2 {
+            text-align: center;
+            color: #333333;
+            margin: 20px 0px 10px 0px;
+        }
+        
+        #nav_about .box {
+            padding: 20px 0px;
+            font-size: 14px;
+            color: #333333;
+            text-align: center;
+        }
+        
+        #nav_about .box p {
+            margin: 0px 0px 10px 0px;
+        }
+        
+        #nav_about .box .active {
+            color: red;
+        }
+        
+        #nav_about .box .bg {
+            background-color: #8c8c8c;
+        }
+        
+        #nav_about .con {
+            width: 120px;
+            height: 120px;
+            border: 1px solid #333333;
+            border-radius: 50%;
+            padding-top: 35px;
+            padding-bottom: 35px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        
+        #nav_about .con span {
+            display: block;
+            height: 30px;
+            font-size: 23px;
+            color: red;
+        }
+        
+        #nav_about .con p {
+            height: 20px;
+            color: #666666;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 导航条 -->
+    <nav class="navbar navbar-default navbar-fixed-top ">
+        <div class="container">
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li class="active">
+                        <a href="#"><img src="./image/logo.png" alt=""></a>
+                    </li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="active"><a href="#">首页 <span class="sr-only">(current)</span></a></li>
+                    <li><a href="#">作品展示</a></li>
+                    <li><a href="#">招纳贤士</a></li>
+                    <li><a href="#">联系我们</a></li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">关于游戏 <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">客服电话</a></li>
+                            <li><a href="#">惩罚措施</a></li>
+                            <li><a href="#">游戏规则</a></li>
+                            <li role="separator" class="divider"></li>
+                            <li><a href="#">王者荣耀</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#">中 | EN</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- 轮播图 -->
+    <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+        <!-- Indicators -->
+        <ol class="carousel-indicators">
+            <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+        </ol>
+
+        <!-- Wrapper for slides -->
+        <div class="carousel-inner" role="listbox">
+            <div class="item active">
+                <img src="./image/banner.png" alt="...">
+                <div class="carousel-caption">
+                </div>
+            </div>
+        </div>
+
+        <!-- Controls -->
+        <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+            <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+        </a>
+        <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+            <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+        </a>
+    </div>
+    <!-- 产品列表 -->
+    <div id="nav_product">
+        <h2 class="msg">我们参与的项目</h2>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-2 col-sm-6 col-md-4">
+                    <div class="thumbnail">
+                        <img src="./image/lunbo1.png" alt="...">
+                        <div class="caption">
+                            <h3></h3>
+                            <p>《王者荣耀》魔性H5上线，吴军对决等你来战</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-sm-6 col-md-4">
+                    <div class="thumbnail">
+                        <img src="./image/lunbo2.png" alt="...">
+                        <div class="caption">
+                            <h3></h3>
+                            <p>《王者荣耀》魔性H5上线，吴军对决等你来战</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-sm-6 col-md-4">
+                    <div class="thumbnail">
+                        <img src="./image/lunbo3.png" alt="...">
+                        <div class="caption">
+                            <h3></h3>
+                            <p>《王者荣耀》魔性H5上线，吴军对决等你来战</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-sm-6 col-md-4">
+                    <div class="thumbnail">
+                        <img src="./image/lunbo4.png" alt="...">
+                        <div class="caption">
+                            <h3></h3>
+                            <p>《王者荣耀》魔性H5上线，吴军对决等你来战</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-sm-6 col-md-4">
+                    <div class="thumbnail">
+                        <img src="./image/lunbo5.png" alt="...">
+                        <div class="caption">
+                            <h3></h3>
+                            <p>《王者荣耀》魔性H5上线，吴军对决等你来战</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-sm-6 col-md-4">
+                    <div class="thumbnail">
+                        <img src="./image/lunbo6.png" alt="...">
+                        <div class="caption">
+                            <h3></h3>
+                            <p>《王者荣耀》魔性H5上线，吴军对决等你来战</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="more">
+            <button>更多作品</button>
+        </div>
+    </div>
+    <!-- 关于我们 -->
+    <div id="nav_about">
+        <div class="container">
+            <h2>关于我们</h2>
+            <div class="box">
+                <p class="active">广州远东动漫设计有限公司(YD ART)，致力于CG美术概念设计及三位影视游戏视觉开发制作</p>
+                <p>其团队现由创办袁杰联合注明CG艺术家肖壮悦以及XRCGREAM成员和个游戏，影视，动漫业内资深艺术家组成</p>
+                <p>为国内外众多项目提供优质概念设计，原画设定，美宣插画，次时代3D，CUI，动作特效外包服务</p>
+                <p class="bg">曾参与《星际争霸》《上古卷轴》《英雄联盟》《战神》《战国无双》《梦幻西游》《LOC》《长城》等国内大型游戏影视项目视觉美术开发制作</p>
+            </div>
+            <ul>
+                <li class="col-sm-3 col-xs-6">
+                    <div class="con">
+                        <span>150</span>
+                        <p>员工</p>
+                    </div>
+                </li>
+                <li class="col-sm-3 col-xs-6">
+                    <div class="con">
+                        <span>100</span>
+                        <p>客户</p>
+                    </div>
+                </li>
+                <li class="col-sm-3 col-xs-6">
+                    <div class="con">
+                        <span>200</span>
+                        <p>项目</p>
+                    </div>
+                </li>
+                <li class="col-sm-3 col-xs-6">
+                    <div class="con">
+                        <span>6</span>
+                        <p>周年</p>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <!-- 合作公司 -->
+    <div class="com">
+        <div class="container">
+            <h2 class="logo">合作公司</h2>
+            <ul class="menu">
+                <li><img src="./image/about_01.jpg" alt=""></li>
+                <li><img src="./image/about_02.jpg" alt=""></li>
+                <li><img src="./image/about_03.jpg" alt=""></li>
+                <li><img src="./image/about_04.jpg" alt=""></li>
+                <li><img src="./image/about_05.jpg" alt=""></li>
+                <li><img src="./image/about_06.jpg" alt=""></li>
+                <li><img src="./image/about_07.jpg" alt=""></li>
+                <li><img src="./image/about_08.jpg" alt=""></li>
+                <li><img src="./image/about_09.jpg" alt=""></li>
+                <li><img src="./image/about_10.jpg" alt=""></li>
+            </ul>
+        </div>
+    </div>
+    <script src="./js/jquery.min.js"></script>
+    <script src="./js/bootstrap.min.js"></script>
+    <script>
+        function init() {
+            window.onscroll = function() {
+                var Yheight = document.body.scrollTop || document.documentElement.scrollTop;
+                var h = 598;
+                var opacity = 0;
+                if (Yheight > h) {
+                    opacity = 1;
+                } else {
+                    opacity = Yheight / h * 1;
+                }
+                $('#nav_header .navbar').css('backgroundColor', 'rgba(231,231,231,' + opacity + ')');
+            }
+        }
+        init();
+    </script>
+</body>
+
+</html>

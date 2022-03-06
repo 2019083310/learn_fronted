@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let obj = {
+            p: [
+                'Hello', {
+                    y: 'World'
+                }
+            ]
+        };
+
+        let {
+            p: [x, {
+                y
+            }]
+        } = obj;
+        x // "Hello"
+        y // "World"
+        // 注意，这时p是模式，不是变量，因此不会被赋值。
+        let foo;
+        ({
+            foo
+        } = {
+            foo: 1
+        }); // 成功
+
+        let baz;
+        ({
+            bar: baz
+        } = {
+            bar: 1
+        }); // 成功
+        // 上面代码中， let命令下面一行的圆括号是必须的， 否则会报错。 因为解析器会将起首的大括号， 理解成一个代码块， 而不是赋值语句。
+    </script>
+</body>
+
+</html>

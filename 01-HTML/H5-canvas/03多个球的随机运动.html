@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            padding: 0;
+            margin:0;
+            list-style: none;
+        }
+        html,body{
+            background-color: #282A36;
+        }
+        canvas{
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <canvas id='myCanvas'></canvas>
+    <script>
+        let ctx=document.getElementById('myCanvas');
+        let c=ctx.getContext('2d');
+        ctx.width=document.documentElement.clientWidth;
+        ctx.height=document.documentElement.clientHeight;
+        let colors=['blue','ren','yellow','green','#bfa','pink','orange','white','black','#ddd'];
+        let ball=[];
+        function Ball(color){
+            this.x=Math.random()*ctx.width;
+            this.y=Math.random()*ctx.height;
+            this.r=10;
+            this.color=color;
+            this.dx=parseInt(Math.random()*10)-5;
+            this.dy=parseInt(Math.random()*10)-5;
+            ball.push(this);
+        }
+        Ball.prototype.upDate=function(){
+            this.x+=this.dx;
+            this.y+=this.dy;
+            if(this.x<0||this.x>ctx.width){
+                this.dx=-this.dx;
+            }
+            if(this.y<0||this.y>ctx.height){
+                this.dy=-this.dy;
+            }
+        }
+        for(let i=0;i<100;i++){
+            let num=Math.round(Math.random()*9);
+            let p=new Ball(colors[num]);
+        }
+        Ball.prototype.render=function(){
+            c.beginPath();
+            c.arc(this.x,this.y,this.r,0,2*Math.PI);
+            c.fillStyle=this.color;
+            c.closePath();
+            c.fill();
+        }
+        setInterval(() => {
+            c.clearRect(0,0,ctx.width,ctx.height);
+            for(let k=0,len=ball.length;k<len;k++){
+                ball[k].upDate();
+                ball[k].render();
+            }
+        }, 50);
+        // requestAnimationFrame(function run(){
+        //     c.clearRect(0,0,ctx.width,ctx.height);
+        //     for(let k=0,len=ball.length;k<len;k++){
+        //         ball[k].upDate();
+        //         ball[k].render();
+        //     }
+        //     requestAnimationFrame(run);
+        // })
+        console.log(ctx);
+    </script>
+</body>
+</html>

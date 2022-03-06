@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        
+        .father {
+            width: 200px;
+            height: 200px;
+            background-color: #bfa;
+        }
+        
+        .son {
+            width: 100px;
+            height: 100px;
+            background-color: orange;
+        }
+    </style>
+    <script src="../js/jquery-1.12.4.js"></script>
+    <script>
+        $(function() {
+            $(".son").click(function(event) {
+                alert("hello 123");
+                //return false;
+                //event.stopPropagation();
+            });
+            $(".father").click(function() {
+                alert("hello 456");
+            });
+            $("a").click(function(event) {
+                alert("hello");
+                event.preventDefault();
+            });
+            //$(".son").trigger("click");
+            //$(".son").triggerHandler("click");
+            $(".son").on("click.zs", function() {
+                alert("abc");
+            });
+            //$(".son").trigger("click");
+            $(".son").trigger("click.zs");
+
+        });
+    </script>
+</head>
+
+<body>
+    <div class="father">
+        <div class="son"></div>
+    </div>
+    <a href="http://www.baidu.com">注册</a>
+</body>
+
+</html>

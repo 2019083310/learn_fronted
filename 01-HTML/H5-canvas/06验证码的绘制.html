@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <canvas id='myCanvas' width="120" height="50"></canvas>
+    <script>
+        /** @type {HTMLCanvasElement}*/
+        let ctx=document.getElementById('myCanvas');
+        let c=ctx.getContext('2d');
+        function getColor(){
+            let r=Math.round(Math.random()*255);
+            let g=Math.round(Math.random()*255);
+            let b=Math.round(Math.random()*255);
+            return `rgb(${r},${g},${b})`;
+        }
+        ctx.onclick=function(){
+            Draw();
+        }
+        function Draw(){
+            c.fillStyle=getColor();
+            c.fillRect(0,0,ctx.width,ctx.height);
+            for(let i=0;i<12;i++){
+                c.beginPath();
+                c.moveTo(Math.random()*ctx.width,Math.random()*ctx.height);
+                c.lineTo(Math.random()*ctx.width,Math.random()*ctx.height);
+                c.strokeStyle=getColor();
+                c.stroke();
+            }
+            for(let k=0;k<20;k++){
+                c.beginPath();
+                let p=Math.random()*ctx.width;
+                let q=Math.random()*ctx.height;
+                c.arc(p,q,2,0,360*(Math.PI/180));
+                c.fillStyle=getColor();
+                c.fill();
+            } 
+            let arr=['1','2','3','4','5','6','7','8','9','0','a','b','c','d','e'];
+            for(let m=0;m<4;m++){
+                c.save();
+                let num=Math.round(Math.random()*arr.length-1);
+                let left=20+20*m;
+                let top=20+Math.round(Math.random()*10);
+                c.beginPath();
+                c.translate(left,top);
+                c.font='25px bold 微软雅黑';
+                let text=arr[num];
+                c.strokeStyle=getColor();
+                c.strokeText(text,10,0);
+                c.restore();
+            }
+        }
+        Draw();
+    </script>
+</body>
+</html>

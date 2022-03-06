@@ -1,0 +1,1387 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>智慧一夏 尽在618</title>
+    <link rel="stylesheet" href="./css/index.css">
+    <link rel="stylesheet" href="./css/basic.css">
+    <link rel="stylesheet" href="./font2/css/all.css">
+    <link rel="shortcut icon" href="./favicon.ico">
+    <script src="./move.js"></script>
+    <script>
+        window.onload = function() {
+            var button = document.getElementById("button");
+            var banner = document.getElementById("banner");
+            var imgArr = document.querySelectorAll(".b");
+            banner.style.width = 1519 * (imgArr.length) + "px";
+            var bannerWrapper = document.getElementById("banner-wrapper");
+            // button.style.left = (bannerWrapper.offsetWidth - button.offsetWidth) / 2 + "px";
+            var index = 0;
+            var allA = document.querySelectorAll(".a");
+            allA[index].style.backgroundColor = "yellowgreen";
+            for (var i = 0; i < allA.length; i++) {
+                allA[i].num = i;
+                allA[i].onclick = function() {
+                    clearInterval(timer);
+                    index = this.num;
+                    //imgList.style.left = index * -1920 + "px";
+                    setA();
+                    //使用move 函数来切换图片
+                    move(banner, "left", -1519 * index, 20, function() {
+                        //动画执行完毕,开启autoChange
+                        autoChange();
+                    });
+                };
+            }
+            autoChange();
+            var timer;
+
+            function autoChange() {
+                timer = setInterval(function() {
+                    //是索引自增
+                    index++;
+                    index = index % imgArr.length;
+                    move(banner, "left", -1519 * index, 100, function() {
+                        setA();
+                    });
+                }, 10000);
+            };
+
+            function setA() {
+                if (index >= imgArr.length - 1) {
+                    //index设置为0
+                    index = 0;
+                    banner.style.left = 0;
+                }
+                for (var i = 0; i < allA.length; i++) {
+                    allA[i].style.backgroundColor = "";
+                }
+                allA[index].style.backgroundColor = "yellowgreen";
+            };
+        };
+    </script>
+</head>
+
+<body>
+    <!-- 顶部导航条 -->
+    <div class="nav-wrapper">
+        <!-- 中间的内容 -->
+        <div class="left-nav">
+            <h1 class="logo">
+                <a href="/"><img src="./img/img01/WTDdguIWgNsNWtK0Q1Z3.png" alt=""></a>
+                <i></i>
+                <a href="/"><img src="./img/img01/26d0eb2c-283a-4c7c-a9ba-4a1002271e36.png" alt=""></a>
+            </h1>
+            <ul class="menu">
+                <li><a href="javascript:;">手机</a></li>
+                <li><a href="javascript:;">手表手环</a></li>
+                <li><a href="javascript:;">耳机音箱</a></li>
+                <li><a href="javascript:;">智慧屏</a></li>
+                <li><a href="javascript:;">笔记本/平板</a></li>
+                <li><a href="javascript:;">华为智选</a></li>
+                <li><a href="javascript:;">企业购</a></li>
+            </ul>
+            <div class="search">
+                <input type="text" id="form-search">
+                <i class="fas fa-search"></i>
+            </div>
+        </div>
+    </div>
+    <!-- 轮播图 -->
+    <div id="banner-wrapper">
+        <ul id="banner">
+            <li class="b">
+                <a href="javascript:;"><img src="./img/img01/1.webp" alt=""></a>
+            </li>
+            <li class="b">
+                <a href="javascript:;"><img src="./img/img01/2.webp" alt=""></a>
+            </li>
+            <li class="b">
+                <a href="javascript:;"><img src="./img/img01/3.webp" alt=""></a>
+            </li>
+            <li class="b">
+                <a href="javascript:;"><img src="./img/img01/4.webp" alt=""></a>
+            </li>
+            <li class="b">
+                <a href="javascript:;"><img src="./img/img01/5.webp" alt=""></a>
+            </li>
+            <li class="b">
+                <a href="javascript:;"><img src="./img/img01/6.webp" alt=""></a>
+            </li>
+            <li class="b">
+                <a href="javascript:;"><img src="./img/img01/1.webp" alt=""></a>
+            </li>
+        </ul>
+        <ul id="button">
+            <li class="a">
+                <a href="javscript:;"></a>
+            </li>
+            <li class="a">
+                <a href="javscript:;"></a>
+            </li>
+            <li class="a">
+                <a href="javscript:;"></a>
+            </li>
+            <li class="a">
+                <a href="javscript:;"></a>
+            </li>
+            <li class="a">
+                <a href="javscript:;"></a>
+            </li>
+            <li class="a">
+                <a href="javscript:;"></a>
+            </li>
+        </ul>
+    </div>
+    <!-- 下边的内容 -->
+    <ul class="menu-wrapper">
+        <li><a href="#l1">超级新品</a></li>
+        <li><a href="#l2">爆款推荐</a></li>
+        <li><a href="#l3">运动健康</a></li>
+        <li><a href="#l4">智慧办公</a></li>
+        <li><a href="#l5">智能家居</a></li>
+    </ul>
+    <div class="menu-list">
+        <div id="l1"><img src="./img/img02/2.webp" alt=""></div>
+        <div class="menu1">
+            <a href="https://www.vmall.com/product/10086107757871.html#10086133118192">
+                <p><img src="./img/img02/13.webp" alt=""></p>
+                <p class="title">FreeBuds 4</p>
+                <p class="desc">半开放主动降噪</p>
+                <p class="sale">享3期免息</p>
+                <div class="price-wrp">
+                    <p>
+                        <span class="price-currency">¥</span>
+                        <span class="price-amount">999</span>
+                        <span class="price-from"></span>
+                    </p>
+                </div>
+            </a>
+            <a href="https://www.vmall.com/product/10086107757871.html#10086133118192">
+                <p><img src="./img/img02/8.png" alt=""></p>
+                <p class="title">华为智慧屏 SE</p>
+                <p class="desc">鸿蒙分布式跨屏</p>
+                <p class="sale">预订省300元+整点赠礼</p>
+                <div class="price-wrp">
+                    <p>
+                        <span class="price-currency">¥</span>
+                        <span class="price-amount">2999</span>
+                        <span class="price-from">起</span>
+                    </p>
+                </div>
+            </a>
+            <a href="https://www.vmall.com/product/10086107757871.html#10086133118192">
+                <p><img src="./img/img02/12.webp" alt=""></p>
+                <p class="title">HUAWEI MateView GT</p>
+                <p class="desc">165Hz电竞刷新率</p>
+                <p class="sale">预订享618价</p>
+                <div class="price-wrp">
+                    <p>
+                        <span class="price-currency">¥</span>
+                        <span class="price-amount">3599</span>
+                        <span class="price-from"></span>
+                    </p>
+                </div>
+            </a>
+            <a href="https://www.vmall.com/product/10086107757871.html#10086133118192">
+                <p><img src="./img/img02/3.webp" alt=""></p>
+                <p class="title">华为路由H6</p>
+                <p class="desc">全屋Wi-Fi6+</p>
+                <p class="sale">预订优惠100元</p>
+                <div class="price-wrp">
+                    <p>
+                        <span class="price-currency">¥</span>
+                        <span class="price-amount">1999</span>
+                        <span class="price-from">起</span>
+                    </p>
+                </div>
+            </a>
+            <a class="a1" href="https://www.vmall.com/product/10086107757871.html#10086133118192">
+                <p><img src="./img/img02/5.webp" alt=""></p>
+                <p class="title">MatePad Pro 10.8英寸</p>
+                <p class="desc">新一代M-Pencil手写笔</p>
+                <p class="sale">预订享618价</p>
+                <div class="price-wrp">
+                    <p>
+                        <span class="price-currency">¥</span>
+                        <span class="price-amount">3799</span>
+                        <span class="price-from">起</span>
+                    </p>
+                </div>
+            </a>
+            <a href="https://www.vmall.com/product/10086107757871.html#10086133118192">
+                <p><img src="./img/img02/11.webp" alt=""></p>
+                <p class="title">MatePad Pro 12.6英寸</p>
+                <p class="desc">麒麟9000E芯片</p>
+                <p class="sale">以旧换新最高补贴600元</p>
+                <div class="price-wrp">
+                    <p>
+                        <span class="price-currency">¥</span>
+                        <span class="price-amount">4999</span>
+                        <span class="price-from">起</span>
+                    </p>
+                </div>
+            </a>
+            <a href="https://www.vmall.com/product/10086107757871.html#10086133118192">
+                <p><img src="./img/img02/4.webp" alt=""></p>
+                <p class="title">Mate 40 Pro</p>
+                <p class="desc">超感知徕卡电影影像</p>
+                <p class="sale">HarmonyOS 2</p>
+                <div class="price-wrp">
+                    <p>
+                        <span class="price-currency">¥</span>
+                        <span class="price-amount">6099</span>
+                        <span class="price-from">起</span>
+                    </p>
+                </div>
+            </a>
+            <a href="https://www.vmall.com/product/10086107757871.html#10086133118192">
+                <p><img src="./img/img02/14.webp" alt=""></p>
+                <p class="title">Mate 40E</p>
+                <p class="desc">有线无线双超级快充</p>
+                <p class="sale">搭载HarmonyOS 2</p>
+                <div class="price-wrp">
+                    <p>
+                        <span class="price-currency">¥</span>
+                        <span class="price-amount">4199</span>
+                        <span class="price-from">起</span>
+                    </p>
+                </div>
+            </a>
+            <a class="a2" href="https://www.vmall.com/product/10086107757871.html#10086133118192">
+                <p><img src="./img/img02/9.webp" alt=""></p>
+                <p class="title">nova 8 Pro</p>
+                <p class="desc">6.73英寸环幕屏</p>
+                <p class="sale">我由我掌镜</p>
+                <div class="price-wrp">
+                    <p>
+                        <span class="price-currency">¥</span>
+                        <span class="price-amount">4099</span>
+                        <span class="price-from"></span>
+                    </p>
+                </div>
+            </a>
+            <a href="https://www.vmall.com/product/10086107757871.html#10086133118192">
+                <p><img src="./img/img02/10.webp" alt=""></p>
+                <p class="title">华为儿童手表 4X 新耀款</p>
+                <p class="desc">双摄视频通话</p>
+                <p class="sale">预订享618价</p>
+                <div class="price-wrp">
+                    <p>
+                        <span class="price-currency">¥</span>
+                        <span class="price-amount">1398</span>
+                        <span class="price-from"></span>
+                    </p>
+                </div>
+            </a>
+            <a href="https://www.vmall.com/product/10086107757871.html#10086133118192">
+                <p><img src="./img/img02/6.webp" alt=""></p>
+                <p class="title">HUAWEI WATCH 3</p>
+                <p class="desc">eSIM独立通话智能手表</p>
+                <p class="sale">新品上市</p>
+                <div class="price-wrp">
+                    <p>
+                        <span class="price-currency">¥</span>
+                        <span class="price-amount">2599</span>
+                        <span class="price-from">起</span>
+                    </p>
+                </div>
+            </a>
+            <a href="https://www.vmall.com/product/10086107757871.html#10086133118192">
+                <p><img src="./img/img02/7.webp" alt=""></p>
+                <p class="title">HUAWEI WATCH 3 Pro</p>
+                <p class="desc">5天强劲续航 体温检测</p>
+                <p class="sale">新品上市</p>
+                <div class="price-wrp">
+                    <p>
+                        <span class="price-currency">¥</span>
+                        <span class="price-amount">3299</span>
+                        <span class="price-from">起</span>
+                    </p>
+                </div>
+            </a>
+        </div>
+        <div class="menu2">
+            <div id="l2"><img src="./img/img02/1.webp" alt=""></div>
+            <div class="menu22">
+                <a href="https://www.vmall.com/product/10086107757871.html#10086133118192">
+                    <p><img src="./img/img03/5.webp" alt=""></p>
+                    <p class="title">华为WATCH GT 2 Pro</p>
+                    <p class="desc">心率监测 蓝宝石镜面</p>
+                    <p class="sale">预订享618价</p>
+                    <div class="price-wrp">
+                        <p>
+                            <span class="price-currency">¥</span>
+                            <span class="price-amount">2188</span>
+                            <span class="price-from">起</span>
+                        </p>
+                    </div>
+                </a>
+                <a href="https://www.vmall.com/product/10086107757871.html#10086133118192">
+                    <p><img src="./img/img03/1.webp" alt=""></p>
+                    <p class="title">FreeBuds 4 无线耳机</p>
+                    <p class="desc">半开放主动降噪2.0</p>
+                    <p class="sale">订金100抵?00</p>
+                    <div class="price-wrp">
+                        <p>
+                            <span class="price-currency">¥</span>
+                            <span class="price-amount">999</span>
+                            <span class="price-from"></span>
+                        </p>
+                    </div>
+                </a>
+                <a href="https://www.vmall.com/product/10086107757871.html#10086133118192">
+                    <p><img src="./img/img03/2.webp" alt=""></p>
+                    <p class="title">FreeBuds 4i 无线耳机</p>
+                    <p class="desc">主动降噪 通话降噪</p>
+                    <p class="sale">预订享618价</p>
+                    <div class="price-wrp">
+                        <p>
+                            <span class="price-currency">¥</span>
+                            <span class="price-amount">499</span>
+                            <span class="price-from"></span>
+                        </p>
+                    </div>
+                </a>
+                <a href="https://www.vmall.com/product/10086107757871.html#10086133118192">
+                    <p><img src="./img/img03/7.webp" alt=""></p>
+                    <p class="title">FreeBuds Pro 无线耳机</p>
+                    <p class="desc">主动降噪 人声透传</p>
+                    <p class="sale">预定享618价</p>
+                    <div class="price-wrp">
+                        <p>
+                            <span class="price-currency">¥</span>
+                            <span class="price-amount">1099</span>
+                            <span class="price-from">起</span>
+                        </p>
+                    </div>
+                </a>
+                <a class="a1" href="https://www.vmall.com/product/10086107757871.html#10086133118192">
+                    <p><img src="./img/img03/9.webp" alt=""></p>
+                    <p class="title">Mate 40 保时捷</p>
+                    <p class="desc">超感知徕卡电影五摄</p>
+                    <p class="sale">预订享618价</p>
+                    <div class="price-wrp">
+                        <p>
+                            <span class="price-currency">¥</span>
+                            <span class="price-amount">10999</span>
+                            <span class="price-from">起</span>
+                        </p>
+                    </div>
+                </a>
+                <a href="https://www.vmall.com/product/10086107757871.html#10086133118192">
+                    <p><img src="./img/img03/3.png" alt=""></p>
+                    <p class="title">HUAWEI MateView</p>
+                    <p class="desc">28.2英寸3:2原色显示器</p>
+                    <p class="sale">预定享618价</p>
+                    <div class="price-wrp">
+                        <p>
+                            <span class="price-currency">¥</span>
+                            <span class="price-amount">4699</span>
+                            <span class="price-from"></span>
+                        </p>
+                    </div>
+                </a>
+                <a href="https://www.vmall.com/product/10086107757871.html#10086133118192">
+                    <p><img src="./img/img03/4.webp" alt=""></p>
+                    <p class="title">MatePad 10.4</p>
+                    <p class="desc">教育学习平板电脑</p>
+                    <p class="sale">以旧换新最高补贴600元</p>
+                    <div class="price-wrp">
+                        <p>
+                            <span class="price-currency">¥</span>
+                            <span class="price-amount">2099</span>
+                            <span class="price-from"></span>
+                        </p>
+                    </div>
+                </a>
+                <a href="https://www.vmall.com/product/10086107757871.html#10086133118192">
+                    <p><img src="./img/img03/6.webp" alt=""></p>
+                    <p class="title">Mate 40 Pro</p>
+                    <p class="desc">麒麟9000E芯片</p>
+                    <p class="sale">以旧换新最高补贴600元</p>
+                    <div class="price-wrp">
+                        <p>
+                            <span class="price-currency">¥</span>
+                            <span class="price-amount">6299</span>
+                            <span class="price-from">起</span>
+                        </p>
+                    </div>
+                </a>
+            </div>
+            <div class="menu222">
+                <a href="https://www.vmall.com/product/10086107757871.html#10086133118192">
+                    <p><img src="./img/img08/5.png" alt=""></p>
+                    <p class="title">华为WATCH GT 2 Pro</p>
+                    <p class="desc">心率监测 蓝宝石镜面</p>
+                    <div class="price-wrp">
+                        <p>
+                            <span class="price-currency">¥</span>
+                            <span class="price-amount">2188</span>
+                            <span class="price-from">起</span>
+                        </p>
+                    </div>
+                </a>
+                <a href="https://www.vmall.com/product/10086107757871.html#10086133118192">
+                    <p><img src="./img/img08/1.png" alt=""></p>
+                    <p class="title">华为WATCH GT 2 Pro</p>
+                    <p class="desc">心率监测 蓝宝石镜面</p>
+                    <div class="price-wrp">
+                        <p>
+                            <span class="price-currency">¥</span>
+                            <span class="price-amount">2188</span>
+                            <span class="price-from">起</span>
+                        </p>
+                    </div>
+                </a>
+                <a href="https://www.vmall.com/product/10086107757871.html#10086133118192">
+                    <p><img src="./img/img08/4.png" alt=""></p>
+                    <p class="title">华为WATCH GT 2 Pro</p>
+                    <p class="desc">心率监测 蓝宝石镜面</p>
+                    <div class="price-wrp">
+                        <p>
+                            <span class="price-currency">¥</span>
+                            <span class="price-amount">2188</span>
+                            <span class="price-from">起</span>
+                        </p>
+                    </div>
+                </a>
+                <a href="https://www.vmall.com/product/10086107757871.html#10086133118192">
+                    <p><img src="./img/img08/2.png" alt=""></p>
+                    <p class="title">华为WATCH GT 2 Pro</p>
+                    <p class="desc">心率监测 蓝宝石镜面</p>
+                    <div class="price-wrp">
+                        <p>
+                            <span class="price-currency">¥</span>
+                            <span class="price-amount">2188</span>
+                            <span class="price-from">起</span>
+                        </p>
+                    </div>
+                </a>
+                <a href="https://www.vmall.com/product/10086107757871.html#10086133118192">
+                    <p><img src="./img/img08/3.png" alt=""></p>
+                    <p class="title">华为WATCH GT 2 Pro</p>
+                    <p class="desc">心率监测 蓝宝石镜面</p>
+                    <div class="price-wrp">
+                        <p>
+                            <span class="price-currency">¥</span>
+                            <span class="price-amount">2188</span>
+                            <span class="price-from">起</span>
+                        </p>
+                    </div>
+                </a>
+            </div>
+        </div>
+        <div id="l3"><img src="./img/img02/15.webp" alt=""></div>
+        <div class="menu22">
+            <a href="https://www.vmall.com/product/10086107757871.html#10086133118192">
+                <p><img src="./img/img04/2.webp" alt=""></p>
+                <p class="title">华为手环 B6</p>
+                <p class="desc">智能通话手环</p>
+                <p class="sale">预订享618价</p>
+                <div class="price-wrp">
+                    <p>
+                        <span class="price-currency">¥</span>
+                        <span class="price-amount">999</span>
+                        <span class="price-from">起</span>
+                    </p>
+                </div>
+            </a>
+            <a href="https://www.vmall.com/product/10086107757871.html#10086133118192">
+                <p><img src="./img/img07/1.webp" alt=""></p>
+                <p class="title">HUAWEI WATCH GT 2</p>
+                <p class="desc">2周续航 蓝牙通话</p>
+                <p class="sale">享3期免息</p>
+                <div class="price-wrp">
+                    <p>
+                        <span class="price-currency">¥</span>
+                        <span class="price-amount">1488</span>
+                        <span class="price-from">起</span>
+                    </p>
+                </div>
+            </a>
+            <a href="https://www.vmall.com/product/10086107757871.html#10086133118192">
+                <p><img src="./img/img04/3.png" alt=""></p>
+                <p class="title">亿健精灵S7智能跑步机</p>
+                <p class="desc">柔性减震专利</p>
+                <p class="sale">预订到手价1799</p>
+                <div class="price-wrp">
+                    <p>
+                        <span class="price-currency">¥</span>
+                        <span class="price-amount">1999</span>
+                        <span class="price-from"></span>
+                    </p>
+                </div>
+            </a>
+            <a href="https://www.vmall.com/product/10086107757871.html#10086133118192">
+                <p><img src="./img/img04/6.png" alt=""></p>
+                <p class="title">华为智能体脂秤 2 Pro</p>
+                <p class="desc">全方位体成分报告</p>
+                <p class="sale">预定优惠200元</p>
+                <div class="price-wrp">
+                    <p>
+                        <span class="price-currency">¥</span>
+                        <span class="price-amount">499</span>
+                        <span class="price-from"></span>
+                    </p>
+                </div>
+            </a>
+            <a class="a1" href="https://www.vmall.com/product/10086107757871.html#10086133118192">
+                <p><img src="./img/img04/4.png" alt=""></p>
+                <p class="title">华为智能体脂秤 3 Pro</p>
+                <p class="desc">全方位身体成分分析</p>
+                <p class="sale">预订享优惠</p>
+                <div class="price-wrp">
+                    <p>
+                        <span class="price-currency">¥</span>
+                        <span class="price-amount">499</span>
+                        <span class="price-from"></span>
+                    </p>
+                </div>
+            </a>
+            <a href="https://www.vmall.com/product/10086107757871.html#10086133118192">
+                <p><img src="./img/img04/8.webp" alt=""></p>
+                <p class="title">华为手环 6</p>
+                <p class="desc">血氧心率睡眠监测</p>
+                <p class="sale">预订享618价</p>
+                <div class="price-wrp">
+                    <p>
+                        <span class="price-currency">¥</span>
+                        <span class="price-amount">349</span>
+                        <span class="price-from"></span>
+                    </p>
+                </div>
+            </a>
+            <a href="https://www.vmall.com/product/10086107757871.html#10086133118192">
+                <p><img src="./img/img04/5.webp" alt=""></p>
+                <p class="title">华为儿童手表 4X</p>
+                <p class="desc">高清双摄丨双频11重定位</p>
+                <p class="sale">预订享618价</p>
+                <div class="price-wrp">
+                    <p>
+                        <span class="price-currency">¥</span>
+                        <span class="price-amount">1398</span>
+                        <span class="price-from"></span>
+                    </p>
+                </div>
+            </a>
+            <a href="https://www.vmall.com/product/10086107757871.html#10086133118192">
+                <p><img src="./img/img04/7.png" alt=""></p>
+                <p class="title">华为儿童手表 3 Pro</p>
+                <p class="desc">高清拍照丨九重定位</p>
+                <p class="sale">预订享618价</p>
+                <div class="price-wrp">
+                    <p>
+                        <span class="price-currency">¥</span>
+                        <span class="price-amount">988</span>
+                        <span class="price-from"></span>
+                    </p>
+                </div>
+            </a>
+        </div>
+        <div class="menu222">
+            <a href="https://www.vmall.com/product/10086107757871.html#10086133118192">
+                <p><img src="./img/img08/9.png" alt=""></p>
+                <p class="title">华为WATCH GT 2 Pro</p>
+                <p class="desc">心率监测 蓝宝石镜面</p>
+                <div class="price-wrp">
+                    <p>
+                        <span class="price-currency">¥</span>
+                        <span class="price-amount">2188</span>
+                        <span class="price-from">起</span>
+                    </p>
+                </div>
+            </a>
+            <a href="https://www.vmall.com/product/10086107757871.html#10086133118192">
+                <p><img src="./img/img08/10.png" alt=""></p>
+                <p class="title">华为WATCH GT 2 Pro</p>
+                <p class="desc">心率监测 蓝宝石镜面</p>
+                <div class="price-wrp">
+                    <p>
+                        <span class="price-currency">¥</span>
+                        <span class="price-amount">2188</span>
+                        <span class="price-from">起</span>
+                    </p>
+                </div>
+            </a>
+            <a href="https://www.vmall.com/product/10086107757871.html#10086133118192">
+                <p><img src="./img/img08/8.png" alt=""></p>
+                <p class="title">华为WATCH GT 2 Pro</p>
+                <p class="desc">心率监测 蓝宝石镜面</p>
+                <div class="price-wrp">
+                    <p>
+                        <span class="price-currency">¥</span>
+                        <span class="price-amount">2188</span>
+                        <span class="price-from">起</span>
+                    </p>
+                </div>
+            </a>
+            <a href="https://www.vmall.com/product/10086107757871.html#10086133118192">
+                <p><img src="./img/img08/6.png" alt=""></p>
+                <p class="title">华为WATCH GT 2 Pro</p>
+                <p class="desc">心率监测 蓝宝石镜面</p>
+                <div class="price-wrp">
+                    <p>
+                        <span class="price-currency">¥</span>
+                        <span class="price-amount">2188</span>
+                        <span class="price-from">起</span>
+                    </p>
+                </div>
+            </a>
+            <a href="https://www.vmall.com/product/10086107757871.html#10086133118192">
+                <p><img src="./img/img08/7.png" alt=""></p>
+                <p class="title">华为WATCH GT 2 Pro</p>
+                <p class="desc">心率监测 蓝宝石镜面</p>
+                <div class="price-wrp">
+                    <p>
+                        <span class="price-currency">¥</span>
+                        <span class="price-amount">2188</span>
+                        <span class="price-from">起</span>
+                    </p>
+                </div>
+            </a>
+        </div>
+        <div id="l4"><img src="./img/img04/1.webp" alt=""></div>
+        <div class="menu22">
+            <a href="https://www.vmall.com/product/10086107757871.html#10086133118192">
+                <p><img src="./img/img05/4.png" alt=""></p>
+                <p class="title">HUAWEI MateView GT</p>
+                <p class="desc">21:9宽屏曲面游戏显示器</p>
+                <p class="sale">预订享618价</p>
+                <div class="price-wrp">
+                    <p>
+                        <span class="price-currency">¥</span>
+                        <span class="price-amount">3599</span>
+                        <span class="price-from"></span>
+                    </p>
+                </div>
+            </a>
+            <a href="https://www.vmall.com/product/10086107757871.html#10086133118192">
+                <p><img src="./img/img05/5.png" alt=""></p>
+                <p class="title">华为显示器23.8"</p>
+                <p class="desc">全面屏高清办公显示器</p>
+                <p class="sale">预订享618价</p>
+                <div class="price-wrp">
+                    <p>
+                        <span class="price-currency">¥</span>
+                        <span class="price-amount">1099</span>
+                        <span class="price-from"></span>
+                    </p>
+                </div>
+            </a>
+            <a href="https://www.vmall.com/product/10086107757871.html#10086133118192">
+                <p><img src="./img/img05/8.webp" alt=""></p>
+                <p class="title">华为路由AX2 Pro</p>
+                <p class="desc">Wi-Fi6路由 畅享4K影片</p>
+                <p class="sale">预订优惠20元</p>
+                <div class="price-wrp">
+                    <p>
+                        <span class="price-currency">¥</span>
+                        <span class="price-amount">299</span>
+                        <span class="price-from"></span>
+                    </p>
+                </div>
+            </a>
+            <a href="https://www.vmall.com/product/10086107757871.html#10086133118192">
+                <p><img src="./img/img05/1.png" alt=""></p>
+                <p class="title">Sound 智能音箱</p>
+                <p class="desc">帝瓦雷四喇叭丨40W低音炮</p>
+                <p class="sale">预定优惠200元</p>
+                <div class="price-wrp">
+                    <p>
+                        <span class="price-currency">¥</span>
+                        <span class="price-amount">1099</span>
+                        <span class="price-from">起</span>
+                    </p>
+                </div>
+            </a>
+            <a class="a1" href="https://www.vmall.com/product/10086107757871.html#10086133118192">
+                <p><img src="./img/img05/7.png" alt=""></p>
+                <p class="title">FreeLace Pro 无线耳机</p>
+                <p class="desc">双重主动降噪</p>
+                <p class="sale">预订享618惊喜价</p>
+                <div class="price-wrp">
+                    <p>
+                        <span class="price-currency">¥</span>
+                        <span class="price-amount">599</span>
+                        <span class="price-from"></span>
+                    </p>
+                </div>
+            </a>
+            <a href="https://www.vmall.com/product/10086107757871.html#10086133118192">
+                <p><img src="./img/img05/2.png" alt=""></p>
+                <p class="title">FreeBuds Studio</p>
+                <p class="desc">无线头戴耳机</p>
+                <p class="sale">订金100抵?00</p>
+                <div class="price-wrp">
+                    <p>
+                        <span class="price-currency">¥</span>
+                        <span class="price-amount">1999</span>
+                        <span class="price-from"></span>
+                    </p>
+                </div>
+            </a>
+            <a href="https://www.vmall.com/product/10086107757871.html#10086133118192">
+                <p><img src="./img/img05/3.png" alt=""></p>
+                <p class="title">FreeLace 无线耳机</p>
+                <p class="desc">18小时长续航</p>
+                <p class="sale">预订享618惊喜价</p>
+                <div class="price-wrp">
+                    <p>
+                        <span class="price-currency">¥</span>
+                        <span class="price-amount">499</span>
+                        <span class="price-from"></span>
+                    </p>
+                </div>
+            </a>
+            <a href="https://www.vmall.com/product/10086107757871.html#10086133118192">
+                <p><img src="./img/img05/6.png" alt=""></p>
+                <p class="title">720全效空气净化器EP500</p>
+                <p class="desc">深紫外灭菌丨负离子清新</p>
+                <p class="sale">预订省295元</p>
+                <div class="price-wrp">
+                    <p>
+                        <span class="price-currency">¥</span>
+                        <span class="price-amount">1299</span>
+                        <span class="price-from"></span>
+                    </p>
+                </div>
+            </a>
+        </div>
+        <div id="l5"><img src="./img/img05/9.webp" alt=""></div>
+        <div class="menu1">
+            <a href="https://www.vmall.com/product/10086107757871.html#10086133118192">
+                <p><img src="./img/img07/12.png" alt=""></p>
+                <p class="title">海雀智能摄像头Pro</p>
+                <p class="desc">鸿蒙HarmonyOS</p>
+                <p class="sale">享3期免息</p>
+                <div class="price-wrp">
+                    <p>
+                        <span class="price-currency">¥</span>
+                        <span class="price-amount">299</span>
+                        <span class="price-from"></span>
+                    </p>
+                </div>
+            </a>
+            <a href="https://www.vmall.com/product/10086107757871.html#10086133118192">
+                <p><img src="./img/img07/7.png" alt=""></p>
+                <p class="title">华为智慧屏 X65E</p>
+                <p class="desc">HDR超高清OLED</p>
+                <p class="sale">预订省300元+整点赠礼</p>
+                <div class="price-wrp">
+                    <p>
+                        <span class="price-currency">¥</span>
+                        <span class="price-amount">24999</span>
+                        <span class="price-from"></span>
+                    </p>
+                </div>
+            </a>
+            <a href="https://www.vmall.com/product/10086107757871.html#10086133118192">
+                <p><img src="./img/img07/2.png" alt=""></p>
+                <p class="title">HUAWEI Sound</p>
+                <p class="desc">帝瓦雷四喇叭</p>
+                <p class="sale">预订优惠200元</p>
+                <div class="price-wrp">
+                    <p>
+                        <span class="price-currency">¥</span>
+                        <span class="price-amount">999</span>
+                        <span class="price-from"></span>
+                    </p>
+                </div>
+            </a>
+            <a href="https://www.vmall.com/product/10086107757871.html#10086133118192">
+                <p><img src="./img/img07/3.png" alt=""></p>
+                <p class="title">力博得智能声波牙刷2S</p>
+                <p class="desc">SPA级柔护宽刷头</p>
+                <p class="sale">SPA级柔护刷头</p>
+                <div class="price-wrp">
+                    <p>
+                        <span class="price-currency">¥</span>
+                        <span class="price-amount">129</span>
+                        <span class="price-from">起</span>
+                    </p>
+                </div>
+            </a>
+            <a class="a1" href="https://www.vmall.com/product/10086107757871.html#10086133118192">
+                <p><img src="./img/img07/4.png" alt=""></p>
+                <p class="title">720全效空气净化器C400</p>
+                <p class="desc">深紫外灭菌</p>
+                <p class="sale">预订省200元</p>
+                <div class="price-wrp">
+                    <p>
+                        <span class="price-currency">¥</span>
+                        <span class="price-amount">899</span>
+                        <span class="price-from"></span>
+                    </p>
+                </div>
+            </a>
+            <a href="https://www.vmall.com/product/10086107757871.html#10086133118192">
+                <p><img src="./img/img07/5.png" alt=""></p>
+                <p class="title">华为智选 欧普智能台灯2S</p>
+                <p class="desc">国家AA级标准好光</p>
+                <p class="sale">预订省20元</p>
+                <div class="price-wrp">
+                    <p>
+                        <span class="price-currency">¥</span>
+                        <span class="price-amount">179</span>
+                        <span class="price-from"></span>
+                    </p>
+                </div>
+            </a>
+            <a href="https://www.vmall.com/product/10086107757871.html#10086133118192">
+                <p><img src="./img/img07/1.webp" alt=""></p>
+                <p class="title">VOC智能门锁S</p>
+                <p class="desc">手机一碰开锁</p>
+                <p class="sale">HarmonyOS 2</p>
+                <div class="price-wrp">
+                    <p>
+                        <span class="price-currency">¥</span>
+                        <span class="price-amount">1299</span>
+                        <span class="price-from"></span>
+                    </p>
+                </div>
+            </a>
+            <a href="https://www.vmall.com/product/10086107757871.html#10086133118192">
+                <p><img src="./img/img07/6.png" alt=""></p>
+                <p class="title">海雀智能门铃Pro</p>
+                <p class="desc">一键视频通话</p>
+                <p class="sale">搭载HarmonyOS 2</p>
+                <div class="price-wrp">
+                    <p>
+                        <span class="price-currency">¥</span>
+                        <span class="price-amount">599</span>
+                        <span class="price-from"></span>
+                    </p>
+                </div>
+            </a>
+            <a class="a2" href="https://www.vmall.com/product/10086107757871.html#10086133118192">
+                <p><img src="./img/img07/11.png" alt=""></p>
+                <p class="title">华为智慧屏V系列</p>
+                <p class="desc">多方视频通话</p>
+                <p class="sale">预订省1300</p>
+                <div class="price-wrp">
+                    <p>
+                        <span class="price-currency">¥</span>
+                        <span class="price-amount">5999</span>
+                        <span class="price-from"></span>
+                    </p>
+                </div>
+            </a>
+            <a href="https://www.vmall.com/product/10086107757871.html#10086133118192">
+                <p><img src="./img/img07/8.png" alt=""></p>
+                <p class="title">华为智慧屏 SE</p>
+                <p class="desc">4K HDR全面屏液晶电视</p>
+                <p class="sale">预订省300元</p>
+                <div class="price-wrp">
+                    <p>
+                        <span class="price-currency">¥</span>
+                        <span class="price-amount">4299</span>
+                        <span class="price-from"></span>
+                    </p>
+                </div>
+            </a>
+            <a href="https://www.vmall.com/product/10086107757871.html#10086133118192">
+                <p><img src="./img/img07/10.png" alt=""></p>
+                <p class="title">华为智慧屏V系列 2021款</p>
+                <p class="desc">2400万超广角AI慧眼</p>
+                <p class="sale">预订省200+整点赠尊享礼包</p>
+                <div class="price-wrp">
+                    <p>
+                        <span class="price-currency">¥</span>
+                        <span class="price-amount">7999</span>
+                        <span class="price-from"></span>
+                    </p>
+                </div>
+            </a>
+            <a href="https://www.vmall.com/product/10086107757871.html#10086133118192">
+                <p><img src="./img/img07/9.png" alt=""></p>
+                <p class="title">华为智慧屏S系列</p>
+                <p class="desc">4K超薄全面屏</p>
+                <p class="sale">预订省300</p>
+                <div class="price-wrp">
+                    <p>
+                        <span class="price-currency">¥</span>
+                        <span class="price-amount">3299</span>
+                        <span class="price-from"></span>
+                    </p>
+                </div>
+            </a>
+        </div>
+        <div id="l5"><img src="./img/img06/1.webp" alt=""></div>
+        <div class="menu22">
+            <a href="https://www.vmall.com/product/10086107757871.html#10086133118192">
+                <p><img src="./img/img09/1.webp" alt=""></p>
+                <p class="title">HUAWEI Mate 40 Pro</p>
+                <p class="desc">5nm麒麟9000芯片</p>
+                <div class="price-wrp">
+                    <p>
+                        <span class="price-currency">¥</span>
+                        <span class="price-amount">6299</span>
+                        <span class="price-from"></span>
+                    </p>
+                </div>
+            </a>
+            <a href="https://www.vmall.com/product/10086107757871.html#10086133118192">
+                <p><img src="./img/img09/8.png" alt=""></p>
+                <p class="title">HUAWEI Mate 40</p>
+                <p class="desc">超感知徕卡影像</p>
+                <div class="price-wrp">
+                    <p>
+                        <span class="price-currency">¥</span>
+                        <span class="price-amount">4999</span>
+                        <span class="price-from">起</span>
+                    </p>
+                </div>
+            </a>
+            <a href="https://www.vmall.com/product/10086107757871.html#10086133118192">
+                <p><img src="./img/img09/6.png" alt=""></p>
+                <p class="title">HUAWEI nova 8 Pro</p>
+                <p class="desc">通信5G四网协同</p>
+                <div class="price-wrp">
+                    <p>
+                        <span class="price-currency">¥</span>
+                        <span class="price-amount">3999</span>
+                        <span class="price-from">起</span>
+                    </p>
+                </div>
+            </a>
+            <a href="https://www.vmall.com/product/10086107757871.html#10086133118192">
+                <p><img src="./img/img09/2.png" alt=""></p>
+                <p class="title">HUAWEI nova 8</p>
+                <p class="desc">66W华为超级快充</p>
+
+                <div class="price-wrp">
+                    <p>
+                        <span class="price-currency">¥</span>
+                        <span class="price-amount">3099</span>
+                        <span class="price-from">起</span>
+                    </p>
+                </div>
+            </a>
+            <a class="a1" href="https://www.vmall.com/product/10086107757871.html#10086133118192">
+                <p><img src="./img/img09/7.webp" alt=""></p>
+                <p class="title">HUAWEI Mate 40E</p>
+                <p class="desc">6.5英寸OLED曲面屏</p>
+                <p class="sale">搭载HarmonyOS 2</p>
+                <div class="price-wrp">
+                    <p>
+                        <span class="price-currency">¥</span>
+                        <span class="price-amount">4199</span>
+                        <span class="price-from">起</span>
+                    </p>
+                </div>
+            </a>
+            <a href="https://www.vmall.com/product/10086107757871.html#10086133118192">
+                <p><img src="./img/img09/5.png" alt=""></p>
+                <p class="title">HUAWEI Mate X2</p>
+                <p class="desc">科技大成</p>
+                <div class="price-wrp">
+                    <p>
+                        <span class="price-currency">¥</span>
+                        <span class="price-amount">20098</span>
+                        <span class="price-from"></span>
+                    </p>
+                </div>
+            </a>
+            <a href="https://www.vmall.com/product/10086107757871.html#10086133118192">
+                <p><img src="./img/img09/4.webp" alt=""></p>
+                <p class="title">HUAWEI Mate 40 Pro+</p>
+                <p class="desc">教育学习平板电脑</p>
+                <p class="sale">以旧换新最高补贴600元</p>
+                <div class="price-wrp">
+                    <p>
+                        <span class="price-currency">¥</span>
+                        <span class="price-amount">8499</span>
+                        <span class="price-from">起</span>
+                    </p>
+                </div>
+            </a>
+            <a href="https://www.vmall.com/product/10086107757871.html#10086133118192">
+                <p><img src="./img/img09/3.png" alt=""></p>
+                <p class="title">华为畅享20 SE</p>
+                <p class="desc">6.67英寸全高清大屏</p>
+                <div class="price-wrp">
+                    <p>
+                        <span class="price-currency">¥</span>
+                        <span class="price-amount">1499</span>
+                        <span class="price-from"></span>
+                    </p>
+                </div>
+            </a>
+        </div>
+        <div class="menu222">
+            <a href="https://www.vmall.com/product/10086107757871.html#10086133118192">
+                <p><img src="./img/img08/15.png" alt=""></p>
+                <p class="title">66W超级快充充电器</p>
+                <p class="desc"> 新品上市</p>
+                <div class="price-wrp">
+                    <p>
+                        <span class="price-currency">¥</span>
+                        <span class="price-amount">199</span>
+                        <span class="price-from"></span>
+                    </p>
+                </div>
+            </a>
+            <a href="https://www.vmall.com/product/10086107757871.html#10086133118192">
+                <p><img src="./img/img08/12.png" alt=""></p>
+                <p class="title">快充立式无线充</p>
+                <p class="desc"> 无线超级快充</p>
+                <div class="price-wrp">
+                    <p>
+                        <span class="price-currency">¥</span>
+                        <span class="price-amount">299</span>
+                        <span class="price-from">起</span>
+                    </p>
+                </div>
+            </a>
+            <a href="https://www.vmall.com/product/10086107757871.html#10086133118192">
+                <p><img src="./img/img08/13.png" alt=""></p>
+                <p class="title">华为三脚架自拍杆</p>
+                <p class="desc"> 拼团省40元</p>
+                <div class="price-wrp">
+                    <p>
+                        <span class="price-currency">¥</span>
+                        <span class="price-amount">199</span>
+                        <span class="price-from"></span>
+                    </p>
+                </div>
+            </a>
+            <a href="https://www.vmall.com/product/10086107757871.html#10086133118192">
+                <p><img src="./img/img08/14.png" alt=""></p>
+                <p class="title">风范双肩包</p>
+                <p class="desc"> 简约风范</p>
+                <div class="price-wrp">
+                    <p>
+                        <span class="price-currency">¥</span>
+                        <span class="price-amount">699</span>
+                        <span class="price-from"></span>
+                    </p>
+                </div>
+            </a>
+            <a href="https://www.vmall.com/product/10086107757871.html#10086133118192">
+                <p><img src="./img/img08/11.png" alt=""></p>
+                <p class="title">HUAWEI 蓝牙鼠标</p>
+                <p class="desc"> 金属触感</p>
+                <div class="price-wrp">
+                    <p>
+                        <span class="price-currency">¥</span>
+                        <span class="price-amount">179</span>
+                        <span class="price-from"></span>
+                    </p>
+                </div>
+            </a>
+        </div>
+        <div id="l6"><img src="./img/img06/2.webp" alt=""></div>
+        <div class="peijian">
+            <ul id="peijian-wrapper">
+                <li id="p1">智能配件</li>
+                <li id="p2">通用配件</li>
+                <li id="p3">华为智选</li>
+            </ul>
+            <div class="menu22" id="p4">
+                <a href="https://www.vmall.com/product/10086107757871.html#10086133118192">
+                    <p><img src="./img/img10/5.png" alt=""></p>
+                    <p class="title">超级快充立式无线充电器</p>
+                    <p class="desc">Max 50W|双圈设计</p>
+                    <p class="sale">限时优惠40元</p>
+                    <div class="price-wrp">
+                        <p>
+                            <span class="price-currency">¥</span>
+                            <span class="price-amount">289</span>
+                            <span class="price-from">起</span>
+                        </p>
+                    </div>
+                </a>
+                <a href="https://www.vmall.com/product/10086107757871.html#10086133118192">
+                    <p><img src="./img/img10/6.png" alt=""></p>
+                    <p class="title">华为超级快充无线车充</p>
+                    <p class="desc">Max 50W|智能开合感应</p>
+                    <p class="sale">限时优惠34元</p>
+                    <div class="price-wrp">
+                        <p>
+                            <span class="price-currency">¥</span>
+                            <span class="price-amount">315</span>
+                            <span class="price-from"></span>
+                        </p>
+                    </div>
+                </a>
+                <a href="https://www.vmall.com/product/10086107757871.html#10086133118192">
+                    <p><img src="./img/img10/1.png" alt=""></p>
+                    <p class="title">华为随行WIFI 3</p>
+                    <p class="desc">4G网络|插卡即用</p>
+                    <p class="sale">限时优惠30元</p>
+                    <div class="price-wrp">
+                        <p>
+                            <span class="price-currency">¥</span>
+                            <span class="price-amount">269</span>
+                            <span class="price-from"></span>
+                        </p>
+                    </div>
+                </a>
+                <a href="https://www.vmall.com/product/10086107757871.html#10086133118192">
+                    <p><img src="./img/img10/3.png" alt=""></p>
+                    <p class="title">华为车载充电器</p>
+                    <p class="desc">超级快充|Max 66W</p>
+                    <p class="sale">限时优惠15元</p>
+                    <div class="price-wrp">
+                        <p>
+                            <span class="price-currency">¥</span>
+                            <span class="price-amount">214</span>
+                            <span class="price-from"></span>
+                        </p>
+                    </div>
+                </a>
+                <a class="a1" href="https://www.vmall.com/product/10086107757871.html#10086133118192">
+                    <p><img src="./img/img10/4.png" alt=""></p>
+                    <p class="title">智能眼镜2代</p>
+                    <p class="desc">高清通话|持久续航</p>
+                    <p class="sale">享十二期免息</p>
+                    <div class="price-wrp">
+                        <p>
+                            <span class="price-currency">¥</span>
+                            <span class="price-amount">2699</span>
+                            <span class="price-from"></span>
+                        </p>
+                    </div>
+                </a>
+                <a href="https://www.vmall.com/product/10086107757871.html#10086133118192">
+                    <p><img src="./img/img10/8.png" alt=""></p>
+                    <p class="title">华为路由Q2S</p>
+                    <p class="desc">科技大成</p>
+                    <p class="sale">大户型首选</p>
+                    <div class="price-wrp">
+                        <p>
+                            <span class="price-currency">¥</span>
+                            <span class="price-amount">599</span>
+                            <span class="price-from"></span>
+                        </p>
+                    </div>
+                </a>
+                <a href="https://www.vmall.com/product/10086107757871.html#10086133118192">
+                    <p><img src="./img/img10/2.png" alt=""></p>
+                    <p class="title">华为超级快充移动电源</p>
+                    <p class="desc">66W SunerCharge多协议</p>
+                    <p class="sale">限时优惠40元</p>
+                    <div class="price-wrp">
+                        <p>
+                            <span class="price-currency">¥</span>
+                            <span class="price-amount">359</span>
+                            <span class="price-from"></span>
+                        </p>
+                    </div>
+                </a>
+                <a href="https://www.vmall.com/product/10086107757871.html#10086133118192">
+                    <p><img src="./img/img10/7.png" alt=""></p>
+                    <p class="title">小豚当家AI全彩摄像头</p>
+                    <p class="desc">AI移动追踪|智慧看家护宠</p>
+                    <p class="sale">限时直降10元</p>
+                    <div class="price-wrp">
+                        <p>
+                            <span class="price-currency">¥</span>
+                            <span class="price-amount">169</span>
+                            <span class="price-from"></span>
+                        </p>
+                    </div>
+                </a>
+            </div>
+            <div class="menu22" id="p5">
+                <a href="https://www.vmall.com/product/10086107757871.html#10086133118192">
+                    <p><img src="./img/img11/1.png" alt=""></p>
+                    <p class="title">华为立式超级快充</p>
+                    <p class="desc">40W超级快充|全新立式风冷</p>
+                    <p class="sale">限时优惠40元</p>
+                    <div class="price-wrp">
+                        <p>
+                            <span class="price-currency">¥</span>
+                            <span class="price-amount">259</span>
+                            <span class="price-from">起</span>
+                        </p>
+                    </div>
+                </a>
+                <a href="https://www.vmall.com/product/10086107757871.html#10086133118192">
+                    <p><img src="./img/img11/2.png" alt=""></p>
+                    <p class="title">华为三脚架自杆拍</p>
+                    <p class="desc">三脚架+自干拍-体式设计</p>
+                    <p class="sale">拼团省40元</p>
+                    <div class="price-wrp">
+                        <p>
+                            <span class="price-currency">¥</span>
+                            <span class="price-amount">89</span>
+                            <span class="price-from"></span>
+                        </p>
+                    </div>
+                </a>
+                <a href="https://www.vmall.com/product/10086107757871.html#10086133118192">
+                    <p><img src="./img/img11/4.png" alt=""></p>
+                    <p class="title">华为超级快充双口充电器</p>
+                    <p class="desc">双口兼容多种充电协议</p>
+                    <p class="sale">双口智能输出，可同时支持华为超级快充</p>
+                    <div class="price-wrp">
+                        <p>
+                            <span class="price-currency">¥</span>
+                            <span class="price-amount">249</span>
+                            <span class="price-from"></span>
+                        </p>
+                    </div>
+                </a>
+                <a href="https://www.vmall.com/product/10086107757871.html#10086133118192">
+                    <p><img src="./img/img11/3.png" alt=""></p>
+                    <p class="title">华为超级快充无线充电器</p>
+                    <p class="desc">MAX 27W</p>
+                    <p class="sale">拼团省30元</p>
+                    <div class="price-wrp">
+                        <p>
+                            <span class="price-currency">¥</span>
+                            <span class="price-amount">169</span>
+                            <span class="price-from"></span>
+                        </p>
+                    </div>
+                </a>
+            </div>
+            <div class="menu22" id="p6">
+                <a href="https://www.vmall.com/product/10086107757871.html#10086133118192">
+                    <p><img src="./img/img11/7.png" alt=""></p>
+                    <p class="title">力博得智能声波牙刷星钻</p>
+                    <p class="desc">36变智能美齿|90天长续航</p>
+                    <p class="sale">限时直降33元</p>
+                    <div class="price-wrp">
+                        <p>
+                            <span class="price-currency">¥</span>
+                            <span class="price-amount">266</span>
+                            <span class="price-from"></span>
+                        </p>
+                    </div>
+                </a>
+                <a href="https://www.vmall.com/product/10086107757871.html#10086133118192">
+                    <p><img src="./img/img11/8.png" alt=""></p>
+                    <p class="title">华为智选 智能水杯</p>
+                    <p class="desc">OLED智显示 饮水健康管理</p>
+                    <p class="sale">限时直降20元</p>
+                    <div class="price-wrp">
+                        <p>
+                            <span class="price-currency">¥</span>
+                            <span class="price-amount">89</span>
+                            <span class="price-from"></span>
+                        </p>
+                    </div>
+                </a>
+                <a href="https://www.vmall.com/product/10086107757871.html#10086133118192">
+                    <p><img src="./img/img11/5.png" alt=""></p>
+                    <p class="title">海雀AI摄像头云台超清版</p>
+                    <p class="desc">AI移动追踪</p>
+                    <p class="sale">限时直降30元</p>
+                    <div class="price-wrp">
+                        <p>
+                            <span class="price-currency">¥</span>
+                            <span class="price-amount">199</span>
+                            <span class="price-from"></span>
+                        </p>
+                    </div>
+                </a>
+                <a href="https://www.vmall.com/product/10086107757871.html#10086133118192">
+                    <p><img src="./img/img11/6.png" alt=""></p>
+                    <p class="title">720全效空气净化器1Pro</p>
+                    <p class="desc">最多支持1拖15 丨子母路由</p>
+                    <p class="sale">限时直降300元</p>
+                    <div class="price-wrp">
+                        <p>
+                            <span class="price-currency">¥</span>
+                            <span class="price-amount">1999</span>
+                            <span class="price-from"></span>
+                        </p>
+                    </div>
+                </a>
+            </div>
+        </div>
+        <div id="l7"><img src="./img/img06/3.webp" alt=""></div>
+        <div id="l8"><img src="./img/img06/4.webp" alt=""></div>
+        <div id="l9"><img src="./img/img06/5.webp" alt=""></div>
+        <div class="pass">
+            <div class="pass1">
+                <div id="z1" class="c"></div>
+                <div id="z2" class="c"></div>
+                <div id="z3" class="c"></div>
+                <div id="z4" class="c"></div>
+                <div id="z5"></div>
+                <div id="z6" class="c"></div>
+                <div id="z7" class="c"></div>
+                <div id="z8" class="c"></div>
+                <div id="z9" class="c"></div>
+            </div>
+            <div class="pass2">
+                <div class="wenzi">活动规则</div>
+                <p class="o1">1、活动时间：2021年6月1日00:00-6月30日23:59</p>
+                <p class="o2">2、活动规则：活动期间用户登陆华为商城帐号，进入活动页面，点击参与抽奖，同一帐号每天有3次免费抽奖机会。</p>
+                <p class="o3">3、奖品设置：
+                </p>
+                <a href="" id="add">更多详情></a>
+                <div class="jiang">中奖名单</div>
+            </div>
+        </div>
+        <div id="l10"><img src="./img/img12/10.png" alt=""></div>
+    </div>
+    <script>
+        var p5 = document.getElementById("p5");
+        var p4 = document.getElementById("p4");
+        var p6 = document.getElementById("p6");
+        var p1 = document.getElementById("p1");
+        var p2 = document.getElementById("p2");
+        var p3 = document.getElementById("p3");
+        p1.className = "q1";
+        p1.onclick = function() {
+            p4.style.display = "block";
+            p5.style.display = "none";
+            p6.style.display = "none";
+            this.className = "q1";
+            p2.className = " ";
+            p3.className = "";
+            p4.style.display = "flex";
+        }
+        p2.onclick = function() {
+            p5.style.display = "block";
+            p4.style.display = "none";
+            p6.style.display = "none";
+            this.className = "q1";
+            p1.className = " ";
+            p3.className = " ";
+            p5.style.display = "flex";
+        }
+        p3.onclick = function() {
+            p6.style.display = "block";
+            p4.style.display = "none";
+            p5.style.display = "none";
+            this.className = "q1";
+            p1.className = " ";
+            p2.className = " ";
+            p6.style.display = "flex";
+        }
+    </script>
+    <script>
+        var z5 = document.getElementById("z5");
+        var arr = document.querySelectorAll(".c");
+        var timer = null;
+        z5.onclick = function() {
+            var n = 0;
+            this.style.backgroundImage = "url(./img/img12/9.png)";
+            if (timer == null) {
+                timer = setInterval(function() {
+                    n++;
+                    var num = Math.round(Math.random() * (7 - 0) + 0);
+                    for (var i = 0; i < arr.length; i++) {
+                        arr[i].style.border = "";
+                    }
+                    arr[num].style.border = "2px solid black";
+                    if (n >= 50) {
+                        clearInterval(timer);
+                        timer = null;
+                    }
+                }, 300);;
+            }
+        };
+    </script>
+</body>
+
+</html>

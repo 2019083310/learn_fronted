@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .axis {
+            stroke: #333;
+            stroke-width: 2px;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 
+			1/获取数据
+			2/创建SVG
+			3/创建坐标
+			4/绘制坐标文字
+			5/依据数据绘制矩形（条形）
+		 -->
+    <svg width='1000' height='700'>
+        <g id='zuobiao'>
+            <!-- x坐标轴 -->
+            <line class='axis' x1='50' y1='600' x2='950' y2='600'/>
+            <path d='M925,590 L950,600 L925,610' />
+            <text x='920' y='630'>时间</text>
+            <!-- y坐标轴 -->
+            <line class='axis' x1='100' y1='650' x2='100' y2='50' />
+            <path d='M90,75 L100,50 L110,75' />
+        </g>
+        <g id="xkedu">
+            <!-- <line class="axis" x1="170" y1="600" x2="170" y2="580"></line> -->
+            <text x="50" y="70">订单</text>
+        </g>
+        <g id="ykedu"></g>
+        <g id="barList">
+
+        </g>
+    </svg>
+    <script>
+        var data = [{
+                data: "星期一",
+                order: "1000"
+            },
+            {
+                data: "星期二",
+                order: "500"
+            },
+            {
+                data: "星期三",
+                order: "600"
+            },
+            {
+                data: "星期四",
+                order: "1100"
+            },
+            {
+                data: "星期五",
+                order: "700"
+            },
+            {
+                data: "星期六",
+                order: "1200"
+            },
+            {
+                data: "星期日",
+                order: "1500"
+            }
+        ];
+        let barList = document.getElementById('barList');
+        let y = document.getElementById('ykedu');
+        let x = document.getElementById('xkedu');
+        let ylength = 30;
+        let jgLength = 700 / data.length;
+        //x轴数据
+        for (let i = 1; i <= data.length; i++) {
+            render(i);
+        }
+
+        //y轴数据
+        for (let j = 1; j <= 15; j++) {
+            y.innerHTML = y.innerHTML + `<line class="axis" x1="100" y1="${600-ylength*j}" x2="120"
+             y2="${600-ylength*j}"></line>` + `<text x="50" y="${600-ylength*j}">${100*j}</text>`;
+        }
+
+        function render(index) {
+            let line = document.createElement('line');
+            line.className = 'axis';
+            line.setAttribute('x1', 100 + jgLength * index);
+            line.setAttribute('y1', 600);
+            line.setAttribute('x2', 100 + jgLength * index);
+            line.setAttribute('y2', 580);
+            x.innerHTML = x.innerHTML + line.innerHTML +
+                `<text x="${75+jgLength*index}" y="620">${data[index-1].data}</text>`;
+            let color =
+                `rgb(${Math.round(Math.random()*255)},${Math.round(Math.random()*255)},${Math.round(Math.random()*255)})`;
+            barList.innerHTML += `<rect x="${75+jgLength*index}" y="${600-(ylength*(data[index-1].order/100))}" width="50"
+             height="${ylength*(data[index-1].order/100)}" fill="${color}"></rect>`;
+        }
+    </script>
+</body>
+
+</html>

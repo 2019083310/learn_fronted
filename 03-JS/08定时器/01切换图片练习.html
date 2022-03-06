@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        img {
+            display: block;
+            width: 50%;
+            height: 400px;
+            margin: 50px auto;
+        }
+    </style>
+    <script>
+        window.onload = function() {
+            var img1 = document.getElementById("img1");
+            var btn01 = document.getElementById("btn01");
+            var imgArr = ["./img/03/1.jpg", "./img/03/2.jpg", "./img/03/4.jpg", "./img/03/5.jpg", "./img/03/6.jpg"];
+            var timer;
+            var index = 0;
+            btn01.onclick = function() {
+                clearInterval(timer);
+                timer = setInterval(function() {
+                    index++;
+                    index = index % imgArr.length;
+                    img1.src = imgArr[index];
+                }, 2000);
+            };
+            var btn02 = document.getElementById("btn02");
+            btn02.onclick = function() {
+                clearInterval(timer);
+            };
+        };
+    </script>
+</head>
+
+<body>
+    <img id="img1" src="./img/03/1.jpg" alt="">
+    <button id="btn01">开始</button>
+    <button id="btn02">停止</button>
+</body>
+
+</html>

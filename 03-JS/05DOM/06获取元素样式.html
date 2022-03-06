@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box1 {
+            width: 400px;
+            height: 400px;
+            background-color: #bfa;
+            margin: 50px auto;
+        }
+        
+        .box2 {
+            width: 200px;
+            height: 200px;
+            background-color: #c10;
+        }
+    </style>
+    <script>
+        window.onload = function() {
+            var box1 = document.getElementsByClassName("box1");
+            var box2 = document.getElementsByClassName("box2");
+            var btn = document.getElementById("btn");
+            btn.onclick = function() {
+                alert(getStyle(box1[0], "width"));
+            };
+        };
+
+        function getStyle(obj, name) {
+            if (window.getComputedStyle) {
+                return getComputedStyle(obj, null)[name];
+            } else {
+                return obj.currentStyle[name];
+            }
+        };
+    </script>
+</head>
+
+<body>
+    <button id="btn">点我</button>
+    <div class="box1">
+        <div class="box2"></div>
+    </div>
+</body>
+
+</html>

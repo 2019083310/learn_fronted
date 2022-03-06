@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            list-style: none;
+        }
+        
+        .outer {
+            height: 466px;
+            width: 406px;
+            margin: 8px;
+        }
+        
+        .inner {
+            width: 408px;
+            height: 42px;
+            background-color: #eee;
+        }
+        
+        .inner li {
+            width: 100px;
+            height: 40px;
+            border: 1px solid #ccc;
+            text-align: center;
+            line-height: 40px;
+            font-size: 16px;
+            float: left;
+        }
+        
+        .menu {
+            width: 406px;
+            height: 406px;
+            border: 1px solid #ccc;
+        }
+        
+        .menu img {
+            width: 100%;
+            height: 100%;
+            display: none;
+        }
+    </style>
+    <script>
+        window.onload = function() {
+            var liAll = document.getElementsByTagName("li");
+            var imgList = document.getElementsByTagName("img");
+            for (var i = 0; i < liAll.length; i++) {
+
+                liAll[i].index = i;
+                liAll[i].onmouseover = function() {
+                    this.style.backgroundColor = "yellow";
+                    for (var j = 0; j < imgList.length; j++) {
+                        imgList[j].style.display = "none";
+                    }
+                    imgList[this.index].style.display = "block";
+                };
+                liAll[i].onmouseleave = function() {
+                    for (var w = 0; w < liAll.length; w++) {
+                        liAll[w].style.backgroundColor = "";
+                    }
+                };
+            }
+        };
+    </script>
+</head>
+
+<body>
+    <div class="outer">
+        <ul class="inner">
+            <li style="background-color: rgb(238, 238, 238);">大橘</li>
+            <li style="background-color: rgb(238, 238, 238);">英短</li>
+            <li style="background-color: rgb(238, 238, 238);">美短</li>
+            <li style="background-color: rgb(238, 238, 238);">布偶</li>
+        </ul>
+        <div class="menu">
+            <img src="./img/ju.jpg" alt="" style="display: block;">
+            <img src="./img/ying.jpg" alt="" style="display: none;">
+            <img src="./img/hu.jpg" alt="" style="display: none;">
+            <img src="./img/bu.jpg" alt="" style="display: none;">
+        </div>
+    </div>
+</body>
+
+</html>

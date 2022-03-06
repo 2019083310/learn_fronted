@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/bootstrap.min.css">
+</head>
+
+<body>
+    <div class="container" style="margin-top:60px;margin-left:320px;">
+        <form class="form-horizontal" id="myform">
+            <div class="form-group">
+                <label for="userName" class="col-sm-2 control-label">姓名</label>
+                <div class="col-sm-6">
+                    <input type="text" class="form-control" id="userName" placeholder="请输入名字">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="password" class="col-sm-2 control-label">密码</label>
+                <div class="col-sm-6">
+                    <input type="text" class="form-control" id="password" placeholder="请输入密码">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="userAge" class="col-sm-2 control-label">年龄</label>
+                <div class="col-sm-6">
+                    <input type="text" class="form-control" id="userAge" placeholder="请输入年龄">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="sex" class="col-sm-2 control-label">性别</label>
+                <div class="col-sm-6">
+                    <input type="radio" name="sex" placeholder="请选择性别" value="男">男
+                    <input type="radio" name="sex" placeholder="请选择性别" value="女" style="margin-left:15px;margin-top:10px;">女
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="habby" class="col-sm-2 control-label">爱好</label>
+                <div class="col-sm-6">
+                    <input type="checkbox" placeholder="请选择爱好" value="篮球" name="habby">篮球
+                    <input type="checkbox" placeholder="请选择爱好" value="足球" name="habby" style="margin-left:15px;margin-top:10px;">足球
+                    <input type="checkbox" placeholder="请选择爱好" value="打代码" name="habby" style="margin-left:15px;margin-top:10px;">打代码
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="city" class="col-sm-2 control-label">城市</label>
+                <div class="col-sm-6">
+                    <select name="" id="city" style="margin-left:2px;margin-top:7px; width:90px ;text-align: center;">
+                        <option value="">请选择</option>
+                        <option value="上海">上海</option>
+                        <option value="北京">北京</option>
+                        <option value="深圳">深圳</option>
+                        <option value="杭州">杭州</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="remark" class="col-sm-2 control-label">简介</label>
+                <div class="col-sm-6">
+                    <textarea name="" id="remark" cols="73" rows="5"></textarea>
+                </div>
+            </div>
+        </form>
+        <div class="col-sm-offset-2 col-sm-10">
+            <input type="submit" class="btn btn-default" id="btn"></input> &nbsp;&nbsp;&nbsp;
+            <span id="msg1" style="color:rgb(252, 157, 153)"></span>
+        </div>
+    </div>
+    <script>
+        window.onload = function() {
+            var btn = document.getElementById("btn");
+            btn.onclick = function() {
+                var userName = document.getElementById("userName").value;
+                if (isEmpty(userName)) {
+                    document.getElementById("msg1").innerHTML = "姓名不能为空!";
+                    return;
+                }
+                if (userName.length < 6 || userName.length > 12) {
+                    document.getElementById("msg1").innerHTML = "姓名长度在6-12位!";
+                    return;
+                }
+                var password = document.getElementById("password").value;
+                if (isEmpty(password)) {
+                    document.getElementById("msg1").innerHTML = "密码不能为空!";
+                    return;
+                }
+                if (password.length < 6 || password.length > 12) {
+                    document.getElementById("msg1").innerHTML = "密码长度在6-12位!";
+                    return;
+                }
+                if (password.indexOf(userName) != -1) {
+                    document.getElementById("msg1").innerHTML = "密码不能和姓名相同!";
+                    return;
+                }
+                var userAge = document.getElementById("userAge").value;
+                if (isEmpty(userAge)) {
+                    document.getElementById("msg1").innerHTML = "年龄不能为空!";
+                    return;
+                }
+                if (userAge < 1 || userAge > 100) {
+                    document.getElementById("msg1").innerHTML = "年龄在1-100之间!";
+                    return;
+                }
+                var usersex = "";
+                var sex = document.getElementsByName("sex");
+                for (var i = 0; i < sex.length; i++) {
+                    if (sex[i].checked) {
+                        usersex = sex[i].value;
+                    }
+                }
+                if (isEmpty(usersex)) {
+                    document.getElementById("msg1").innerHTML = "性别不能为空!";
+                    return;
+                }
+                var userhabby = "";
+                var habby = document.getElementsByName("habby");
+                for (var i = 0; i < habby.length; i++) {
+                    if (habby[i].checked) {
+                        userhabby += habby[i].value + ",";
+                    }
+                }
+                if (isEmpty(userhabby)) {
+                    document.getElementById("msg1").innerHTML = "爱好不能为空!";
+                    return;
+                }
+                var city = document.getElementById("city").value;
+                if (isEmpty(city)) {
+                    document.getElementById("msg1").innerHTML = "城市不能为空!";
+                    return;
+                }
+                document.getElementById("msg1").innerHTML = "";
+                var remark = document.getElementById("remark").value;
+                //弹出所有简介
+                var str = "姓名：" + userName + "\n密码：" + password + "\n年龄：" + userAge + "\n性别：" + usersex + "\n爱好：" + userhabby + "\n城市：" + city + "\n简介：" + remark;
+                alert(str);
+                document.getElementById("myform").action = "http://www.baidu.com";
+                document.getElementById("myform").submit();
+            }
+
+            function isEmpty(str) {
+                if (str == null || str.trim() == "") {
+                    return true;
+                } else {
+                    return false;
+                }
+            }
+        }
+    </script>
+</body>
+
+</html>

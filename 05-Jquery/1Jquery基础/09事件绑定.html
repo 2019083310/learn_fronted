@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../js/jquery-1.12.4.js"></script>
+    <script>
+        $(function() {
+            // $("button").click(function() {
+            //     alert("hello 123");
+            // });
+            // $("button").click(function() {
+            //     alert("hello 456");
+            // });
+            // $("button").mouseleave(function() {
+            //     alert("hello 789");
+            // });
+            $("button").on("click", function() {
+                alert("hello 123");
+            });
+            $("button").on("click", function() {
+                alert("hello 456");
+            });
+            $("button").on("mouseEnter", function() {
+                alert("hello 123");
+            });
+            $("button").off("click");
+        });
+    </script>
+</head>
+
+<body>
+    <button>按钮</button>
+</body>
+
+</html>

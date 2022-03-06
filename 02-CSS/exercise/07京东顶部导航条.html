@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>京东顶部导航条</title>
+    <link rel="stylesheet" href="./font2/css/all.css">
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            list-style: none;
+        }
+
+        body {
+            font: 16px/1.5 Microsoft Yahei, Heiti SC, tahoma, arial;
+            color: #999;
+        }
+
+        .top-bar-wrapper {
+            width: 100%； line-height：30px;
+            background-color: #E3E4E5;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .top-bar {
+            width: 1190px;
+            margin: 0 auto;
+        }
+
+        .top-bar a:hover,
+        .top-bar span:hover,
+        .top-bar a.highlight {
+            color: #f10215;
+        }
+
+        .clearfix::before,
+        .clearfix::after {
+            content: '';
+            display: table;
+            clear: both;
+        }
+
+        .location {
+            float: left;
+        }
+
+        /*.location a::before{
+            content: '\f3c5';
+            font-family: Font Awesome 5 Brands Regular;
+            font-weight: bold;
+            color: aqua;
+        }*/
+        .location .fas {
+            font-size: 14px;
+            color: #f10215;
+        }
+
+        .shortcut {
+            float: right;
+        }
+
+        .shortcut li {
+            float: left;
+        }
+
+        .shortcut .line {
+            width: 1px;
+            height: 12px;
+            background-color: #999;
+            margin: 7px 12px 0;
+        }
+
+        .top-bar a,
+        .top-bar span,
+        .top-bar i {
+            color: #999;
+            text-decoration: none;
+        }
+    </style>
+</head>
+
+<body>
+    <!--创建外围容器  -->
+    <div class="top-bar-wrapper">
+        <!-- 创建内部容器 -->
+        <div class="top-bar clearfix">
+            <!-- 左侧菜单 -->
+            <div class="location">
+                <div class="current-city">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <a href="javascript:;">北京</a>
+                </div>
+            </div>
+            <!-- 右侧菜单 -->
+            <ul class="shortcut">
+                <li>
+                    <a href="javascript:;">你好，请登录</a>
+                    <a class="highlight" href="javascript:;">免费注册</a>
+                </li>
+                <!-- 分割线 -->
+                <li class="line"></li>
+                <li><a href="javascript:;">我的订单</a></li>
+                <li class="line"></li>
+                <li>
+                    <a href="javascript:;">我的京东</a>
+                    <i class="fas fa-angle-down"></i>
+                </li>
+                <li class="line"></li>
+                <li><a href="javascript:;">京东会员</a></li>
+                <li class="line"></li>
+                <li>
+                    <a class="highlight" href="javascript:;">企业采购</a>
+                    <i class="fas fa-angle-down"></i>
+                </li>
+                <li class="line"></li>
+                <li>
+                    <span>客户服务</span>
+                    <i class="fas fa-angle-down"></i>
+                </li>
+                <li class="line"></li>
+                <li>
+                    <span>网站导航</span>
+                    <i class="fas fa-angle-down"></i>
+                </li>
+                <li class="line"></li>
+                <li>
+                    <span>手机京东</span>
+                </li>
+            </ul>
+        </div>
+    </div>
+</body>
+
+</html>

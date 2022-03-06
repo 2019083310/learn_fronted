@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            padding: 0;
+            margin:0;
+            list-style: none;
+        }
+        html{
+            background: #000;
+        }
+        img{
+            position: absolute;
+        }
+    </style>
+</head>
+<body>
+    <script src="./js/jquery-1.4.2.js"></script>
+    <script>
+        $(function(){
+            setInterval(() => {
+                let img=$("<img src='./img/02/snow.png'>");
+                $("body").append(img);
+                let size=parseInt(Math.random()*21);
+                img.css("width",size+"px");
+                //得到屏幕宽度
+                let w=$(window).width();
+                //取值范围应该是0-屏幕宽度-雪花宽度
+                let left=parseInt(Math.random()*(w-size));
+                //把得到的随机left给到图片
+                img.css("left",left+"px");
+                //添加雪花移动的动画
+                //得到雪花移动的距离=屏幕宽度-雪花尺寸
+                let top=$(window).height()-size;
+                img.animate({"top":top+"px"},size*100);
+            }, 10);
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #btn01 {
+            width: 200px;
+            height: 200px;
+            background-color: #bfa;
+        }
+    </style>
+    <script>
+        window.onload = function() {
+            var btn = document.getElementById("btn01");
+            btn.onmousewheel = function(event) {
+                event = event || window.event;
+                if (event.wheelDelta > 0 || event.detail < 0) {
+                    btn.style.height = btn.clientHeight - 10 + "px";
+                } else {
+                    btn.style.height = btn.clientHeight + 10 + "px";
+                }
+                event.preventDefault && event.preventDefault();
+                return fasle;
+            };
+            bind(btn, "DOMMouseScroll", btn.onmousewheel);
+        };
+
+        function bind(obj, eventstr, callback) {
+            if (obj.addEventListener) {
+                obj.addEventListener(eventstr, callback, false);
+            } else {
+                obj.attachEvent("on" + eventstr, function() {
+                    callback.call(obj);
+                });
+            }
+        }
+    </script>
+</head>
+
+<body style="height: 2000px;">
+    <div id="btn01"></div>
+</body>
+
+</html>

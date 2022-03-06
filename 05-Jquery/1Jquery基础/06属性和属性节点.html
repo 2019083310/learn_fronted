@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../js/jquery-1.12.4.js"></script>
+    <script>
+        $(function() {
+            var button = document.getElementsByTagName("button")[0];
+            button.onclick = function() {
+                var input = document.getElementsByTagName("input")[0];
+                var text = input.value;
+                //$("img").attr("src", text);
+                $("img").prop("src", text);
+            };
+        });
+    </script>
+</head>
+
+<body>
+    <input type="text">
+    <button>切换图片</button>
+    <br>
+    <br>
+    <img src="https://img0.baidu.com/it/u=1631582372,4013670020&fm=11&fmt=auto&gp=0.jpg" alt="">
+</body>
+
+</html>

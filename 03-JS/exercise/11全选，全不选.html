@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            list-style: none;
+        }
+    </style>
+    <script>
+        window.onload = function() {
+            var btn01 = document.getElementById("btn01");
+            var btn02 = document.getElementById("btn02");
+            var btn03 = document.getElementById("btn03");
+            var input = document.getElementsByTagName("input");
+            btn01.onclick = function() {
+                for (var i = 0; i < input.length; i++) {
+                    input[i].checked = true;
+                }
+            };
+            btn02.onclick = function() {
+                for (var i = 0; i < input.length; i++) {
+                    input[i].checked = false;
+                }
+            };
+            btn03.onclick = function() {
+                for (var i = 0; i < input.length; i++) {
+                    input[i].checked = !input[i].checked;
+                }
+            };
+
+        };
+    </script>
+</head>
+
+<body>
+    <form action="">
+        <input type="checkbox" name="check" id="1">尼古拉斯·赵四
+        <br>
+        <input type="checkbox" name="check" id="2">莱昂纳多·刘能
+        <br>
+        <input type="checkbox" name="check" id="3">约翰尼·宋小宝
+        <br>
+        <input type="checkbox" name="check" id="4">布拉德·小沈阳
+        <br>
+        <input type="button" id="btn01" value="全 选">
+        <input type="button" id="btn02" value="全不选">
+        <input type="button" id="btn03" value="反 选">
+    </form>
+</body>
+
+</html>

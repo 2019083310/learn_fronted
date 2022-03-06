@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #ad{
+            width: 200px;
+            height: 200px;
+            background-color: rgb(201, 255, 170);
+        }
+    </style>
+</head>
+<body>
+    <!-- 箭头函数 -->
+    <div id="ad"></div>
+    <div class="a"></div>
+    <div class="a"></div>
+    <div class="a"></div>
+    <script>
+        let ad=document.getElementById("ad");
+        ad.onclick=function(){
+            setTimeout(()=>{
+                this.style.background="pink";
+            },2000)
+        }
+    </script>
+    <!-- rest参数 -->
+    <script>
+        function res(a,b,...val){
+            console.log(val);
+        }
+        res(1,2,3,4,5,6);
+    </script>
+    <!-- 扩展运算符 -->
+    <script>
+        const arr1=["零花","白领"];
+        var dis=document.querySelectorAll(".a");
+        console.log(...dis);
+    </script>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // setTimeout
+        // readFile
+        // wirteFile
+        // readdir
+        // ajax
+        // 往往异步 API 都伴随有一个回调函数
+        // var ret = fn()
+        // $.get('dsadas', fucntion () {})
+        // var ret = $.get()
+        function get(url, callback) {
+            let xml = new XMLHttpRequest();
+            xml.onload = function () {
+                callback(xml.responseText);
+            }
+            xml.open('get', url, true);
+            xml.send();
+        }
+        get('data.json',function(data){
+            console.log(data);
+        })
+    </script>
+</body>
+
+</html>

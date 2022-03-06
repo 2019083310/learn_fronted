@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            list-style: none;
+        }
+        
+        .box {
+            width: 440px;
+            height: 298px;
+            margin: 50px auto;
+            border: 1px solid #333;
+        }
+        
+        .menu {
+            display: flex;
+        }
+        
+        .menu li {
+            width: 110px;
+            height: 50px;
+            background-color: orange;
+            line-height: 50px;
+            text-align: center;
+        }
+        
+        .menu li:first-child {
+            background-color: #eee;
+        }
+        
+        .image {
+            width: 440px;
+            height: 248px;
+        }
+        
+        .image img {
+            display: block;
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+    <script src="../js/jquery-1.12.4.js"></script>
+    <script>
+        $(function() {
+            var imglist = ["./img/11.jpg", "./img/12.jpg", "./img/13.jpg", "./img/14.jpg"];
+            $("li").mouseenter(function() {
+                $("li").css({
+                    backgroundColor: "orange"
+                })
+                $(this).css({
+                    backgroundColor: "#eee"
+                });
+                var num = $(this).index();
+                $("img").attr("src", imglist[num])
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <div class="box">
+        <ul class="menu">
+            <li>H5+C3</li>
+            <li>jQuery</li>
+            <li>C语言</li>
+            <li>Go语言</li>
+        </ul>
+        <div class="image">
+            <img src="./img/11.jpg" alt="">
+        </div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            list-style: none;
+        }
+        
+        .box1 {
+            width: 400px;
+            height: 400px;
+            background-color: #bfa;
+        }
+        
+        .box2 {
+            width: 200px;
+            height: 200px;
+            background-color: #c10c2f;
+        }
+    </style>
+    <script>
+        window.onload = function() {
+            var box1 = document.getElementsByClassName("box1");
+            var box2 = document.getElementsByClassName("box2");
+            var btn01 = document.getElementById("btn01");
+            btn01.onclick = function() {
+                box1[0].style.border = "5px solid blue";
+                box2[0].style.backgroundColor = "#fff";
+                alert(box1[0].style.border);
+            };
+        };
+    </script>
+</head>
+
+<body>
+    <button id="btn01">请点我</button>
+    <div class="box1">
+        <div class="box2"></div>
+    </div>
+</body>
+
+</html>

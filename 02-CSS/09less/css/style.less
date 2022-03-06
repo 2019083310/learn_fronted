@@ -1,0 +1,43 @@
+body{
+    width: 500px;
+    height: 500px;
+}
+.test(@w,@h,@color){
+    width:@w;
+    height: @h;
+    background-color: @color;
+}
+.p{
+    .test(200px,100px,red);
+}
+.p1{
+    color:average(red,blue);
+    background-color: darken(#bfa,10%);
+}
+.box1{
+    width: 500px;
+    .box2{
+        width: 200px;
+        height: 100px;
+    }
+    >.box3{
+        width: 300px;
+    }
+    &:hover{
+        background-color: #bfa;
+    }
+}
+.p2:extend(.p1){
+    color:orange;
+}
+.p3{
+    .p1();
+}
+//注释
+/*注释
+*/
+@d:200px;
+@d:500px;
+.p4{
+    width:@d;
+}

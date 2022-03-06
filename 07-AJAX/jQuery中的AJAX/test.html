@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- 注释：这个html页面用AJAX获取B站的页面。url错误，获取错误，服务器错误等，还没明白怎么获取服务器上的书籍，暂时只能获取本地数据 -->
+    <button>获取</button>
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/1.9.1/jquery.js"></script>
+    <script>
+        $("button").eq(0).click(function() {
+            $.ajax({
+                url: "https://www.bilibili.com/video/BV1WC4y1b78y?p=23&spm_id_from=pageDriver",
+                dataType: "json",
+                data: {
+                    a: 100,
+                    b: 200
+                },
+                type: "get",
+                success: function(data) {
+                    console.log(data);
+                },
+                error: function(e) {
+                    console.log(e);
+                }
+            })
+        })
+    </script>
+</body>
+
+</html>

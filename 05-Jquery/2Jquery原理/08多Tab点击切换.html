@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            list-style: none;
+        }
+        
+        ul {
+            height: 40px;
+            display: flex;
+        }
+        
+        ul li {
+            width: 100px;
+            line-height: 40px;
+            text-align: center;
+        }
+        
+        ul li:first-child {
+            background-color: rgb(255, 187, 0);
+        }
+        
+        ul li:nth-child(2) {
+            background-color: rgb(245, 8, 134);
+        }
+        
+        ul li:last-child {
+            background-color: rgb(0, 183, 255);
+        }
+        
+        div {
+            width: 300px;
+            height: 150px;
+            line-height: 30px;
+            border: 1px solid #333;
+        }
+        
+        div p {
+            text-align: center;
+        }
+        
+        div {
+            position: absolute;
+        }
+        
+        .div2 {
+            display: none;
+        }
+        
+        .div3 {
+            display: none;
+        }
+    </style>
+    <script src="./js/jquery-1.12.4.js"></script>
+    <script>
+        $(function() {
+            $("li").eq(0).click(function() {
+                $("#div1").css("display", "block");
+                $(".div2").css("display", "none");
+                $(".div3").css("display", "none");
+                $("#div1").css("background", "orange");
+            });
+            $("li").eq(1).click(function() {
+                $("#div1").css("display", "none");
+                $(".div2").css("display", "block");
+                $(".div3").css("display", "none");
+            });
+            $("li").eq(2).click(function() {
+                $("#div1").css("display", "none");
+                $(".div2").css("display", "none");
+                $(".div3").css("display", "block");
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <h2>多Tab点击切换</h2>
+    <ul>
+        <li>10元套餐</li>
+        <li>30元套餐</li>
+        <li>50元包月</li>
+    </ul>
+    <div id="div1" style="background-color: orange;">
+        <p>10元套餐详情：</p>
+        <p> 每月套餐内拨打100分钟，超出部分2毛/分钟</p>
+    </div>
+    <div class="div2" style="background-color: rgb(255, 192, 247);">
+        <p>30元套餐详情：</p>
+        <p>每月套餐内拨打300分钟，超出部分1.5毛/分钟</p>
+    </div>
+    <div class="div3" style="background-color: rgb(0, 217, 255);">
+        <p>50元包月详情：</p>
+        <p>每月无限量随心打</p>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,7 @@
+<svg width='1200' height='1000'> 
+    <g id='group'>
+    <circle cx='100' cy='100' r='50' fill='orange'>
+    <circle cx='300' cy='300' r='200' fill='orange'>
+    <circle cx='500' cy='100' r='50' fill='orange'>
+    </g>
+</svg>

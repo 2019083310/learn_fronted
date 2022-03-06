@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            list-style: none;
+        }
+        
+        #banner-wrapper {
+            margin: 50px auto;
+            border: 2px solid #333;
+            height: 400px;
+            width: 600px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        #banner {
+            display: flex;
+        }
+        
+        #ban {
+            position: absolute;
+            display: flex;
+            bottom: 25px;
+            left: 250px;
+        }
+        
+        #banner img {
+            width: 600px;
+            height: 400px;
+        }
+        
+        #ban li {
+            width: 10px;
+            height: 10px;
+            border: 1px solid rgb(76, 205, 50);
+            border-radius: 50%;
+            margin-left: 10px;
+            background-color: rgba(247, 242, 242, 0.973);
+        }
+    </style>
+    <script src="./js/jquery-1.12.4.js"></script>
+    <script>
+        $(function() {
+            var $banner = $("#banner");
+            var imgList = ["./img/1.jpg", "./img/2.jpg", "./img/3.jpg", "./img/4.jpg", "./img/5.jpg"];
+            $banner.css("width", imgList.length * 600 + "px");
+            var $ban = $("ban");
+        });
+    </script>
+</head>
+
+<body>
+    <div id="banner-wrapper">
+        <ul id="banner">
+            <li><img src="./img/1.jpg" alt=""></li>
+            <li><img src="./img/2.jpg" alt=""></li>
+            <li><img src="./img/3.jpg" alt=""></li>
+            <li><img src="./img/4.jpg" alt=""></li>
+            <li><img src="./img/5.jpg" alt=""></li>
+        </ul>
+        <ul id="ban">
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+    </div>
+
+</body>
+
+</html>

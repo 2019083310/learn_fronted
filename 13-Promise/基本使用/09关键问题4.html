@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- promise的异常穿透 -->
+    <script>
+        let p = new Promise((resolve, reject) => {
+            setTimeout(() => {
+                resolve("yes");
+            }, 1000);
+        })
+        p.then(value => {
+            throw 'oh No';
+        }).then(value => {
+            console.log("123");
+        }).then(value => {
+            console.log("456");
+        }).catch(reason => {
+            console.warn(reason);
+        })
+    </script>
+    <!-- promise的中断处理 -->
+    <script>
+        let p1 = new Promise((resolve, reject) => {
+            setTimeout(() => {
+                resolve("yes");
+            }, 1000);
+        })
+        p1.then(value => {
+            console.log("789");
+            return new Promise(() => {});
+        }).then(value => {
+            console.log("123");
+        }).then(value => {
+            console.log("456");
+        }).catch(reason => {
+            console.warn(reason);
+        })
+    </script>
+</body>
+
+</html>

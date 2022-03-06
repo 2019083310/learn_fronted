@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        html {
+            background-color: #34495E;
+        }
+
+        * {
+            padding: 0;
+            margin: 0;
+            list-style: none;
+        }
+
+        .login {
+            width: 300px;
+            padding: 40px;
+            background-color: #191919;
+            margin: 160px auto;
+            box-sizing: border-box;
+        }
+
+        h3 {
+            text-align: center;
+            color: white;
+            font-size: 26px;
+        }
+
+        .user,
+        .pwd {
+            width: 200px;
+            height: 40px;
+            border: 1.5px solid #3498DB;
+            border-radius: 20px;
+            margin: 15px auto;
+            line-height: 40px;
+            text-align: center;
+        }
+
+        .user #userName,
+        .pwd #pwd {
+            display: block;
+            width: 200px;
+            padding: 14px 10px;
+            border: none;
+            outline: none;
+            background: none;
+
+            text-align: center;
+            color: white;
+        }
+
+        .pwd {
+            border-color: #3498DB;
+        }
+
+        #btn {
+            display: block;
+            width: 100px;
+            height: 40px;
+            border-radius: 20px;
+            border: 1.5px solid #2ECC71;
+            margin: -20px auto 16px;
+            background: #191919;
+            color: white;
+            font-size: 16px;
+        }
+
+        #btn:hover {
+            background: #2ECC71;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="login">
+        <h3>LOGIN</h3>
+        <div class="user">
+            <input type="text" name="userName" id="userName" placeholder="userName">
+        </div>
+        <div class="pwd">
+            <input type="password" name="password" id="pwd" placeholder="password">
+        </div>
+        <br>
+        <button id="btn">Login</button>
+    </div>
+    <script>
+        let user = document.querySelector(".user");
+        let pwd = document.querySelector(".pwd");
+        let userName = document.getElementById("userName");
+        let password = document.getElementById("pwd");
+        let btn = document.getElementById("btn");
+        userName.onclick = function () {
+            user.style.width = 220 + "px";
+            user.style.borderColor = "#2ECC71";
+            pwd.style.width = 200 + "px";
+            pwd.style.borderColor = "#3498DB";
+        };
+        password.onclick = function () {
+            pwd.style.width = 220 + "px";
+            pwd.style.borderColor = "#2ECC71";
+            user.style.width = 200 + "px";
+            user.style.borderColor = "#3498DB";
+        };
+        btn.onclick = function () {
+            user.style.width = 200 + "px";
+            user.style.borderColor = "#3498DB";
+            pwd.style.width = 200 + "px";
+            pwd.style.borderColor = "#3498DB";
+            if (userName.value== "") {
+                alert("请输入用户名!");
+                password.value = "";
+                return;
+            }
+            let str1=userName.value;
+            let str2=password.value;
+            let reg1=/^[0-9]{6,12}$/;
+            if(reg1.test(str1)==false){
+                alert("用户名只能是长度不超过12的数字!");
+                return;
+            }
+            if (password.value == "") {
+                userName.value = "";
+                alert("请输入密码!");
+                return;
+            }
+            let reg2=/\w{6,12}/;
+            if(reg2.test(str2)==false){
+                alert("密码格式错误!");
+                return;
+            }
+            alert("登陆成功!");
+            userName.value="";
+            password.value="";
+        };
+    </script>
+</body>
+
+</html>

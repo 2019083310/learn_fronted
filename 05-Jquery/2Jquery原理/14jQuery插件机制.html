@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./js/jquery-1.12.4.js"></script>
+    <script src="./js/njQuery2.js"></script>
+    <script>
+        $(function() {
+            var str = "                 hello    ";
+            console.log($.min(3, 5));
+            console.log($.max(3, 5));
+            console.log("--------" + $.leftTrim(str));
+            console.log($.rightTrim(str) + "-------");
+            var $items = $(":checkbox[name='play']");
+            var $btns = $("button");
+            $btns.eq(0).click(function() {
+                $items.checkall();
+            });
+            $btns.eq(1).click(function() {
+                $items.uncheckall();
+            });
+            $btns.eq(2).click(function() {
+                $items.check();
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <form action="">
+        你爱好的运动是？<input type="checkbox" id="checkall">全选/全不选
+        <br>
+        <input type="checkbox" name="play" id="1" value="足球">足球
+        <input type="checkbox" name="play" id="2" value="篮球">篮球
+        <input type="checkbox" name="play" id="3" value="羽毛球">羽毛球
+        <input type="checkbox" name="play" id="4" value="乒乓球">乒乓球
+        <br>
+    </form>
+    <button id="btn01">全选</button>
+    <button id="btn02">全不选</button>
+    <button id="btn03">反选</button>
+    <button id="btn04">提交</button>
+</body>
+
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+    </style>
+</head>
+
+<body ng-app='myApp'>
+    <div ng-controller='myCtrl'>
+        <h2>我的备忘录</h2>
+        <input type="text" ng-model='message'>
+        <button ng-click='add()'>新增</button>
+        <div ng-repeat='todo in todos'>
+            <input type="checkbox" ng-model='todo.isChecked'>
+            <span>{{todo.todo}}</span>
+        </div>
+        <button ng-click='del()'>删除选中的记录</button>
+    </div>
+    <script src="./js/angular.js"></script>
+    <script>
+        let app = angular.module('myApp', []);
+        app.controller("myCtrl", ($scope) => {
+            $scope.todos = [{
+                    todo: '吃饭',
+                    isChecked: false
+                },
+                {
+                    todo: '睡觉',
+                    isChecked: false
+                },
+                {
+                    todo: '打豆豆',
+                    isChecked: false
+                }
+            ];
+            $scope.add = function () {
+                if (!$scope.message) {
+                    alert('输入内容不能为空!')
+                    return;
+                }
+                let todo = {
+                    todo: $scope.message,
+                    isChecked: false
+                };
+                $scope.todos.unshift(todo);
+                $scope.message = '';
+            };
+            $scope.del = function () {
+                let oldmessage = $scope.todos;
+                $scope.todos = [];
+                oldmessage.forEach(function (item, index) {
+                    //将没被选中的todo添加到 $scope.todos 数组中
+                    if (!item.isChecked) {
+                        $scope.todos.push(item);
+                    }
+                });
+            };
+        });
+    </script>
+</body>
+
+</html>

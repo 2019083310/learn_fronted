@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let p1=Promise.resolve(new Promise((resolve,reject)=>{
+            reject('error')
+        }));
+        let p2=Promise.resolve('ok');
+        let p3=Promise.reject('ok');
+        let p4=Promise.resolve(123);
+        p1.catch((reason)=>{
+            console.log(reason);
+        })
+        p2.then(value=>{
+            console.log(value);
+        })
+        p3.catch(reason=>{
+            console.log(reason)
+        })
+        p4.then(value=>{
+            console.log(value)
+        })
+        console.log(p1);
+        console.log(p2);
+        console.log(p3);
+        console.log(p4);
+    </script>
+</body>
+</html>

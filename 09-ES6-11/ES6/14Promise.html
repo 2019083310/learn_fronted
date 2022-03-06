@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- 基本用法 -->
+    <script>
+        function timeout(ms) {
+            return new Promise((resolve, reject) => {
+                setTimeout(resolve, ms, 'done');
+            });
+        }
+
+        timeout(100).then((value) => {
+            console.log(value);
+        });
+    </script>
+    <!-- //Promise封装AJAX -->
+    <script>
+        let p = new Promise(function (resolve, reject) {
+                    const xhr = new XMLHttpRequest();
+                    xhr.open("get", "./resources/为学.md");
+                    xhr.send();
+                    xhr.onreadystatechange = function () {
+                        if (xhr.readyState == 4) {
+                            if (xhr.status >= 200 && xhr.status < 300) {
+                                resolve(xhr.response);
+                            } else {
+                                reject(xhr.status);
+                            }
+                        }
+                    }
+                    });
+        p.then(function(value){
+            console.log(value);
+        },function(error){
+            console.logo(error);
+        });
+    </script>
+    <!-- catch方法 -->
+    <script>
+        const p1=new Promise((resolve,reject)=>{
+            setTimeout(reject,1000,"错误");
+        });
+        p1.catch(error=>{
+            console.log(error);
+        })
+    </script>
+</body>
+
+</html>
