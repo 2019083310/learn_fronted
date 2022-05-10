@@ -1,0 +1,8 @@
+{
+  "usingComponents": {},
+  "navigationBarTitleText": "本地生活",
+  "navigationBarTextStyle":"white",
+  "navigationBarBackgroundColor": "#2b4b6b",
+  "enablePullDownRefresh": true,
+  "backgroundColor": "#efefef"
+}

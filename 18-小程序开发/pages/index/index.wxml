@@ -1,0 +1,43 @@
+<!--index.wxml-->
+<view class="container">
+    <!-- <view class="userinfo">
+        <block wx:if="{{canIUseOpenData}}">
+            <view class="userinfo-avatar" bindtap="bindViewTap">
+                <open-data type="userAvatarUrl"></open-data>
+            </view>
+            <open-data type="userNickName"></open-data>
+        </block>
+        <block wx:elif="{{!hasUserInfo}}">
+            <button wx:if="{{canIUseGetUserProfile}}" bindtap="getUserProfile"> 获取头像昵称 </button>
+            <button wx:elif="{{canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
+            <view wx:else> 请使用1.4.4及以上版本基础库 </view>
+        </block>
+        <block wx:else>
+            <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
+            <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+        </block>
+    </view> -->
+    <view>
+        <text class="user-motto" bindtap='togglePage' id="test">{{motto}}</text>
+    </view>
+    <test id="test" msg='{{motto}}'></test>
+    <!-- <test2> -->
+    <!-- <text slot='left'>哈哈哈</text> -->
+    <!-- <text slot='center'>哈哈哈</text> -->
+    <!-- <text slot='right'>哈哈哈</text> -->
+    <!-- <text>呵呵呵</text> -->
+    <!-- <image src='/images/tabbar/link-01.png'></image> -->
+    <!-- </test2> -->
+    <!-- <test2 bind:myevent='addNumber' msg='{{motto}}'></test2> -->
+    <!-- <view>父组件计数:{{count}}</view> -->
+
+    <!-- 方式二:通过this.selectComponent()方法 ,必须通过id或class选择器-->
+    <test2 id='test'></test2>
+    <!-- <button bind:tap='getInstance'>获取自组件实例</button> -->
+    <!-- <van-button type='primary'>点击</van-button> -->
+
+
+    <!-- 全局状态管理的案例 -->
+    <!-- <view>{{numA}}+{{numB}}={{sum}}</view> -->
+    <!-- <van-button bind:tap='increment' data-num='{{1}}' type='primary'>+1</van-button> -->
+</view>

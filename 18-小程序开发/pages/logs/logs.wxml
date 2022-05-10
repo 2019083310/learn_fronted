@@ -1,0 +1,32 @@
+<!--logs.wxml-->
+<view class="container log-list">
+  <block wx:for="{{logs}}" wx:key="timeStamp" wx:for-item="log">
+    <text class="log-item">{{index + 1}}. {{log.date}}</text>
+  </block>
+</view>
+
+<!-- 1.声明式导航 -->
+<!-- 1.1跳转到tabBar页面 -->
+<navigator url='/pages/list/list' open-type='switchTab'>跳转到列表页</navigator>
+
+<!-- 1.2跳转到非tabBar页面 -->
+<navigator url='/pages/style/style' open-type="navigate">跳转到样式列表</navigator>
+
+<!-- 1.3回退到某一个页面  open-type的属性值为navigate，delta属性为返回的层级,默认是1-->
+<navigator open-type='navigateBack' delta='1'>返回</navigator>
+
+<!-- 1.4传递参数 -->
+<navigator url='/pages/style/style?name=coder&age=20' open-type="navigate">样式</navigator>4
+<!-- 传递参数不支持tabBar传参 -->
+<!-- <navigator url='/pages/list/list?name=coder&age=20' open-type="switchTab">主页</navigator> -->
+
+<!-- 2.编程时导航 -->
+<!-- 2.1跳转到tabbar页面 -->
+<button bindtap="switchToList">列表</button>
+
+<!-- 2.2跳转到非TabBar页面 -->
+<button bindtap="switchToStyle">样式</button>
+
+<!-- 2.3回退到某个页面 -->
+<button bindtap="switchBackPage">返回</button>
+

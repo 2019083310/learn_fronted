@@ -1,0 +1,13 @@
+/* pages/basic/basic.wxss */
+.computed{
+    text-align: center;
+    line-height: 20px;
+    color:#333;
+}
+
+.inputForm{
+    width: 200px;
+    height: 30px;
+    border:1px solid #333;
+    background-color: azure;
+}

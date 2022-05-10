@@ -1,0 +1,21 @@
+<!--components/test02/test02.wxml-->
+<!-- <text>components/test02/test02.wxml</text> -->
+
+<!-- 单个插槽 -->
+<!-- <view>
+    <slot name='left'></slot>
+    <slot name='center'></slot>
+    <slot name='right'></slot>
+</view> -->
+
+<!-- 父子组件之间的通信 -->
+<!-- <view>
+    <view>当前计数:{{count}}</view>
+    <button type="primary" bind:tap='increment' size='default'>+1</button>
+</view>
+
+<view>我的朋友:{{msg}}</view> -->
+<!-- <view>{{message}}</view> -->
+
+<!-- 组件store的案例 -->
+<!-- <view>{{numA}}+{{numB}}={{sum}}</view> -->

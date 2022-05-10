@@ -1,0 +1,10 @@
+{
+    "usingComponents": {
+        "test": "/components/test/test",
+        "test2": "/components/test02/test02"
+    },
+    "navigationBarBackgroundColor": "#00b262",
+    "navigationBarTextStyle": "white",
+    "backgroundColor": "#bfc",
+    "navigationBarTitleText": "music app"
+}

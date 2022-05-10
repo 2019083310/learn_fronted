@@ -1,0 +1,9 @@
+/* components/loading.wxss */
+.num-enum{
+    line-height: 200rpx;
+    text-align: center;
+    border:1rpx solid #eee;
+    border-radius: 10rpx;
+    margin:15rpx;
+    text-shadow: 0 0 5px rgba(255,255,255,0);
+}

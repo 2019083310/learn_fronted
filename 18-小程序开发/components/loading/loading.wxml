@@ -1,0 +1,5 @@
+<!--components/loading.wxml-->
+<!-- <text>components/loading.wxml</text> -->
+<view wx:for='{{colorList}}' wx:key='index' style="background-color: rgb({{item}});" class="num-enum">
+    {{item}}
+</view>

@@ -1,0 +1,92 @@
+<!--pages/list/list.wxml-->
+<!-- <text>pages/list/list.wxml</text> -->
+
+<!-- 1-view组件的基本使用  相当于div元素 是一个块级元素 -->
+<!-- <view class="container1">
+  <view>A</view>
+  <view>B</view>
+  <view>C</view>
+</view> -->
+
+<!-- 2-scroll-view组件的基本使用相当于是一个侧边栏实现上拉下拉滚动的效果 -->
+<!-- scroll-x实现横向滚动   scroll-y实现纵向滚动,纵向滚动必须设置一个固定的高度 -->
+<!-- <scroll-view class="container1" scroll-y>
+  <view>A</view>
+  <view>B</view>
+  <view>C</view>
+</scroll-view> -->
+
+<!-- 3-swiper组件轮播图 -->
+<!-- 有几个轮播图就放几个swiper-item   indicator-dots显示底部按钮原点-->
+<!-- 常用的属性:autoplay布尔值是否自动  interval切换的时间毫秒默认是5s  circular衔接 -->
+<!-- <swiper class="container1" indicator-dots autoplay interval="3000" circular indicator-color="#fff" indicator-active-color="orange">
+  <swiper-item> -->
+<!-- 这里放的是view实际开发放的是图片就可以了 -->
+<!-- <view>A</view>
+  </swiper-item>
+  <swiper-item>
+    <view>B</view>
+  </swiper-item>
+  <swiper-item>
+    <view>C</view>
+  </swiper-item>
+</swiper> -->
+
+<!-- 4-基础文本内容组件  rich-text和text组件 -->
+<!-- 只有text标签的文本可以被选中复制,且要添加selectable属性,并在手机上才能看见效果 -->
+<!-- <view>
+  手机号码
+  <text selectable>19931077936</text>
+</view> -->
+
+<!-- rich-text要接受一个nodes属性,里面是一个字符串渲染为页面真实结构 -->
+<!-- <view>
+  <rich-text nodes='<h1>嗨嗨害</h1>'></rich-text>
+</view> -->
+
+<!-- 5-button组件，功能比html5中的button强大，open-type属性可以利用微信提供的功能实现转发、授权、信息获取 -->
+<!-- 通过type属性指定按钮类型颜色 -->
+<!-- <button>默认按钮</button> -->
+<!-- <button type='primary'>主色调按钮</button> -->
+<!-- <button type="warn">红色警告按钮</button> -->
+
+<!-- size属性可以控制按钮的大小,变为行内元素 -->
+<!-- <button size="mini">mini按钮</button> -->
+
+<!-- plain属性可以整出一个镂空按钮 -->
+<!-- <button plain size='mini'>镂空按钮</button> -->
+
+<!-- 6-image组件的基本使用  src属性  有默认的宽度和高度 -->
+<!-- widthFix默认宽度不变，高度是图片的自适应高度 -->
+<!-- aspectFit图片横向纵向都压缩，直到显示完整个页面 -->
+<!--  aspectFill是图片铺满默认宽度和高度-->
+<!-- <image></image> -->
+<!-- <image src='../../images/common/code-wallpaper-15.jpg' mode="heightFix"></image> -->
+
+<!-- template模板 -->
+<!-- <template name='app2'>
+    <text>{{mes}}</text>
+</template> -->
+
+<!-- 轮播图 -->
+<swiper autoplay interval='3000' indicator-dots circular>
+    <swiper-item wx:for="{{swiperList}}" wx:key="id">
+        <image src='{{item.image}}' mode='heightFix'></image>
+    </swiper-item>
+</swiper>
+
+<!-- 九宫格 -->
+<view class="grid-wrapper">
+    <navigator wx:for='{{gridList}}' wx:key='id' url='/pages/eat/eat?id={{item.id}}&title={{item.name}}'>
+        <image src='{{item.icon}}' mode='aspectFit'></image>
+        <text>{{item.name}}</text>
+    </navigator>
+</view>
+
+<!-- 底部两个图片 -->
+<view class="footer">
+    <image src='/images/tabbar/link-01.png'></image>
+    <image src='/images/tabbar/link-02.png'></image>
+</view>
+
+<test></test>

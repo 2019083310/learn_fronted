@@ -1,0 +1,76 @@
+{
+    "pages": [
+        "pages/index/index",
+        "pages/logs/logs",
+        "pages/style/style",
+        "pages/basic/basic",
+        "pages/list/list",
+        "components/loading/loading",
+        "pages/eat/eat"
+    ],
+    "subPackages": [
+        {
+            "root": "pakeageA",
+            "name": "p1",
+            "pages": [
+                "pages/cat/cat"
+            ]
+        },
+        {
+            "root": "pakeageB",
+            "name": "p2",
+            "pages": [
+                "pages/apple/apple"
+            ],
+            "independent": true
+        }
+    ],
+    "window": {
+        "backgroundTextStyle": "dark",
+        "navigationBarBackgroundColor": "#bfa",
+        "navigationBarTitleText": "WXMinApp",
+        "navigationBarTextStyle": "black",
+        "onReachBottomDistance": 50,
+        "backgroundColor": "#eee"
+    },
+    "tabBar": {
+        "list": [
+            {
+                "pagePath": "pages/index/index",
+                "text": "主页",
+                "iconPath": "/images/common/home.png",
+                "selectedIconPath": "/images/common/home-active.png"
+            },
+            {
+                "pagePath": "pages/list/list",
+                "text": "列表",
+                "iconPath": "/images/common/contact.png",
+                "selectedIconPath": "/images/common/contact-active.png"
+            },
+            {
+                "pagePath": "pages/logs/logs",
+                "text": "消息",
+                "iconPath": "/images/common/message.png",
+                "selectedIconPath": "/images/common/message-active.png"
+            }
+        ],
+        "color": "#ccc",
+        "selectedColor": "#eee",
+        "backgroundColor": "#fab",
+        "borderStyle": "black",
+        "position": "bottom"
+    },
+    "sitemapLocation": "sitemap.json",
+    "usingComponents": {
+        "van-button": "@vant/weapp/button/index"
+    },
+    "preloadRule": {
+        "pages/list/list": {
+            "network": "wifi",
+            "packages": [
+                "p1",
+                "p2"
+            ]
+        }
+    }
+}

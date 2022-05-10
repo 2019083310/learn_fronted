@@ -1,0 +1,6 @@
+<!--pages/style/style.wxml-->
+<!-- <text>pages/style/style.wxml</text> -->
+
+<!-- 小程序中的发起网络数据请求 -->
+<button type="primary" bindtap="getInfo">发起get请求</button>
+<button type="primary" bindtap="postInfo">发起post请求</button>
